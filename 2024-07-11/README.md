@@ -6,6 +6,8 @@
 
 ## Plum效果展示
 
+使用canvas api绘制一颗小树,树枝的长度、生长角度在一定范围内是随机的（画框边界控制）
+
 ## Plum案例分析
 
 ### requestAnimationFrame
@@ -40,4 +42,4 @@ Canvas 提供的绘图能力更底层，适合做到像素级的图形处理，�
 
 ### 帧动画
 
-绘制
+利用requestAnimationFrame帧动画实现每一层的树枝绘制与下一层树枝的计算工作
