@@ -72,21 +72,11 @@ title: Canvas's Usage With RequestAnimationFrame
 </div>
 
 <!--
-So, as you see, I am work on multiple open source and also created a few you might already using, for example Vitest, the unit testing framework.
+使用canvas api绘制一颗小树,树枝的长度、生长角度在一定范围内是随机的（画框边界控制）
 
-As someone who have been working on open source for a while and made a living, I have to say that open Source is so much fun and rewarding. I believe many of you wanted to contribute to open source, or already doing so. However, there are so many factors that affects that if a open source project would become popular, or "successful" -- depends on how you define it. For example, the quality of the code, the documentation, the community, the marketing, and so on. All of them are important and related to each other. There isn't really a golden rule to make a open source project successful.
+告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
 
-So here, I'd like to share some of my experience and ideas on creating and maintaining open source projects, combining with some observations that I have learned from the community.
-
-[click] Hopefully it can help you start your own open source journey, or find some new ideas to improve your existing projects.
-
-Open Source also a quite big topic that I can't really cover everything in one talk. So I am trying to break it down and talk about different aspects of open source in each talk and make them a series.
-
-[click] Today, it's the Part 1, let's talk about - [click] "The Set Theory".
-
-I know, it might sounds a bit random, and you might wonder - what does that mean? Let mew try to explain.
-
-So let's say we already have an Open Source project, or planning to create one. To be a little bit practical, say, we might want to gain certain amount of adoption, or just that we want people to use, and to enjoy our hard work.
+将该API封装到hook中，循环调用生成Canvas树枝分叉，并且支持手动暂停与恢复动画执行。
 -->
 
 ---
@@ -95,7 +85,7 @@ growX: 0
 growY: 0
 ---
 
-## Consider your Target Users
+## How Achieve This Target
 
 <div
   v-click="1"
@@ -104,7 +94,7 @@ growY: 0
   transition-all duration-500
   :class="$clicks === 4 ? 'scale-100' : 'scale-80'"
 >
-  Target Users
+  Canvas Layer
   <div
     v-click="2"
     absolute w-70 h-70 left-65 top-10 border="~ blue rounded-full"
@@ -112,18 +102,17 @@ growY: 0
     transition-all duration-500
     :class="$clicks >= 3 ? 'scale-100' : 'scale-80'"
   >
-    Actual Users
+    Animation
   </div>
 </div>
 
 <!--
-One of the things to consider is how we picturing our target users. For example, like "Is my tool for end users or developers?", "Or is it for Vue developers or for React?", etc.
 
-[click] We know the fact that among all of the target users, only a portion of them will become our actual users.
+[拓展了解] SVG or Canvas
+Canvas 是基于脚本的，通过 JavaScript 指令来动态绘图。而 SVG 则是使用 XML 文档来描述矢量图。
 
-[click] In order to gain more users to our project, we can try to convert more potential users to the actual users. [click] Maybe by doing more marketing or polishing. In that case, the amount of the target users you have, actually becomes the upper limit of how many actual users you could possibly have.
+Canvas 提供的绘图能力更底层，适合做到像素级的图形处理，能动态渲染和绘制大数据量的图形。而 SVG 抽象层次更高，声明描述式的接口功能更丰富，内置了大量的图形、滤镜和动画等，方便进行文档元素的维护，也能导出为文件脱离浏览器环境使用。
 
-On the other hand, we can also try to find a way to expand our target users to include more people. [click] And naturally, you will also have more converted users from it.
+如果单就图表库的视角来看，选择 Canvas 和 SVG 各有千秋。小画布、大数据量的场景适合用 Canvas，譬如热力图、大数据量的散点图等。如果画布非常大，有缩放、平移等高频的交互，或者移动端对内存占用量非常敏感等场景，可以使用 SVG 的方案。
 
-Under this idea, let's take a look at some examples of how we can do that.
 -->
