@@ -48,6 +48,20 @@ const redirects = bases.flatMap(({ base, pdfFile, dir }) => {
       `)
   }
 
+  parts.push(`
+  [[redirects]]
+  from = "${base}src"
+  to = "https://github.com/POfeiY/talks/blob/main/${dir}"
+  status = 302
+    `)
+
+  parts.push(`
+  [[redirects]]
+  from = "${base}*"
+  to = "${base}index.html"
+  status = 200
+    `)
+
   return parts
 }).join('\n')
 

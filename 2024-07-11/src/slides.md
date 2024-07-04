@@ -9,7 +9,7 @@ title: The Set Theory
 ![](/unplugin.svg){.w-30.mt--10.mb-5}
 
 <!--
-各位同事晚上好，很开心又和各位同事在前端技术部落见面，分享个人主题的同时与大家一起共同成长。
+各位同事晚上好，很开心又和各位同事在前端技术部落见面，分享技术主题的同时与大家一起交流成长。
 -->
 
 ---
@@ -52,7 +52,7 @@ Working at {XzhLabs}<br>
   <div i-ri-mastodon-line op50 ma text-xl ml4 />
   <div><a href="https://m.webtoo.ls/@POfeiY" target="_blank" class="border-none! font-300">POfeiY@webtoo.ls</a></div>
   <div i-ri-twitter-x-line op50 ma text-xl ml4/>
-  <div><a href="https://twitter.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY</a></div>
+  <div><a href="https://twitter.com/yaphet41" target="_blank" class="border-none! font-300">POfeiY</a></div>
 </div>
 
 <img src="https://avatars.githubusercontent.com/u/18592121?v=4" rounded-full w-35 abs-tr mt-32 mr-30 />
@@ -150,13 +150,14 @@ Canvas 提供的绘图能力更底层，适合做到像素级的图形处理，�
 </div>
 
 <!--
-By making our project more universal, meaning we could reach out to a [click] large user base and [click] naturally we might then have more contributors to [click] join the force and work together
+实现该动画的核心步骤有如下五个步骤：
+1、初始化canvas画布和context
+2、设计绘制所需的步进动画
+3、使用requestAnimationFrame设计帧动画
+4、封装hook支持手动启动帧动画
+5、随机设置边界出生点
 
-[click] Trying to refactor things to become universal would also help us to revise the design and abstraction, and often we could end up with a more maintainable and extensible architecture.
-
-[click] And finally, if your project started to gain more usages from various needs, making improvements in our project could end up benefit everyone in the ecosystem.
-
-With that, I really encourage library authors to think more about that way, and trying to seek for collabrations even across ecosystems.
+接来下，让我们一起来编码实现
 -->
 
 ---
