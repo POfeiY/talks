@@ -8,10 +8,11 @@ export default defineConfig({
       markdownItSetup(md) {
         md.use(MarkdownItMagicLink, {
           linksMap: {
+            'XzhLabs': { link: 'https://nuxtlabs.com', imageUrl: 'https://nuxtlabs.com/icon.png' },
             'NuxtLabs': { link: 'https://nuxtlabs.com', imageUrl: 'https://nuxtlabs.com/icon.png' },
-            'FormCreater': { link: 'https://nuxtlabs.com', imageUrl: 'https://nuxtlabs.com/icon.png' },
             'Vitest': 'https://github.com/vitest-dev/vitest',
             'Slidev': 'https://github.com/slidevjs/slidev',
+            'FormCreater': 'https://github.com/slidevjs/slidev',
             'VueUse': 'https://github.com/vueuse/vueuse',
             'UnoCSS': 'https://github.com/unocss/unocss',
             'Elk': 'https://github.com/elk-zone/elk',

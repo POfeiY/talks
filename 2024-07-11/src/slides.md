@@ -6,10 +6,24 @@ mdc: true
 title: The Set Theory
 ---
 
-![](/af-logo-animated.svg){.w-30.mt--10.mb-5}
+![](/unplugin.svg){.w-30.mt--10.mb-5}
 
 <!--
-各位同事晚上好，今天由我来为大家分享一例基于canvas与requestAnimation实现的动画效果（绘制仿生树枝）
+各位同事晚上好，很开心又和各位同事在前端技术部落见面，分享个人主题的同时与大家一起共同成长。
+-->
+
+---
+layout: intro
+---
+
+##### INTRO!{.op50}
+
+## Specific is Not a Bad Thing
+
+<!--
+不积跬步无以至千里，技术领域的成长道路上，在目前“泛平台化”、“泛集成化”的环境下，我们的开发人员越来越少的时间用于技术基础建设，疲于奔命的测管修复、缝缝补补的维护需求，似乎都忘了没有基础技术能力的研发沉淀，哪来的高楼大厦。
+
+期望越来越多的开发者专注技术基础的建设，成为特别的开发者，优秀的开发者
 -->
 
 ---
@@ -26,7 +40,7 @@ class: pl-25
 Core team member of Xzh<br>
 Creator of xzh-jssdk | Invoker<br>
 Maintainer of {CloudAlbum} {FormCreater} {Backlog}<br>
-Working at {NuxtLabs}<br>
+Working at {XzhLabs}<br>
 
 </div>
 
@@ -49,6 +63,8 @@ Working at {NuxtLabs}<br>
 
 <!--
 我是任职于技术服务中心兴智汇团队的余自立，主要负责的项目有兴智汇底座JS-SDK、兴智汇通用组件（如云相册、通用表单、统一待办等组件），也常年混迹于开源社区，欢迎各位同事联系我交流技术与感情。
+
+今天由我来为大家分享一例基于canvas与requestAnimation实现的动画效果（绘制仿生树枝）
 
 -->
 
@@ -115,6 +131,32 @@ Canvas 提供的绘图能力更底层，适合做到像素级的图形处理，�
 
 如果单就图表库的视角来看，选择 Canvas 和 SVG 各有千秋。小画布、大数据量的场景适合用 Canvas，譬如热力图、大数据量的散点图等。如果画布非常大，有缩放、平移等高频的交互，或者移动端对内存占用量非常敏感等场景，可以使用 SVG 的方案。
 
+-->
+
+---
+
+## The Plum Canvas Steps of Core
+
+<div h-100 flex="~ items-center">
+<v-clicks>
+
+- Init Canvas & Context For Next
+- Stepper Design For Drawing
+- Frame-by-frame Drawing
+- Support Manual Control
+- Start Drawing With Sides
+
+</v-clicks>
+</div>
+
+<!--
+By making our project more universal, meaning we could reach out to a [click] large user base and [click] naturally we might then have more contributors to [click] join the force and work together
+
+[click] Trying to refactor things to become universal would also help us to revise the design and abstraction, and often we could end up with a more maintainable and extensible architecture.
+
+[click] And finally, if your project started to gain more usages from various needs, making improvements in our project could end up benefit everyone in the ecosystem.
+
+With that, I really encourage library authors to think more about that way, and trying to seek for collabrations even across ecosystems.
 -->
 
 ---
