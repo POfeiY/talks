@@ -46,13 +46,13 @@ Working at {XzhLabs}<br>
 
 <div my-10 w-min flex="~ gap-1" items-center justify-center>
   <div i-ri-user-3-line op50 ma text-xl />
-  <div><a href="https://POfeiY.me" target="_blank" class="border-none! font-300">POfeiY.me</a></div>
+  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY.me</a></div>
   <div i-ri-github-line op50 ma text-xl ml4/>
   <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY</a></div>
   <div i-ri-mastodon-line op50 ma text-xl ml4 />
-  <div><a href="https://m.webtoo.ls/@POfeiY" target="_blank" class="border-none! font-300">POfeiY@webtoo.ls</a></div>
+  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY@webtoo.ls</a></div>
   <div i-ri-twitter-x-line op50 ma text-xl ml4/>
-  <div><a href="https://twitter.com/yaphet41" target="_blank" class="border-none! font-300">POfeiY</a></div>
+  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY</a></div>
 </div>
 
 <img src="https://avatars.githubusercontent.com/u/18592121?v=4" rounded-full w-35 abs-tr mt-32 mr-30 />
