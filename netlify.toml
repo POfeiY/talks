@@ -7,4 +7,7 @@ command = "pnpm run build"
 NODE_VERSION = "20"
 PLAYWRIGHT_BROWSERS_PATH = "0"
 
-
+[[redirects]]
+from = "/2024/canvas-plum/*"
+to = "/2024/canvas-plum/index.html"
+status = 200
