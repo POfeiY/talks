@@ -69,6 +69,16 @@ Working at {XzhLabs}<br>
 -->
 
 ---
+layout: center
+---
+
+![](/i18n-ally-hover.png){.h-100.contrast-110}
+
+<!--
+This is a screenshot of the extension that shows its basic features. This screenshot should give you a basic idea of what it is.
+-->
+
+---
 layout: cover
 title: Canvas's Usage With RequestAnimationFrame
 ---
