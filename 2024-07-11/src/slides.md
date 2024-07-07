@@ -72,7 +72,7 @@ Working at {XzhLabs}<br>
 layout: center
 ---
 
-![](/i18n-ally-hover.png){.h-100.contrast-110}
+<Plum />
 
 <!--
 使用canvas api绘制一颗小树,树枝的长度、生长角度在一定范围内是随机的（画框边界控制）

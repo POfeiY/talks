@@ -24,6 +24,7 @@
     "esno": "^4.7.0",
     "execa": "^9.2.0",
     "fast-glob": "^3.3.2",
+    "less": "^4.2.0",
     "markdown-it-magic-link": "^0.1.4",
     "playwright-chromium": "^1.44.1",
     "pnpm": "^9.3.0",
