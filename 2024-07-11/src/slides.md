@@ -114,7 +114,7 @@ growX: 0
 growY: 0
 ---
 
-## How Achieve This Target
+## How To Achieve This Target
 
 <div
   v-click="1"
