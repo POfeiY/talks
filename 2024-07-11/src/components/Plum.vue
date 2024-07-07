@@ -73,9 +73,10 @@ onMounted(() => {
     ctx.strokeStyle = 'rgba(0,0,0,.4)'
     currentIterations = 0
     preSteps = []
-    steps = random() < 0.5
-      ? [() => { step(0, height * random(), 0) }, () => { step(width, height * random(), r180) }]
-      : [() => { step(width * random(), 0, r90) }, () => { step(width * random(), height, -r90) }]
+    steps
+      = random() < 0.5
+        ? [() => { step(0, height * random(), 0) }, () => { step(width, height * random(), r180) }]
+        : [() => { step(width * random(), 0, r90) }, () => { step(width * random(), height, -r90) }]
     resume()
   }
   resumeHandler = () => {
@@ -88,17 +89,20 @@ onMounted(() => {
 </script>
 
 <template>
+  <h3 text-center my-2>
+    Canvas Plum
+  </h3>
   <section class="canvas-plum-wrap">
     <canvas ref="canvasRef" />
   </section>
-  <section>
-    <button @click.stop="start">
+  <section flex gap-2 py-2>
+    <button flex-grow-1 @click.stop="start">
       Start
     </button>
-    <button @click.stop="resumeHandler">
+    <button flex-grow-1 @click.stop="resumeHandler">
       Resume
     </button>
-    <button @click.stop="pauseHandler">
+    <button flex-grow-1 @click.stop="pauseHandler">
       Pause
     </button>
   </section>

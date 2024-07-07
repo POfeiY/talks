@@ -5,6 +5,9 @@ export default antfu({
   formatters: {
     css: true,
   },
+  rules: {
+    'style/max-statements-per-line': 'off',
+  },
   ignores: [
     '**/demo/eslint/**',
   ],
