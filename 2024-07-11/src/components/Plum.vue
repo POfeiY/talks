@@ -89,20 +89,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <h3 text-center my-2>
+  <h3 text-center my-4>
     Canvas Plum
   </h3>
   <section class="canvas-plum-wrap">
     <canvas ref="canvasRef" />
   </section>
-  <section flex gap-2 py-2>
-    <button flex-grow-1 @click.stop="start">
+  <section flex gap-2 py-4>
+    <button flex-grow-1 text-lime @click.stop="start">
       Start
     </button>
-    <button flex-grow-1 @click.stop="resumeHandler">
+    <button flex-grow-1 text-lime @click.stop="resumeHandler">
       Resume
     </button>
-    <button flex-grow-1 @click.stop="pauseHandler">
+    <button flex-grow-1 text-lime @click.stop="pauseHandler">
       Pause
     </button>
   </section>
