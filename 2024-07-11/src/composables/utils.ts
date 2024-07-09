@@ -1,3 +1,4 @@
+// FIXME: use hook
 export interface RafFnProps {
   delta: number
   timestamp: DOMHighResTimeStamp
