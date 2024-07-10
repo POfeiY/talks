@@ -21,7 +21,7 @@ layout: intro
 ## Specific is Not a Bad Thing
 
 <!--
-做主题分享之前，想跟大家聊些趣闻，技术领域的成学习旅途中（无论前端、后端、算法、硬件等），坚持是一件很需要毅力的事情，相信大家都有一种感觉，身边专注做技术开发的同学日渐稀少，映衬之下坚持初心在技术领域走下去的同学会显得很“特殊”。但，这并不是一件坏事。
+技术领域的成学习旅途中（无论前端、后端、算法、硬件等），坚持是一件很需要毅力的事情，保有初心在技术领域一路走下去的同学会显得很“特殊”。但，这并不是一件坏事。
 在目前“泛平台化”的大环境下，需要时不常地提醒我们是开发者，一群专业的开发者。
 
 好！闲话聊完，我们进入正题：
@@ -68,7 +68,6 @@ Working at {XzhLabs}<br>
 今天带来的分享技术主题的是一个小小的动画效果，使用最基础canvas api与requestAnimationFrame实现，稍后将进行主要步骤讲解、并与大家一起完成demo。
 
 接下来我们先简单讲解下所需要用到的技术知识点：requestAnimationFrame & Canvas
-
 -->
 
 ---
@@ -205,7 +204,7 @@ Slides on [yuzili](https://github.com/POfeiY/talks.git)
 <!--
 That's all for my talk, hope you enjoy. Thank you!
 
-总结一下，canvas的使用场景与requestAnimationFrame的使用要点，推荐咱行内前端开发者实践可视化工具的开发。
+总结一下，canvas的使用场景与requestAnimationFrame的使用要点，推荐咱行内前端开发者实践可视化工具的开发。当然以上演示的demo仅作示例参考，有兴趣的同学可以加入我们一并研讨和提升
 
 [拓展了解] SVG or Canvas
 Canvas 是基于脚本的，通过 JavaScript 指令来动态绘图。而 SVG 则是使用 XML 文档来描述矢量图。
