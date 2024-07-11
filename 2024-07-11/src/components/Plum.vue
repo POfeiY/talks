@@ -75,8 +75,8 @@ onMounted(() => {
     preSteps = []
     steps
       = random() < 0.5
-        ? [() => { step(0, height * random(), 0) }, () => { step(width, height * random(), r180) }]
-        : [() => { step(width * random(), 0, r90) }, () => { step(width * random(), height, -r90) }]
+        ? [() => { step(0, 400 * random(), 0) }, () => { step(400, 400 * random(), r180) }]
+        : [() => { step(400 * random(), 0, r90) }, () => { step(400 * random(), 400, -r90) }]
     resume()
   }
   resumeHandler = () => {

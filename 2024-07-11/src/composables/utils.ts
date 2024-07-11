@@ -52,10 +52,14 @@ export function useRafFn(fn: (props: RafFnProps) => void, options?: RafOptions) 
   }
 }
 
-export function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi = 1) {
+export function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?: number) {
   const ctx = canvas.getContext('2d')
 
-  const dpi = window.devicePixelRatio || _dpi
+  const dpr = window.devicePixelRatio || 1
+  // @ts-expect-error vendor prefix
+  const bsr = ctx.webkitBackingStorePixelRatio || 1
+
+  const dpi = _dpi || dpr / bsr
 
   canvas.style.width = `${width}px`
   canvas.style.height = `${height}px`
@@ -68,5 +72,6 @@ export function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400,
 
   return {
     ctx,
+    dpi,
   }
 }
