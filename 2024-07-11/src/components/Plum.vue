@@ -70,7 +70,7 @@ onMounted(() => {
   start = () => {
     ctx.clearRect(0, 0, width, height)
     ctx.lineWidth = 1
-    ctx.strokeStyle = 'rgba(0,0,0,.4)'
+    ctx.strokeStyle = 'rgba(0,0,0,.2)'
     currentIterations = 0
     preSteps = []
     steps
@@ -99,11 +99,11 @@ onMounted(() => {
     <button flex-grow-1 text-lime @click.stop="start">
       Start
     </button>
-    <button flex-grow-1 text-lime @click.stop="resumeHandler">
-      Resume
-    </button>
     <button flex-grow-1 text-lime @click.stop="pauseHandler">
       Pause
+    </button>
+    <button flex-grow-1 text-lime @click.stop="resumeHandler">
+      Resume
     </button>
   </section>
 </template>
