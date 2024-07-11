@@ -52,6 +52,7 @@ onMounted(() => {
     ctx.lineTo(nx, ny)
     ctx.stroke()
 
+    // 确保预设的初始化帧数会被渲染，避免仅在萌芽状态就被扼杀了
     if (currentIterations < iterations.value || random() < 0.5)
       steps.push(() => { step(nx, ny, rad + r15 * random()) })
     if (currentIterations < iterations.value || random() < 0.5)
