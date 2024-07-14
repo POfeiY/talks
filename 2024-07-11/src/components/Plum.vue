@@ -41,7 +41,7 @@ onMounted(() => {
   let steps = []
   let preSteps = []
 
-  const step = (x: number, y: number, rad: number) => {
+  function step(x: number, y: number, rad: number) {
     const currentLen = random() * len.value
     const [nx, ny] = polar2cart(x, y, currentLen, rad)
     if (nx < -50 || nx > 450 || ny < -50 || ny > 450)
@@ -58,16 +58,18 @@ onMounted(() => {
     if (currentIterations < iterations.value || random() < 0.5)
       steps.push(() => { step(nx, ny, rad - r15 * random()) })
   }
-  const frame = () => {
+  const { resume, pause } = useRafFn(frame)
+  function frame() {
     currentIterations += 1
     preSteps = steps
     steps = []
 
     if (!preSteps.length)
-      return
+      pause()
+
     preSteps.forEach(s => s())
   }
-  const { resume, pause } = useRafFn(frame)
+
   start = () => {
     ctx.clearRect(0, 0, width, height)
     ctx.lineWidth = 1
