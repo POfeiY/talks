@@ -32,6 +32,9 @@
 
 1.1 代码规范
 
+husky
+IDE规则 .editorconfig
+规则校验 .eslint.js
 提交校验
 
 - feat ：新功能
