@@ -6,7 +6,7 @@ transition: fade-out
 mdc: true
 layout: center
 glowSeed: 4
-title: ESLint One for All Made Easy
+title: FED Day For All
 monacoTypesIgnorePackages:
   - '@antfu/install-pkg'
   - '@clack/prompts'
@@ -31,12 +31,10 @@ monacoTypesIgnorePackages:
   - 'eslint-visitor-keys'
 ---
 
-![](/af-logo-animated.svg){.w-30.mt--10.mb-5}
+![](/y-logo-animated.svg){.w-30.mt--10.mb-5}
 
 <!--
-Hello everyone, thanks a lot for having me and I hope you are enjoying the conference so far.
-
-It's a shame I couldn't make it to Berlin in person this time. But I hope my topic today would be interesting to you
+各位同学上午好，很开心能在福州与你们相遇，也很开心收到主办方邀请来做这次分享，期待各位同学有空到成都场地来玩。
 -->
 
 ---
@@ -46,40 +44,40 @@ glowOpacity: 0.3
 class: pl-25
 ---
 
-# Anthony Fu
+# Zili Yu
 
 <div class="[&>*]:important-leading-10 opacity-80">
 
-Core team member of {Vite} {Vue} and {Nuxt}<br>
-Creator of {Vitest} {Slidev} {UnoCSS} {Type Challenges} {Elk}<br>
-Maintainer of {ESLint Stylistic} {Shiki} {Twoslash}<br>
-Working at {NuxtLabs}<br>
+Core team member of {XzhLabs}<br>
+Creator of {xzh-jssdk} and {invoker} and {cli-tools}<br>
+Maintainer of {CloudAlbum} {FormCreater} {Schedule}<br>
 
 </div>
 
 <div my-10 w-min flex="~ gap-1" items-center justify-center>
   <div i-ri-user-3-line op50 ma text-xl />
-  <div><a href="https://antfu.me" target="_blank" class="border-none! font-300">antfu.me</a></div>
+  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY.me</a></div>
   <div i-ri-github-line op50 ma text-xl ml4/>
-  <div><a href="https://github.com/antfu" target="_blank" class="border-none! font-300">antfu</a></div>
+  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY</a></div>
   <div i-ri-mastodon-line op50 ma text-xl ml4 />
-  <div><a href="https://m.webtoo.ls/@antfu" target="_blank" class="border-none! font-300">antfu@webtoo.ls</a></div>
+  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY@webtoo.ls</a></div>
   <div i-ri-twitter-x-line op50 ma text-xl ml4/>
-  <div><a href="https://twitter.com/antfu7" target="_blank" class="border-none! font-300">antfu7</a></div>
+  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY</a></div>
 </div>
 
-<img src="https://antfu.me/avatar.png" rounded-full w-35 abs-tr mt-32 mr-30 />
+<img src="https://avatars.githubusercontent.com/u/18592121?v=4" rounded-full w-35 abs-tr mt-32 mr-30 />
 
 <div flex="~ gap2">
 
 </div>
 
 <!--
-Let me introduce myself a bit, my...
+首先，简单做个自我介绍，我叫做余自立，任职于技术服务中心一名前端开发工程师，目前主要负责兴智汇基础平台底座JS-SDK项目，主要负责的项目有兴智汇底座JS-SDK、兴智汇通用组件（如云相册、通用表单、统一待办等组件）。
 
-As you can see, I am pretty enthusiastic about open source which driven me to work on many projects. I love building tools, and figuring out solutions of problems I encountered. For example, the slides you are looking at are powered by Slidev, a markdown-based presentation tool that is built on top of Web technologies. It was born when I found the existing tools were not flexible enough for me to present my code.
+看了下本次参加的名单，应该有不少的小伙伴已经线下一起面基过了，期待更多的小伙伴来一起交流成长。平时高频游迹于开源社区，进行深度摸鱼活动。
 
-Similarly, when I looked into ESLint and its ecosystem a few months ago, I found many things are interesting with a lot potential,  but was not yet fully explored. So today, I'd like to share with you some of my findings and practices during my recent exploration around it.
+期待与大家一起完成前端技术概论这门课程的学习。
+
 -->
 
 ---
@@ -89,20 +87,36 @@ layout: cover
 <h1 flex="~ col">
 <div mt1 forward:delay-300 text-white:50 ml10 flex="~ col">
   <span flex="~ gap-2 items-center" text-hex-8080f2>
-    <div i-logos-eslint />
-    ESLint
+    <div i-token-branded:energy-web />
+    Frontend Web
   </span>
-  <span text-white font-bold v-click>One for All</span>
-  <span font-hand text-1.2em text-green v-click>Made Easy</span>
+  <span text-white font-bold v-click>Just for Pages?</span>
+  <span font-hand text-1.2em text-green v-click>Made Web Easy</span>
 </div>
 </h1>
 
 <div abs-br mx-10 my-11 flex="~ col items-center" text-left>
-  <img src="/reactdayberlin.svg" alt="React Day Berlin" w30 mb1/>
-  <div text-xs opacity-75>December 16, 2024</div>
+  <!-- <img src="/react-summit.svg" alt="React Day Berlin" w30 mb1/> -->
+  <i i-logos-reactivex font-size-8 mb2/>
+  <div text-xs opacity-75>January 07, 2025 | fuzhou</div>
 </div>
 
 <!--
+前端，一个不算陌生的名词，现场随机选择一个同学，来聊一下对于“前端”的初印象
+（互动时间...）
+
+可能有不少非前端技术领域的同学，还是默认为前端仅是做做页面、根据设计给出的设计稿填充样式、做一些用户简单的点击事件、页面切换等功能，俗称“页面仔”。
+
+但!大人，时代已经变了！
+
+前端技术发展从基本的页面标签、样式、动作脚本编写，演变成现代的前端组件化、前端可视化、前端工程化，配套周边生态的演化（如微前端、包管理器、构建工具），已经发展成为一个具备完整体系的技术领域。前端同学可以自建服务server，操作数据库，定义标准接口，输出各式各样的前端市场物料供BA与SA做方案预研。
+
+举个栗子，计财部业务老师想要一个数据驾驶舱功能，按传统的前端开发方案，编写页面结构、样式、脚本、接口联调（在完全没有存量组件库支持的情况下，一个中级的前端工程师需要2-3提供演示demo）,但如果在现在的前端开发环境下小半天足矣（甚至还可以完成公共组件的单元测试），类似的构建工具、包管理、可视化组件、mock-server等工具可大幅度降低demo研发时长，当然在固定场景类型的情况还可以将页面组件进行拆分，以便其他场景快速复用搭建页面。
+
+当然这也往往会给一些开发者造成误区，“前端真的很简单”。这里呢，澄清一下前端入门是相对好上手，“即编即所得”的特性让初学者在上手练习时会很有学习成就感，但随着学习阶梯的曲线陡峭度变化，AST、GPU、模型、算法等知识点注入，相信在座的前端同学深有体会。
+
+接下来呢，我们将进入前端的基础知识内容部分。
+
 11 years since ESLint came out, at this moment, it's easily one of the most popular tools in the JavaScript ecosystem that almost every project uses. Despite it has been around for such a long time, it's a tool that is still constantly improving and evolving.
 
 Today, I'd like to give it a very broad and ambitious topic, "ESLint, [click]One for All, [click]Made Easy". To share with you some of the new perspectives and patterns of using ESLint with the latest features they just rolled out.
@@ -119,20 +133,24 @@ glow: bottom
 <div text-center flex="~ col gap-2" transition duration-500 :class="$clicks < 2 ? 'translate-y-40' : ''">
   <span
     flex="~ gap-2 items-center justify-center"
-    text-hex-8080f2 transition duration-500 text-1.5em
+    text-hex-f1662a transition duration-500 text-1.5em
     :class="$clicks < 1 ? 'scale-150 translate-y' : ''"
   >
-    <div i-logos-eslint />
-    ESLint v9.0.0
+    <div i-vscode-icons-file-type-html />
+    HTML5 W3C
   </span>
-  <span v-click op75 forward:delay-400 text-2xl>released <TimeAgo date="2024-04-05" /></span>
+  <span v-click op75 forward:delay-400 text-2xl>released <TimeAgo date="2019-05-28" /></span>
 </div>
 </h2>
 
-<img src="/eslint-v9.png" v-click mt4 w-60 rounded-lg shadow forward:delay-400 />
+<img src="/html-v5.jpg" v-click mt4 w-60 rounded-lg shadow forward:delay-400 />
 </div>
 
 <!--
+术语 HTML5 本质上是指一组现代 Web 技术的流行词汇。这包括 HTML 动态标准，以及用于增强存储、多媒体和硬件访问的 JavaScript API。
+
+(备注： 在 2019 年之前，W3C 发布的是带有版本号的 HTML5 标准。自 2019 年 5 月 28 日起，W3C 宣布 WHATWG 动态标准为 HTML 的唯一版本。)
+
 So, you are probably already aware that ESLint version 9.0 was released [click] around 7 months ago. [click]The main highlight of this major version is the rolling out of a new configuration system for ESLint called the Flat Config.
 -->
 
