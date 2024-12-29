@@ -118,9 +118,6 @@ layout: cover
 
 接下来呢，我们将进入前端的基础知识内容部分。
 
-11 years since ESLint came out, at this moment, it's easily one of the most popular tools in the JavaScript ecosystem that almost every project uses. Despite it has been around for such a long time, it's a tool that is still constantly improving and evolving.
-
-Today, I'd like to give it a very broad and ambitious topic, "ESLint, [click]One for All, [click]Made Easy". To share with you some of the new perspectives and patterns of using ESLint with the latest features they just rolled out.
 -->
 
 ---
@@ -152,7 +149,6 @@ glow: bottom
 
 (备注： 在 2019 年之前，W3C 发布的是带有版本号的 HTML5 标准。自 2019 年 5 月 28 日起，W3C 宣布 WHATWG 动态标准为 HTML 的唯一版本。)
 
-So, you are probably already aware that ESLint version 9.0 was released [click] around 7 months ago. [click]The main highlight of this major version is the rolling out of a new configuration system for ESLint called the Flat Config.
 -->
 
 ---
@@ -185,7 +181,7 @@ So, you are probably already aware that ESLint version 9.0 was released [click] 
 <div grid="~ cols-2 gap-6" h-full>
 <div>
 
-## HTML4 <sup text-base op50 translate-y--2 inline-block>legacy version</sup>
+## HTML4 <sup text-base op50 translate-y--2 inline-block>legacy</sup>
 
 <div mt-4 h-42>
 
@@ -256,22 +252,16 @@ So, you are probably already aware that ESLint version 9.0 was released [click] 
 </div>
 
 <!--
-HTML4与HTML5的区别主要体现在
- [click] 标签语义化
+HTML4与HTML5的区别主要体现在语义化
+ [click] 标签语义化,可读性增强
  [click] 表单增强,number,seacrh,month,week,email,range,color,url
  [click] 音视频 video、audio
- [click] canvas svg
- [click] 本地存储
+ [click] 矢量图形能力支持 canvas svg （邀请现场的设计同学讲解下位图与矢量图的区别）
+ [click] 本地存储 localStorage | sessionStorage | indexedDb
  [click] webworker
  [click] 地理位置API Geolocation
 
-To differentiate between those two configuration formats is rather straightforward. [click] The legacy config is named with `.eslintrc` that supports various extensions which might also read from your `package.json`. The flat config, on the other hand, would only be loaded from `eslint.config.js`, a JavaScript config file as the single source of truth.
-
-[click] When it comes to reusing the shared config, the legacy config format implicitly uses the conventional-based `extends` property to load that config from your local `node_modules`. You would need to learn the convention a little bit to know how it resolves. While in the flat config we use the native import, where it's more explicit, and gives a lot more controls to you.
-
-[click] For plugins, it used to take an array of strings, which is again, convention-based and coupled with the plugins' package name. Now in the flat config, it takes a named object for plugins. This means you can now rename plugins easily, or switch to a fork without being forced to change every rule in your config.
-
-[click] Also, the inheritance nature of `extends` might result in a very complex tree structure as the shared configs can also have nested `extends` inside. In the flat config, it gets simplified a lot, where you explicitly import the shared configs as multiple objects or arrays, and compose them into a single flat one.
+接下来我们快速进入CSS的世界
 -->
 
 ---
