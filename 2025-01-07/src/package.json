@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "slidev",
-    "build": "slidev build --base /2024/react-day-berlin/ --out ../../dist/2024/react-day-berlin",
+    "build": "slidev build --base /2025/fed-day-fuzhou/ --out ../../dist/2025/fed-day-fuzhou",
     "export": "slidev export --per-slide --output ../2025-01-07-frontend-day-fz-en.pdf"
   },
   "devDependencies": {

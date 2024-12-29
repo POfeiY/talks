@@ -11,3 +11,8 @@ PLAYWRIGHT_BROWSERS_PATH = "0"
 from = "/2024/canvas-plum/*"
 to = "/2024/canvas-plum/index.html"
 status = 200
+
+[[redirects]]
+from = "/2025/fed-day-fuzhou/*"
+to = "/2025/fed-day-fuzhou/index.html"
+status = 200
