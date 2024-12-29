@@ -34,7 +34,7 @@ monacoTypesIgnorePackages:
 ![](/y-logo-animated.svg){.w-30.mt--10.mb-5}
 
 <!--
-各位同学上午好，很开心能在福州与你们相遇，也很开心收到主办方邀请来做这次分享，期待各位同学有空到成都场地来玩。
+各位同学上午好，很开心能在福州与你们相遇，也很开心收到主办方邀请来做这次分享。这里有个问题想问下同学们，兴生力培训好不好玩，曾经我也有一个兴生力的期待，直到我从数金小鲜肉熬成数金老登也没有等到通知，现场如果有人力的小伙伴请为2020年入职的的老登们问下，他们还有机会吗？
 -->
 
 ---
@@ -49,7 +49,7 @@ class: pl-25
 <div class="[&>*]:important-leading-10 opacity-80">
 
 Core team member of {XzhLabs}<br>
-Creator of {xzh-jssdk} and {invoker} and {cli-tools}<br>
+Creator of {xzh-jssdk} {invoker} {cli-tools}<br>
 Maintainer of {CloudAlbum} {FormCreater} {Schedule}<br>
 
 </div>
@@ -72,11 +72,11 @@ Maintainer of {CloudAlbum} {FormCreater} {Schedule}<br>
 </div>
 
 <!--
-首先，简单做个自我介绍，我叫做余自立，任职于技术服务中心一名前端开发工程师，目前主要负责兴智汇基础平台底座JS-SDK项目，主要负责的项目有兴智汇底座JS-SDK、兴智汇通用组件（如云相册、通用表单、统一待办等组件）。
+言归正传，先简单做个自我介绍，我叫做余自立，任职于技术服务中心一名前端开发工程师，主要负责兴智汇基础平台底座JS-SDK项目，相关项目有兴智汇底座JS-SDK、兴智汇通用组件（如云相册、通用表单、统一待办等组件），后续对以上组件有兴趣的小伙伴可以联系我交流下。课前看了下本次参加的名单，应该有不少的小伙伴已经线下一起面基过了，期待更多的小伙伴来一起交流成长。
 
-看了下本次参加的名单，应该有不少的小伙伴已经线下一起面基过了，期待更多的小伙伴来一起交流成长。平时高频游迹于开源社区，进行深度摸鱼活动。
+当然应该有不少同学都活跃在在开源社区，闲暇时也可以一起随聊，互通有无。
 
-期待与大家一起完成前端技术概论这门课程的学习。
+接下来我们一起进入前端技术概论这门课程的学习内容。
 
 -->
 
@@ -102,18 +102,19 @@ layout: cover
 </div>
 
 <!--
-前端，一个不算陌生的名词，现场随机选择一个同学，来聊一下对于“前端”的初印象
-（互动时间...）
+前端，一个不算陌生的名词
 
-可能有不少非前端技术领域的同学，还是默认为前端仅是做做页面、根据设计给出的设计稿填充样式、做一些用户简单的点击事件、页面切换等功能，俗称“页面仔”。
+（互动时间...）现场随机选择一个同学，来聊一下对于“前端”的初印象
 
-但!大人，时代已经变了！
+可能有不少非前端技术领域的同学，默认为前端仅是做做页面、根据设计给出的设计稿填充样式、做一些用户简单的点击事件、页面切换等功能，俗称“页面仔”，那是不是我们前端同学仅仅只能做页面呢？...当然不是，
+
+大人，时代已经变了！（手动重音）
 
 前端技术发展从基本的页面标签、样式、动作脚本编写，演变成现代的前端组件化、前端可视化、前端工程化，配套周边生态的演化（如微前端、包管理器、构建工具），已经发展成为一个具备完整体系的技术领域。前端同学可以自建服务server，操作数据库，定义标准接口，输出各式各样的前端市场物料供BA与SA做方案预研。
 
-举个栗子，计财部业务老师想要一个数据驾驶舱功能，按传统的前端开发方案，编写页面结构、样式、脚本、接口联调（在完全没有存量组件库支持的情况下，一个中级的前端工程师需要2-3提供演示demo）,但如果在现在的前端开发环境下小半天足矣（甚至还可以完成公共组件的单元测试），类似的构建工具、包管理、可视化组件、mock-server等工具可大幅度降低demo研发时长，当然在固定场景类型的情况还可以将页面组件进行拆分，以便其他场景快速复用搭建页面。
+举个栗子，计财部业务老师想要一个数据驾驶舱功能，按传统的前端开发方案，编写页面结构、样式、脚本、接口联调（在完全没有存量组件库支持的情况下，一个中级的前端工程师需要2-3提供演示demo）,但如果在现在的前端开发环境下小半天足矣（甚至还可以完成公共组件的单元测试），类似的构建工具、包管理、可视化组件、mock-server等工具可大幅度降低demo研发时长，当然在固定场景类型的情况还可以将页面组件进行拆分，以便其他场景快速复用搭建页面。甚至接入copilot、AWS、通灵异码等AI辅助编码工具，让编码过程极度丝滑。
 
-当然这也往往会给一些开发者造成误区，“前端真的很简单”。这里呢，澄清一下前端入门是相对好上手，“即编即所得”的特性让初学者在上手练习时会很有学习成就感，但随着学习阶梯的曲线陡峭度变化，AST、GPU、模型、算法等知识点注入，相信在座的前端同学深有体会。
+当然这也往往会给一些开发者造成误区，“前端真的很简单”。这里呢，澄清一下前端入门是相对好上手，“即编即所得”的特性让初学者在上手练习时会很有学习成就感，但随着学习阶梯的曲线陡峭度变化，AST、GPU、模型、算法等知识体系注入，相信在座的前端同学深有体会。
 
 接下来呢，我们将进入前端的基础知识内容部分。
 
@@ -152,6 +153,125 @@ glow: bottom
 (备注： 在 2019 年之前，W3C 发布的是带有版本号的 HTML5 标准。自 2019 年 5 月 28 日起，W3C 宣布 WHATWG 动态标准为 HTML 的唯一版本。)
 
 So, you are probably already aware that ESLint version 9.0 was released [click] around 7 months ago. [click]The main highlight of this major version is the rolling out of a new configuration system for ESLint called the Flat Config.
+-->
+
+---
+
+## HTML Timeline
+
+<HTMLTimeline mt2 />
+
+<v-clicks>
+
+- HTML 2.0 released as IETF RFC 1866
+- HTML 3.0 fully developed and standardized by W3C
+- HTML 4.0 is released
+- HTML 5.0 is released
+
+</v-clicks>
+
+<!--
+[click]
+1、1995年11月24日，HTML 2.0作为IETF RFC 1866发布，追加了表单文件上传、表格等功能标签
+2、1997年1月14日，HTML 3.2作为W3C推荐标准发布，这是一个完全由W3C开发并标准化的版本
+3、1997年12月18日，HTML4.0 作为W3C推荐标准发布，禁用过期标签元素，采取许多特定浏览器元素类型和属性，并放弃推荐原网景提供的视觉标记功能
+4、2014年10月28日 HTML5作为W3C推荐标准发布，意味着HTML5的标准化完成完成
+
+自此web全新时代，伴随移动应用及设备的推广应用，web技术领域起飞！
+-->
+
+---
+
+<div grid="~ cols-2 gap-6" h-full>
+<div>
+
+## HTML4 <sup text-base op50 translate-y--2 inline-block>legacy version</sup>
+
+<div mt-4 h-42>
+
+<v-clicks at="3">
+
+- Without Semantic.
+
+</v-clicks>
+
+</div>
+<div v-click="1" transition duration-800 :class="$clicks < 3 ? 'translate-y--160px': ''">
+
+```html {*|3-7|*}{at:4}
+<html>
+  <head></head>
+  <body>
+    <div>header</div>
+    <div>content</div>
+    <div>footer</div>
+  </body>
+</html>
+```
+
+</div>
+</div>
+<div>
+
+## HTML5 <sup text-base op50 translate-y--2 inline-block>current</sup>
+
+<div mt-4 h-42>
+
+<v-clicks at="3">
+
+- Semantic grammar such as `<header>` `<nav>` `<aside>`, etc.
+- Form enhancement
+- Multimedia enhancement <sup op75>video & audio</sup>
+- Vector graphics enhancement <sup op75>canvas & svg</sup>
+
+</v-clicks>
+
+</div>
+<div v-click="2" transition duration-800 delay-50 :class="$clicks < 3 ? 'translate-y--160px': ''">
+
+```html {3-18|9-10|11-12|13-14|*}{at:4}
+<html>
+  <head></head>
+  <body>
+    <header>header</header>
+    <nav>nav</nav>
+    <div>
+      <aside></aside>
+      <section>
+        <input type="email"/>
+        <input type="range"/>
+        <video></video>
+        <audio></audio>
+        <canvas></canvas>
+        <svg></svg>
+      </section>
+    </div>
+    <footer><footer>
+  </body>
+</html>
+```
+
+</div>
+</div>
+</div>
+
+<!--
+HTML4与HTML5的区别主要体现在
+ [click] 标签语义化
+ [click] 表单增强,number,seacrh,month,week,email,range,color,url
+ [click] 音视频 video、audio
+ [click] canvas svg
+ [click] 本地存储
+ [click] webworker
+ [click] 地理位置API Geolocation
+
+To differentiate between those two configuration formats is rather straightforward. [click] The legacy config is named with `.eslintrc` that supports various extensions which might also read from your `package.json`. The flat config, on the other hand, would only be loaded from `eslint.config.js`, a JavaScript config file as the single source of truth.
+
+[click] When it comes to reusing the shared config, the legacy config format implicitly uses the conventional-based `extends` property to load that config from your local `node_modules`. You would need to learn the convention a little bit to know how it resolves. While in the flat config we use the native import, where it's more explicit, and gives a lot more controls to you.
+
+[click] For plugins, it used to take an array of strings, which is again, convention-based and coupled with the plugins' package name. Now in the flat config, it takes a named object for plugins. This means you can now rename plugins easily, or switch to a fork without being forced to change every rule in your config.
+
+[click] Also, the inheritance nature of `extends` might result in a very complex tree structure as the shared configs can also have nested `extends` inside. In the flat config, it gets simplified a lot, where you explicitly import the shared configs as multiple objects or arrays, and compose them into a single flat one.
 -->
 
 ---
