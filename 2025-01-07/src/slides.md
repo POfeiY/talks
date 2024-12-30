@@ -159,10 +159,10 @@ glow: bottom
 
 <v-clicks>
 
-- HTML 2.0 released as IETF RFC 1866
-- HTML 3.0 fully developed and standardized by W3C
-- HTML 4.0 is released
-- HTML 5.0 is released
+- HTML `2.0` released as IETF RFC 1866
+- HTML `3.0` fully developed and standardized by W3C
+- HTML `4.0` is released
+- HTML `5.0` is released
 
 </v-clicks>
 
@@ -262,6 +262,144 @@ HTML4与HTML5的区别主要体现在语义化
  [click] 地理位置API Geolocation
 
 接下来我们快速进入CSS的世界
+-->
+
+---
+layout: center
+glow: bottom
+---
+
+<div flex="~ col items-center justify-center w-full">
+
+<h2 flex="~ col" text-center>
+<div text-center flex="~ col gap-2" transition duration-500 :class="$clicks < 2 ? 'translate-y-40' : ''">
+  <span
+    flex="~ gap-2 items-center justify-center"
+    text-hex-639 transition duration-500 text-1.5em
+    :class="$clicks < 1 ? 'scale-150 translate-y' : ''"
+  >
+    <div i-vscode-icons-file-type-css />
+    CSS3 W3C
+  </span>
+  <span v-click op75 forward:delay-400 text-2xl>released <TimeAgo date="2021-06-07" /></span>
+</div>
+</h2>
+
+<img src="/CSS3.png" v-click mt4 w-60 rounded-lg shadow forward:delay-400 />
+</div>
+
+<!--
+Cascading Style Sheets 层叠样式表。
+
+(备注： 在 2019 年之前，W3C 发布的是带有版本号的 HTML5 标准。自 2019 年 5 月 28 日起，W3C 宣布 WHATWG 动态标准为 HTML 的唯一版本。)
+
+-->
+
+---
+
+<h1 text-center flex="~ col gap-1 items-center" py5>
+<div flex="~ gap-2 items-center" font-bold><div i-simple-icons-normalizedotcss text-3xl text-hex-639/>CSS3 WORLD</div>
+</h1>
+
+<div grid="~ cols-[1fr_max-content_1fr] gap-8" px-10 mt4>
+
+<div flex="~ col gap-6" py2 transition duration-500 :class="$clicks < 6 ? 'translate-x-55' : 'translate-x-20'">
+  <div
+    v-click
+    op50 font-bold uppercase text-sm tracking-0.2em text-right
+    transition duration-500 :class="$clicks < 6 ? 'translate-x--15' : ''"
+  >Integrations Challenges</div>
+
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-ph-arrows-split-duotone text-red />
+      <div>Grammatical form</div>
+    </div>
+    <div text-sm op60>Seamlessly support both modes, no flashes</div>
+  </div>
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-ph-newspaper-duotone text-amber />
+      <div>Cascading ｜ Inherited</div>
+    </div>
+    <div text-sm op60>Support dynamic known icons, e.g. from Nuxt Content</div>
+  </div>
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-ph-speedometer-duotone text-green />
+      <div>Flow Layout</div>
+    </div>
+    <div text-sm op60>No compromise on performance</div>
+  </div>
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-ph-compass-tool-duotone text-blue />
+      <div>Media Query</div>
+    </div>
+    <div text-sm op60>Support loading user-provided custom icons</div>
+  </div>
+</div>
+
+<div w-1px h-full border="l main" translate-x-25 v-click />
+
+<div flex="~ col gap-6" py2 translate-x-25>
+  <div op50 font-bold uppercase text-sm tracking-0.2em v-after>Solutions</div>
+
+  <div flex="~ col" mt4 v-click>
+    <div>Flexible box</div>
+    <div flex="~ gap-1 items-center" text-green ml3>
+      <div i-ph-check-duotone />
+      Dynamic Icons
+    </div>
+    <div flex="~ gap-1 items-center" text-rose ml3>
+      <div i-ph-x-duotone />
+      No SSR
+    </div>
+     <div flex="~ gap-1 items-center" text-rose ml3>
+      <div i-ph-x-duotone />
+      No Custom Icons
+    </div>
+  </div>
+
+  <div flex="~ col" v-click>
+    <div>Grid</div>
+    <div flex="~ gap-1 items-center" text-green ml3>
+      <div i-ph-check-duotone />
+      SSR / CSR
+    </div>
+    <div flex="~ gap-1 items-center" text-green ml3>
+      <div i-ph-check-duotone />
+      Perfoment
+    </div>
+    <div flex="~ gap-1 items-center" text-rose ml3>
+      <div i-ph-x-duotone />
+      No Dynamic Icons
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!--
+Finally, let's talk about Nuxt. Our goal with Nuxt is to provide seamless solutions that cover as many use cases as possible.
+
+[click] Let's quickly go over the integration challenges we faced to make Nuxt Icon comprehensive.
+
+[click] First, we need to support both SSR and CSR, as they are core features of Nuxt. We want to ensure that icons render without any flashes for the best user experience.
+
+[click] We also want to support dynamic icons, such as those from Nuxt Content, allowing you to use icons from your content data.
+
+[click] Performance is crucial, so we need to ensure that our solution doesn't compromise on speed.
+
+[click] Lastly, we want to support custom icons. In addition to the thousands of icons from Iconify, users should be able to load their custom icons using the same syntax.
+
+With these requirements in mind, [click] let's compare the solutions we discussed earlier.
+
+[click] For dynamic icons, the Iconify Runtime seems to be the only option. However, it doesn't work perfectly with SSR and doesn't support custom icons, as the requests go to Iconify's servers, which aren't aware of our local setup.
+
+[click] On the other hand, CSS Icons are performant and work well with SSR, but they don't support dynamic icons.
+
+[pause a bit]
 -->
 
 ---
