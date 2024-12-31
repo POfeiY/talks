@@ -254,11 +254,11 @@ glow: bottom
 <!--
 HTML4与HTML5的区别主要体现在语义化
  [click] 标签语义化,可读性增强
- [click] 表单增强,number,seacrh,month,week,email,range,color,url
- [click] 音视频 video、audio
- [click] 矢量图形能力支持 canvas svg （邀请现场的设计同学讲解下位图与矢量图的区别）
- [click] 本地存储 localStorage | sessionStorage | indexedDb
- [click] webworker
+ [click] 表单增强,number,seacrh,month,week,email,range,color,url。表单增强能力相信有表单生成器研发经验的同学应该有体会。表单在我行的系统中高频应用，如控件类型扩展、字段约束、依赖关系、校验驱动、状态管理、动态渲染、字段路径系统以及表单协议JSON-Schema属性建设等，并应用到登录注册、查询列表、编辑详情、分步表单、手风琴表单等场景，对表单系统设计有兴趣的小伙伴可以联系我，目前由我负责的表单组件已上线支持柜面登记簿、移动授权接入等多个微应用，后续计划发布到行里开源平台，欢迎各位小伙伴来共同建设。
+ [click] 音视频 video、audio，常用混迹于B站的小伙伴应该非常熟悉
+ [click] 矢量图形能力支持 canvas svg （邀请现场的设计同学讲解下位图与矢量图的区别）。可视化主流工具库多是通过此API封装完成，如echarts图表库，知名网站stateofjs的数据图表同样是通过canvas
+ [click] 本地存储 localStorage | sessionStorage | indexedDB 前两个API相信同学们非常熟悉，在此就不做赘述了。indexedDB是一种底层 API，用于在客户端存储大量的结构化数据（也包括文件/二进制大型对象（blobs）），且此特性在webworker可用
+ [click] webworker 为 Web 内容在后台线程中运行脚本提供了一种简单的方法。线程可以执行任务而不干扰用户界面,所以在worker中是无法操作dom元素的
  [click] 地理位置API Geolocation
 
 接下来我们快速进入CSS的世界
@@ -289,9 +289,11 @@ glow: bottom
 </div>
 
 <!--
-Cascading Style Sheets 层叠样式表。
+Cascading Style Sheets 是一种样式表语言，用来描述文档的呈现方式，如元素再屏幕、纸质、音频等其他媒体上的元素如何被渲染的定义。
 
 (备注： 在 2019 年之前，W3C 发布的是带有版本号的 HTML5 标准。自 2019 年 5 月 28 日起，W3C 宣布 WHATWG 动态标准为 HTML 的唯一版本。)
+
+CSS的语法概念相对会比较纷杂一些，比较重要的概念如：语法形式、选择器优先级、继承、流式布局、盒模型、弹性盒子、网格布局、媒体查询、动画等等。当然原生css在编写上的效率以及复杂场景的复用性受限于语法特性，所以我们可以引入一些样式预处理器、如less、sass、postcss等工具库，支持变量、混合、嵌套、运算、转义、函数、作用域等功能特性;或选择如tailwind、unocss等工具辅助我们开发，提升编码效率的同时提高代码复用度，特别适合喜好使用预设、快捷键位的同学。当然如果还未尝试过以上工具的同学也可以联系我获取一些上线项目代码示例。
 
 -->
 
