@@ -310,124 +310,504 @@ CSS的语法概念相对会比较纷杂一些，比较重要的概念如：语�
     v-click
     op50 font-bold uppercase text-sm tracking-0.2em text-right
     transition duration-500 :class="$clicks < 6 ? 'translate-x--15' : ''"
-  >Integrations Challenges</div>
+  >Core Concepts</div>
 
   <div v-click flex="~ col gap-1">
     <div flex="~ gap-2">
-      <div text-2xl i-ph-arrows-split-duotone text-red />
+      <div text-2xl i-carbon-insert-syntax text-red />
       <div>Grammatical form</div>
     </div>
-    <div text-sm op60>Seamlessly support both modes, no flashes</div>
+    <div text-sm op60>The syntax and forms of the language</div>
   </div>
   <div v-click flex="~ col gap-1">
     <div flex="~ gap-2">
-      <div text-2xl i-ph-newspaper-duotone text-amber />
-      <div>Cascading ｜ Inherited</div>
+      <div text-2xl i-entypo-flow-cascade text-amber />
+      <div>Inherited | Cascading</div>
     </div>
-    <div text-sm op60>Support dynamic known icons, e.g. from Nuxt Content</div>
+    <div text-sm op60>Specificity, inheritance, and the cascade</div>
   </div>
   <div v-click flex="~ col gap-1">
     <div flex="~ gap-2">
-      <div text-2xl i-ph-speedometer-duotone text-green />
-      <div>Flow Layout</div>
+      <div text-2xl i-rivet-icons-css text-green />
+      <div>CSS Selector</div>
     </div>
-    <div text-sm op60>No compromise on performance</div>
+    <div text-sm op60>pseudo-elements, nesting, scoping and shadow parts</div>
   </div>
   <div v-click flex="~ col gap-1">
     <div flex="~ gap-2">
       <div text-2xl i-ph-compass-tool-duotone text-blue />
-      <div>Media Query</div>
+      <div>Boxing Model</div>
     </div>
-    <div text-sm op60>Support loading user-provided custom icons</div>
+    <div text-sm op60>Box model and margin collapse</div>
   </div>
 </div>
 
 <div w-1px h-full border="l main" translate-x-25 v-click />
 
 <div flex="~ col gap-6" py2 translate-x-25>
-  <div op50 font-bold uppercase text-sm tracking-0.2em v-after>Solutions</div>
+  <div op50 font-bold uppercase text-sm tracking-0.2em v-after>Layout Feature</div>
 
-  <div flex="~ col" mt4 v-click>
-    <div>Flexible box</div>
-    <div flex="~ gap-1 items-center" text-green ml3>
-      <div i-ph-check-duotone />
-      Dynamic Icons
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-streamline-wind-flow-1 text-blue />
+      <div>Normal Flow Layout</div>
     </div>
-    <div flex="~ gap-1 items-center" text-rose ml3>
-      <div i-ph-x-duotone />
-      No SSR
-    </div>
-     <div flex="~ gap-1 items-center" text-rose ml3>
-      <div i-ph-x-duotone />
-      No Custom Icons
-    </div>
+    <div text-sm op60>Elements on a webpage lay out in normal flow</div>
   </div>
-
-  <div flex="~ col" v-click>
-    <div>Grid</div>
-    <div flex="~ gap-1 items-center" text-green ml3>
-      <div i-ph-check-duotone />
-      SSR / CSR
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-material-symbols-align-justify-flex-start text-green />
+      <div>Flexible box</div>
     </div>
-    <div flex="~ gap-1 items-center" text-green ml3>
-      <div i-ph-check-duotone />
-      Perfoment
+    <div text-sm op60>One-dimensional layout method for arranging items</div>
+  </div>
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-gis-grid text-amber />
+      <div>Grid Layout</div>
     </div>
-    <div flex="~ gap-1 items-center" text-rose ml3>
-      <div i-ph-x-duotone />
-      No Dynamic Icons
+    <div text-sm op60>Grid layout is a two-dimensional layout system</div>
+  </div>
+  <div v-click flex="~ col gap-1">
+    <div flex="~ gap-2">
+      <div text-2xl i-mdi-responsive text-red />
+      <div>Responsive design</div>
     </div>
+    <div text-sm op60>The way to design for a multi-device web</div>
   </div>
 </div>
 
 </div>
 
 <!--
-Finally, let's talk about Nuxt. Our goal with Nuxt is to provide seamless solutions that cover as many use cases as possible.
+CSS（层叠样式表）用于设置网页的样式及布局——比如，可以更改内容的字体、颜色、大小以及间距，或是将其分列，或是添加动画及赋予内容其他装饰性的特征。本模块将通过阐述基本原理，展示语法示例，以及如何与 HTML 相联系三方面，为精通 CSS 提供一个友好的开端。
 
-[click] Let's quickly go over the integration challenges we faced to make Nuxt Icon comprehensive.
+CSS3的核心基础有：
 
-[click] First, we need to support both SSR and CSR, as they are core features of Nuxt. We want to ensure that icons render without any flashes for the best user experience.
+[click] 1、语言语法，结构形式,层叠样式表（Cascading Stylesheet，简称 CSS），其基本目标是让浏览器以指定的特性去绘制页面元素，比如颜色、定位、装饰。CSS 的语法反映了这个目标，由下面两个部分构建：属性（一个可读名称的标识符） & 值（描述浏览器渲染引擎如何处理改特性）
 
-[click] We also want to support dynamic icons, such as those from Nuxt Content, allowing you to use icons from your content data.
+[click] 2、优先级、继承特性
+[click] 3、流式布局
+[click] 4、盒模型
 
-[click] Performance is crucial, so we need to ensure that our solution doesn't compromise on speed.
+常用布局：
 
-[click] Lastly, we want to support custom icons. In addition to the thousands of icons from Iconify, users should be able to load their custom icons using the same syntax.
+display属性
 
-With these requirements in mind, [click] let's compare the solutions we discussed earlier.
-
-[click] For dynamic icons, the Iconify Runtime seems to be the only option. However, it doesn't work perfectly with SSR and doesn't support custom icons, as the requests go to Iconify's servers, which aren't aware of our local setup.
-
-[click] On the other hand, CSS Icons are performant and work well with SSR, but they don't support dynamic icons.
+[click] 1、流式布局（正常流布局），浮动、定位
+[click] 2、弹性盒子
+[click] 3、网格
+[click] 4、响应式设计
 
 [pause a bit]
 -->
 
 ---
-layout: quote
-disabled: true
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
 ---
 
-# 🙋 Heard about the new ESLint <span text-hex-8080f2 font-bold><span v-mark="0">Flat Config</span></span>?
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Grammatical form" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-carbon-insert-syntax text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Grammatical form
+
+<div mb-10>
+
+<div text-sm op60>The syntax and forms of the language</div>
+
+</div>
+
+## Code Demo
+
+<div mt-2 />
+
+```css {2|1-3|*}{at:2}
+.selector {
+  position: relative;
+  color: red;
+}
+
+.selector .select-1 {
+  font-size: 14px;
+  color: green;
+}
+```
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- CSS declarations <sup>specific values is the core function</sup>
+- CSS declaration blocks
+- CSS rulesets
+- CSS statements
+
+</v-clicks>
+
+</div>
+</div>
 
 <!--
-Before we start, I'd like to do a quick survey here. If you have heard about the new ESLint Flat Config, could you please raise your hand for me?
+层叠样式表（Cascading Stylesheet，简称 CSS），其基本目标是让浏览器以指定的特性去绘制页面元素，比如颜色、定位、装饰。CSS 的语法反映了这个目标，由下面两个部分构建：属性与值
+
+[click] 样式声明：CSS 的核心功能是将 CSS 属性设定为特定的值。一个属性与值的键值对被称为“声明”（declaration） 。CSS 引擎会计算页面上每个元素都有哪些声明，并且会根据结果绘制元素，排布样式。在 CSS 中，无论是属性名还是属性值都是对大小写不敏感的。属性与值之间以英文冒号隔开。属性与值前面、后面与两者之间的空白不是必需的，会被自动忽略。
+
+[click] 声明会按照块的形式被组合。块有时会嵌套，所以开始与结束大括号必须要匹配。
+
+[click] 如果样式表只能为每个页面元素添加一个声明，那就没有真正发挥出它的价值。其真正的目标是为文档不同部分添加不同的声明。为此，CSS 可以在声明块前面放置选择器（selector)，选择器用来选择页面多个元素的条件。一对选择器与声明块称为规则集（ruleset)，常简称为规则（rule)。
+
+[click] 规则是样式表的主体，通常样式表会包括大量的规则列表。但有时候网页的作者也希望在样式表中包括其他的一些信息，比如字符集，导入其他的外部样式表，字体等，这些需要专门的语句表示。
+
 -->
 
 ---
-layout: quote
-disabled: true
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
 ---
 
-# 🙋 Using <span text-hex-8080f2 font-bold>Flat Config</span> already?
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Specificity & Inherited" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-entypo-flow-cascade text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Specificity & Inherited
+
+<div mb-10>
+
+<div text-sm op60>Inheritance controls what happens when no value is specified</div>
+
+</div>
+
+## Code Demo
+
+<div mt-2 />
+
+```css {2|1-3|*}{at:2}
+p,
+h1 {
+  color: green;
+}
+
+.className {
+  font-size: 14px;
+}
+
+#id {
+  margin: 10px;
+}
+
+div {
+  color: red !important;
+}
+```
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- Specificity
+- Inheritance
+- Cascade
+
+</v-clicks>
+
+</div>
+</div>
 
 <!--
-OK, And how many of you are already using or migrated to the flat config?
+[click] 浏览器通过优先级来判断哪些属性值与一个元素最为相关，从而在该元素上应用这些属性值。优先级是基于不同种类选择器组成的匹配规则。优先级就是分配给指定的 CSS 声明的一个权重，它由 匹配的选择器中的 每一种选择器类型的 数值决定。而当优先级与多个 CSS 声明中任意一个声明的优先级相等的时候，CSS 中最后的那个声明将会被应用到元素上。当同一个元素有多个声明的时候，优先级才会有意义。因为每一个直接作用于元素的 CSS 规则总是会接管/覆盖（take over）该元素从祖先元素继承而来的规则。
 
-Alright, that's more than I was expected. It's pretty cool. Thank you!
+当同一个元素有多个规则集声明时，分配给CSS声明的一个权重，由匹配的选择器类型的权重数值决定。相信有团队协作项目的前端同学、或改造第三方组件库的同学对于这个权重计算非常有经验了。
 
-For those who haven't on the Flat config yet, in today's talk, I am here to tell you why you should :)
+- !important 最高权重，非特殊情况，慎用（如何覆盖，魔法打败魔法，用另一个!important且顺序靠后）
+- 内联样式 * 1000
+- ID选择器 *100
+- 类选择器 *10
+- 元素选择器  *1
+
+> 备注：通用选择器（*）、组合符（+、>、~）和调整优先级的选择器 :where 不会影像优先级。以及否定(:not)和任意匹配(:is())伪类本身对优先级没有影响，但他们的参数则会带来影响
+
+[click] 每个CSS 属性定义的概述都指出了这个属性是默认继承的 ("Inherited: Yes") 还是默认不继承的 ("Inherited: no")。这决定了当你没有为元素的属性指定值时该如何计算值。当元素的一个继承属性没有指定值时，则取父元素的同属性的计算值 computed value
+
+[click] 层叠算法期望通过挑选 CSS 声明来给 CSS 属性设置正确的值。CSS 声明可以有不同的来源：浏览器默认样式、网页开发者定义、浏览器用户，最终由层叠顺序决定。
+
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Selector" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-rivet-icons-css text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Selector
+
+<div mb-10>
+
+<div text-sm op60>The CSS selectors module defines the patterns to select elements</div>
+
+</div>
+
+## Code Demo
+
+<div mt-2 />
+
+```css {1|2|3|4|5|6|7-10|11-12}{at:2}
+*
+div
+.className
+#id
+a[title]
+div, span
+div span
+ul > li
+p ~ span
+h1 + p
+h:active
+div:first-child
+```
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- common selector
+- element selector
+- className selector
+- id selector
+- attr selector
+- Grouping selector
+- combinator selector
+- Pseudo selector
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+CSS 选择器规定了 CSS 规则会被应用到哪些元素上。
+
+[click] 通用选择器,选择所有元素。（可选）可以将其限制为特定的名称空间或所有名称空间。
+
+[click] 元素选择器,按照给定的节点名称，选择所有匹配的元素。
+
+[click] 类选择器,按照给定的 class 属性的值，选择所有匹配的元素。
+
+[click] ID选择器,按照 id 属性选择一个与之匹配的元素。需要注意的是，一个文档中，每个 ID 属性都应当是唯一的。
+
+[click] 属性选择器,按照给定的属性，选择所有匹配的元素。
+
+[click] 分组选择器,, 是将不同的选择器组合在一起的方法，它选择所有能被列表中的任意一个选择器选中的节点。
+
+[click] 组合选择器,又分为后代组合器(组合器选择前一个元素的后代节点)、子代选择器( 组合器选择前一个元素的直接子代的节点)、兄弟组合选择器等, 是将不同的选择器组合在一起的方法，它选择所有能被列表中的任意一个选择器选中的节点。
+
+[click] 伪类 & 伪元素选择器, 支持按照未被包含在文档树中的状态信息来选择元素；伪选择器用于表示无法用 HTML 语义表达的实体。
+
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Boxing Model" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-ph-compass-tool-duotone text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Boxing Model
+
+<div mb-10>
+
+<div text-sm op60>Every box is composed of four parts (or areas), defined by their respective edges</div>
+
+</div>
+
+<div mt-2 >
+<img src="/box-model.webp" w-140 rounded-lg shadow border="~ main" />
+</div>
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- Content area
+- Padding area
+- Border area
+- Margin area
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+当对一个文档进行布局（lay out）的时候，浏览器的渲染引擎会根据标准之一的 CSS 基础框盒模型（CSS basic box model），将所有元素表示为一个个矩形的盒子。
+
+内容区域（content area）由内容边界限制，容纳着元素的“真实”内容，例如文本、图像，或是一个视频播放器。它的尺寸为内容宽度（或称 content-box 宽度）和内容高度（或称 content-box 高度）。它通常含有一个背景颜色（默认颜色为透明）或背景图像。
+
+如果 box-sizing 为 content-box（默认），则内容区域的大小可明确地通过 width、min-width、max-width、height、min-height 和 max-height 控制。
+
+内边距区域（padding area）由内边距边界限制，扩展自内容区域，负责延伸内容区域的背景，填充元素中内容与边框的间距。它的尺寸是 padding-box 宽度 和 padding-box 高度。
+
+边框区域（border area）由边框边界限制，扩展自内边距区域，是容纳边框的区域。其尺寸为 border-box 宽度和 border-box 高度。
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Normal Flow Layout" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-streamline-wind-flow-1 text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Normal Flow Layout
+
+<div mb-10>
+
+<div text-sm op60>Elements on a webpage lay out in normal flow</div>
+
+</div>
+
+<div mt-2 >
+</div>
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+</div>
+</div>
+
+<!--
+"文档流"或"流式布局"是在对布局进行任何更改之前，在页面上显示"块"和"内联"元素的方式。这个"流"本质上是一系列的事物，它们都在你的布局中一起工作，并且互相了解。一旦某部分脱离了"流"，它就会独立地工作。
+
+在文档流中，内联元素按内联方向显示，即词语在依据文件写作模式的句子中表示的方向。块元素则一个接一个地显示，就像该文档的写作模式中的段落一样。因此在英语中，内联元素从左边开始一个接一个地显示，块元素从顶部开始向下显示并移动页面。
+
+我们直接进入更为常用的弹性盒子布局。
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Flexible box" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-material-symbols-align-justify-flex-start text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Flexible box
+
+<div mb-10>
+
+<div text-sm op60>One-dimensional layout method for arranging items</div>
+
+</div>
+
+<div mt-2 >
+
+</div>
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- The main axis
+- The cross axis
+- The flex container
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+Flexible Box 模型，通常被称为 flexbox，是一种一维的布局模型。它给 flexbox 的子元素之间提供了强大的空间分布和对齐能力。本文给出了 flexbox 的主要特性，更多的细节将在别的文档中探索。
 -->
 
 ---
