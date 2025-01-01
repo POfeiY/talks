@@ -1,5 +1,7 @@
 import MarkdownItMagicLink from 'markdown-it-magic-link'
+import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
+
 import '@slidev/cli'
 
 export default defineConfig({
@@ -52,4 +54,12 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    AutoImport({
+      imports: [
+        'vue',
+        '@vueuse/core',
+      ],
+    }),
+  ],
 })
