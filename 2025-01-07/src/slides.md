@@ -443,7 +443,6 @@ glow: left
   font-size: 14px;
   color: green;
 }
-
 ```
 
 <div mt-6 />
@@ -525,7 +524,6 @@ h1 {
 div {
   color: red !important;
 }
-
 ```
 
 <div mt-6 />
@@ -781,14 +779,10 @@ glow: left
 
 # Flexible box
 
-<div mb-10>
+<div mb-6 />
 
-<div text-sm op60>One-dimensional layout method for arranging items</div>
-
-</div>
-
-<div mt-2 >
-
+<div>
+<img src="/flexbox.webp" w-100 rounded-lg shadow border="~ main" />
 </div>
 
 <div mt-6 />
@@ -801,7 +795,6 @@ glow: left
 
 - The main axis
 - The cross axis
-- The flex container
 
 </v-clicks>
 
@@ -813,87 +806,184 @@ Flexible Box 模型，通常被称为 flexbox，是一种一维的布局模型�
 -->
 
 ---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
 
-<div grid="~ cols-2 gap-6" h-full>
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Grid" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-gis-grid text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Grid
+
+<div mb-6 />
+
 <div>
+<img src="/grid.webp" w-100 rounded-lg shadow border="~ main" />
+</div>
 
-## Legacy Config <sup text-base op50 translate-y--2 inline-block>eslintrc config</sup>
+<div mt-6 />
 
-<div mt-4 h-42>
+## Features
 
-<v-clicks at="3">
+<div mt-2 />
 
-- Multiple sources `.eslintrc`, `.eslintrc.js`, `.eslintrc.json`, `package.json`, etc.
-- Convention based `extends`
-- Package name based `plugins`
-- Inheritance tree can be complex
+<v-clicks>
+
+- grid-template-rows
+- grid-template-cols
 
 </v-clicks>
 
 </div>
-<div v-click="1" transition duration-800 :class="$clicks < 3 ? 'translate-y--160px': ''">
+</div>
 
-```json {*|3-6|7-10|*}{at:4}
-// .eslintrc.json
-{
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "plugins": [
-    "vue",
-    "n"
-  ],
-  "rules": {
-    "vue/html-indent": ["error", 2]
-  },
-  "overrides": [
-    // ...
-  ]
-}
+<!--
+CSS Grid Layout 是一种二维布局模型，允许开发者在一个容器中创建行和列的网格，并将子元素（称为 "网格项"）放置到这个网格中。它使得布局变得更加灵活、强大，同时也解决了使用传统布局方法（如浮动和定位）时的一些问题。
+
+CSS Grid 使得在网页上创建复杂的布局变得简单，并且比传统布局方法（如 Flexbox 和 float）提供了更多的控制和灵活性。
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="CSS3/Responsive design" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-mdi-responsive text="[0.8em]" /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Responsive design
+
+<div mb-6 />
+
+<div>
+<img src="/responsive.jpg" w-160 rounded-lg shadow border="~ main" />
+</div>
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- Media Queries
+- Fluid Layouts
+- Viewport Units
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+响应式设计是一种网页设计理念，旨在使网页能够适应不同设备的屏幕尺寸、分辨率和显示方向。响应式设计通过使用灵活的布局、图像和 CSS 媒体查询来实现。其核心是确保网页在桌面、平板、手机等设备上都能提供良好的用户体验。
+
+响应式设计是通过使用灵活的布局、相对单位、媒体查询等技术，确保网页在各种设备上的良好体验。通过结合 Flexbox、CSS Grid 和 媒体查询 等现代技术，开发者可以创建出适应不同屏幕尺寸的布局，从而优化用户体验。。
+
+CSS Grid 使得在网页上创建复杂的布局变得简单，并且比传统布局方法（如 Flexbox 和 float）提供了更多的控制和灵活性。
+
+响应式设计的常用实践
+
+[click]  媒体查询的使用, 响应式设计会根据设备宽度进行调整。最常见的设备断点
+[click]  流式布局 (Fluid Layouts),流式布局允许页面的元素根据容器的宽度自动调整大小，而不使用固定的宽度
+[click]  使用视口单位 (Viewport Units),视口单位（vw, vh, vmin, vmax）基于视口（viewport）大小，允许元素相对于视口的尺寸进行调整。
+
+-->
+
+---
+
+<div grid="~ cols-2 gap-6" h-full>
+<div>
+
+## Media Queries <sup text-base op50 translate-y--2 inline-block>legacy</sup>
+
+<div mt-4 h-42>
+
+<v-click>
+
+- Breakpoint
+
+</v-click>
+
+</div>
+<div v-click="1" transition duration-800 :class="$clicks < 3 ? 'translate-y--120px': ''">
+
+```css
+/* 大屏设备（桌面端） */
+@media (min-width: 1200px) { ... }
+
+/* 平板设备（横屏） */
+@media (max-width: 1024px) { ... }
+
+/* 移动端设备（竖屏） */
+@media (max-width: 768px) { ... }
+
+/* 小屏设备（手机竖屏） */
+@media (max-width: 480px) { ... }
 ```
 
 </div>
 </div>
 <div>
 
-## Flat Config
+## Fluid Layouts
 
 <div mt-4 h-42>
 
-<v-clicks at="3">
+<v-click>
 
-- Single source `eslint.config.js` <sup op75>& `.cjs` `.mjs`</sup><br><span op0>-</span>
-- Explicit native imports
-- Plugins are objects <sup op75>capability to rename plugins</sup>
-- Composable, easier to trace back
+- Auto Size
 
-</v-clicks>
+</v-click>
 
 </div>
-<div v-click="2" transition duration-800 delay-50 :class="$clicks < 3 ? 'translate-y--160px': ''">
+<div v-click="2" transition duration-800 delay-50 :class="$clicks < 3 ? 'translate-y--120px': ''">
 
-```js {*|2-3,8-9|4-5,11-14|*}{at:4}
-// eslint.config.js
-import typescript from '@eslint-typescript/eslint-plugin'
-import eslint from '@eslint/js'
-import n from 'eslint-plugin-n'
-import vue from 'eslint-plugin-vue'
+```css
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-export default [ // export an array of configs
-  eslint.configs.recommended,
-  ...typescript.configs.recommended,
-  {
-    plugins: {
-      vue,
-      node: n, // do a rename here
-    },
-    rules: {
-      'vue/html-indent': ['error', 2]
-    }
-  },
-  // ...
-]
+.item {
+  width: 33.33%; /* 1/3 的宽度 */
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .item {
+    width: 50%; /* 屏幕宽度小于 768px 时，每行显示 2 项 */
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    width: 100%; /* 屏幕宽度小于 480px 时，每行显示 1 项 */
+  }
+}
 ```
 
 </div>
@@ -901,16 +991,38 @@ export default [ // export an array of configs
 </div>
 
 <!--
-In case you have never heard about it or haven't dig into the docs yet. Here, let me make a quick comparison between the legacy eslintrc config [click] and the new flat config for you. [click]
+ [click]通常，响应式设计会根据设备宽度进行调整。最常见的设备断点（Breakpoint）如下：
 
-To differentiate between those two configuration formats is rather straightforward. [click] The legacy config is named with `.eslintrc` that supports various extensions which might also read from your `package.json`. The flat config, on the other hand, would only be loaded from `eslint.config.js`, a JavaScript config file as the single source of truth.
-
-[click] When it comes to reusing the shared config, the legacy config format implicitly uses the conventional-based `extends` property to load that config from your local `node_modules`. You would need to learn the convention a little bit to know how it resolves. While in the flat config we use the native import, where it's more explicit, and gives a lot more controls to you.
-
-[click] For plugins, it used to take an array of strings, which is again, convention-based and coupled with the plugins' package name. Now in the flat config, it takes a named object for plugins. This means you can now rename plugins easily, or switch to a fork without being forced to change every rule in your config.
-
-[click] Also, the inheritance nature of `extends` might result in a very complex tree structure as the shared configs can also have nested `extends` inside. In the flat config, it gets simplified a lot, where you explicitly import the shared configs as multiple objects or arrays, and compose them into a single flat one.
+[click] 流式布局允许页面的元素根据容器的宽度自动调整大小，而不使用固定的宽度。
 -->
+
+---
+layout: fact
+---
+
+# Atomic CSS{.important-text-3em}
+The approach to CSS architecture that favors small, single-purpose classes
+
+<!--
+这里想扩展聊一下CSS原子化方案，相信有不少的项目组已经有尝试。
+
+原子化CSS是一种CSS的架构方式，倾向于小巧与用途专一的class，并且会以视觉效果进行命名，市面上有不少实用至上的CSS框架，如Tailwind CSS \ Windi CSS等，
+
+今天我们主要聊下TailWind CSS 和 unocss
+
+- tailwindcss 基于 postcss 的 AST 实现的 css 代码生成工具，并且做了通过 extractor 提取 js、html 中 class 的功能，原理是扫描所有 HTML 文件、JavaScript 组件以及任何 模板中的 CSS 类（class）名，然后生成相应的样式代码并写入 到一个静态 CSS 文件中。促使开发者更快速、灵活、可靠的编写样式代码。
+
+- unocss  具有高性能且极具灵活性的即时原子化 CSS 引擎
+跳过解析，不使用AST
+从内部实现上看，Tailwind 依赖于 PostCSS 的 AST 进行修改，而 Windi 则是编写了一个自定义解析器和 AST。考虑到在开发过程中，这些工具 CSS 的并不经常变化，UnoCSS 通过非常高效的字符串拼接来直接生成对应的 CSS 而非引入整个编译过程。同时，UnoCSS 对类名和生成的 CSS 字符串进行了缓存，当再次遇到相同的实用工具类时，它可以绕过整个匹配和生成的过程。
+
+-->
+
+---
+layout: fact
+---
+
+<Circles />
 
 ---
 

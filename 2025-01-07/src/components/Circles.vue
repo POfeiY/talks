@@ -29,21 +29,20 @@ onMounted(() => {
   <div
     flex justify-center w-full
     :style="{
-      height: `${550 * scale}px`,
+      height: `${500}px`,
     }"
   >
     <div
       class="relative w-500px h-500px group ma"
       :style="{
         'flex-shrink': 0,
-        'transform': `scale(${scale})`,
         'transformOrigin': 'center center',
       }"
     >
       <a
         v-for="c in members"
         :key="c.idx"
-        v-tooltip="[c.name, `@${c.login}`].filter(Boolean).join(' ')"
+        v-tooltip="[c.name, `@${c.notesid}`].filter(Boolean).join(' ')"
         :style="{
           width: `${c.radius * 2}px`,
           height: `${c.radius * 2}px`,
