@@ -6,7 +6,7 @@ members.forEach((m) => {
   const i = Math.ceil(Math.random() * 20)
   _members.push({
     ...m,
-    avatar: `/${i}.png`,
+    avatar: new URL(`./avatar/${i}.png`, import.meta.url).href,
   })
 })
 
