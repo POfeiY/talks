@@ -6,7 +6,7 @@ members.forEach((m) => {
   const i = Math.ceil(Math.random() * 20)
   _members.push({
     ...m,
-    avatar: `/avatars/${i}.png`,
+    avatar: `/${i}.png`,
   })
 })
 
