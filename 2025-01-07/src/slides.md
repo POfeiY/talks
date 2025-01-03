@@ -265,28 +265,16 @@ HTML4与HTML5的区别主要体现在语义化
 -->
 
 ---
-layout: center
-glow: bottom
+layout: fact
 ---
 
-<div flex="~ col items-center justify-center w-full">
+# CSS3
 
-<h2 flex="~ col" text-center>
-<div text-center flex="~ col gap-2" transition duration-500 :class="$clicks < 2 ? 'translate-y-40' : ''">
-  <span
-    flex="~ gap-2 items-center justify-center"
-    text-hex-639 transition duration-500 text-1.5em
-    :class="$clicks < 1 ? 'scale-150 translate-y' : ''"
-  >
-    <div i-vscode-icons-file-type-css />
-    CSS3 W3C
-  </span>
-  <span v-click op75 forward:delay-400 text-2xl>released <TimeAgo date="2021-06-07" /></span>
-</div>
-</h2>
+<div v-click relative text-3xl mt--3><span v-mark.teal.highlight.delay100.op10="1" text-teal>"Magical Magical World"</span></div>
 
-<img src="/CSS3.png" v-click mt4 w-60 rounded-lg shadow forward:delay-400 />
-</div>
+<div v-click text-2xl  mt5 text-shadow-2xl op75>Simple to define, but complicated to engineer</div>
+
+<IconsBurst />
 
 <!--
 Cascading Style Sheets 是一种样式表语言，用来描述文档的呈现方式，如元素再屏幕、纸质、音频等其他媒体上的元素如何被渲染的定义。
@@ -969,19 +957,19 @@ CSS Grid 使得在网页上创建复杂的布局变得简单，并且比传统�
 }
 
 .item {
-  width: 33.33%; /* 1/3 的宽度 */
+  width: 33.33%; /* 1/3 width */
   padding: 10px;
 }
 
 @media (max-width: 768px) {
   .item {
-    width: 50%; /* 屏幕宽度小于 768px 时，每行显示 2 项 */
+    width: 50%; /* When the screen width is less than 768px */
   }
 }
 
 @media (max-width: 480px) {
   .item {
-    width: 100%; /* 屏幕宽度小于 480px 时，每行显示 1 项 */
+    width: 100%; /* When the screen width is less than 480px */
   }
 }
 ```
@@ -1001,16 +989,20 @@ layout: fact
 ---
 
 # Atomic CSS{.important-text-3em}
-The approach to CSS architecture that favors small, single-purpose classes
+The approach to CSS architecture
 
 <!--
 这里想扩展聊一下CSS原子化方案，相信有不少的项目组已经有尝试。
 
 原子化CSS是一种CSS的架构方式，倾向于小巧与用途专一的class，并且会以视觉效果进行命名，市面上有不少实用至上的CSS框架，如Tailwind CSS \ Windi CSS等，
 
-今天我们主要聊下TailWind CSS 和 unocss
+原子化 CSS 是一种 CSS 的架构方式，它倾向于小巧且用途单一的 class，并且会以视觉效果进行命名。有些人可能会称其为函数式 CSS，或者 CSS 实用工具。
+
+其中市面上常用的tailwind CSS、windi CSS以及unocss
 
 - tailwindcss 基于 postcss 的 AST 实现的 css 代码生成工具，并且做了通过 extractor 提取 js、html 中 class 的功能，原理是扫描所有 HTML 文件、JavaScript 组件以及任何 模板中的 CSS 类（class）名，然后生成相应的样式代码并写入 到一个静态 CSS 文件中。促使开发者更快速、灵活、可靠的编写样式代码。
+
+- windi 是从零开始编写的 Tailwind CSS 的替代方案。它的零依赖，也不要求用户安装 PostCSS 和 Autoprefixer。更为重要的是，它支持 按需生成。Windi CSS 不会一次生成所有的 CSS，而是只会生成你在代码中实际使用到的原子化 CSS。
 
 - unocss  具有高性能且极具灵活性的即时原子化 CSS 引擎
 跳过解析，不使用AST
@@ -1019,10 +1011,304 @@ The approach to CSS architecture that favors small, single-purpose classes
 -->
 
 ---
+glow: right
+---
+
+<div grid="~ cols-2 gap-4" h-full>
+<div flex="~ col gap-2 items-center justify-center">
+  <div i-logos-tailwindcss text-size-4xl ma />
+</div>
+
+<div flex="~ col gap-2 justify-center">
+
+```js
+// tailwind.config.js
+module.exports = {
+  content: [
+    './src/**/*.{html,js}', // files to be handled
+  ],
+  theme: {
+    extend: {
+      colors: {
+        customBlue: '#1E40AF', // custom color
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
+```html
+<div class="bg-blue-500 text-white p-4 rounded">
+  Hello, Tailwind!
+</div>
+
+```
+
+</div>
+</div>
+
+<!--
+它通过大量预定义的类来构建网页元素，而不是编写自定义的 CSS,
+bg-blue-500：设置背景色为蓝色;
+text-white：设置文本颜色为白色;
+p-4：设置内边距为 1rem（根据 Tailwind 的默认配置）;
+rounded：设置圆角
+
+-->
+
+---
+glow: right
+---
+
+<div grid="~ cols-2 gap-4" h-full>
+<div flex="~ col gap-2 items-center justify-center">
+  <div i-logos-unocss text-size-6xl />
+  <div>
+    <span text-white font-bold text-2xl>unocss</span>
+  </div>
+</div>
+
+<div flex="~ col gap-2 justify-center">
+
+```js
+// unocss.config.js
+export default {
+  plugins: [
+    UnocssPlugin({
+      presets: [
+        PresetBootstrap,
+        // PresetTailwind,
+        // PresetWindi,
+        // one...or more!
+      ]
+    })
+  ]
+}
+```
+
+```js
+rules: [
+  [/^m-(\d+)$/, ([, d]) => ({ margin: `${d / 4}rem` })]
+]
+```
+
+```html
+<div class="m-100">
+  <button class="m-3">
+    <icon class="p-5" />
+    My Button
+  </button>
+</div>
+
+```
+
+</div>
+</div>
+
+<!--
+它通过大量预定义的类来构建网页元素，而不是编写自定义的 CSS,
+bg-blue-500：设置背景色为蓝色;
+text-white：设置文本颜色为白色;
+p-4：设置内边距为 1rem（根据 Tailwind 的默认配置）;
+rounded：设置圆角
+
+-->
+
+---
 layout: fact
 ---
 
 <Circles />
+
+<div flex="~ items-center gap-3" fixed right-0 top-0 rounded-bl-2rem p5 backdrop-blur-md>
+  <div i-token-branded-game text-5xl />
+  <div flex="~ col">
+    <span text-sm op50 hover:underline target="_blank">Circles</span>
+    <span text-1xl hover:underline>
+      Yak Game
+    </span>
+  </div>
+</div>
+
+---
+layout: fact
+---
+
+# Javascript{.important-text-3em}
+The most fun language in the world
+
+<!--
+JavaScript（JS）是一种程序设计语言，通常用于客户端（client-side）的网页动态脚本，当然也可以在 Node.js 环境的运行时，用于服务器端。
+
+JavaScript 主要用于浏览器中，让开发者可以通过文档对象模型来操纵网页内容、通过 fetch() API 从服务器获取内容、通过 IndexedDB 存储复杂数据、使用 canvas 绘制图形、通过各种 API 与设备交互等等。JavaScript 是世界上最广泛使用的语言之一，归功于浏览器中 API 的发展和性能提升。
+
+JavaScript 的大部分语法从 Java、C 和 C++ 借鉴而来，但同时也受到 Awk、Perl 和 Python 的影响。
+
+JavaScript 是区分大小写的，并使用 Unicode 字符集
+
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="Data Type" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-carbon-data-vis-1 text-lg /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# JavaScript/Data Type
+
+<div mb-10>
+
+<div text-sm op60>The latest ECMAScript standard defines 8 data types</div>
+
+</div>
+
+## Code
+
+<div mt-2 />
+
+```js {1|2-3|4|5|6|7|8-12|*}{at:2}
+const greeting = 'Hello CIB'
+const age = 25
+const hex = 0x1F
+const isActive = true
+const target = null
+const sym1 = Symbol('description')
+const bigNumber = 1234567890123456789012345678901234567890n
+const person = {
+  name: 'Alice',
+  age: 30,
+  greet() { console.log(`Hello ${this.name}`) }
+}
+```
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- `String`
+- `Number`
+- `Boolean`
+- `undefined`
+- `null`
+- `Symbol`
+- `BigInt`
+- `Object`
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+最新的 ECMAScript 标准定义了 8 种数据类型：7中基本类型与对象
+
+每个从 Symbol() 返回的 symbol 值都是唯一的
+
+Symbol() 函数会返回 symbol 类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的 symbol 注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法："new Symbol()"。
+
+解决属性名冲突，创建私有方法和属性
+
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="Variable" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-mdi-variable text-lg /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# JavaScript/Variable
+
+<div mb-10>
+
+<div text-sm op60>Used to store data</div>
+
+</div>
+
+## Code
+
+<div mt-2 />
+
+```js {1-3|2-3|4|5|6|7|8-12|*}{at:2}
+var a1 = 'a1';
+let a2 = 'a2';
+const a3 = 'a13';
+
+{
+  let a = 10;
+  console.log(a);  // 输出 10
+}
+console.log(a);  // ReferenceError: a is not defined
+
+const PI = 3.14;  // 合法
+const x;           // SyntaxError: Missing initializer in const declaration
+
+const y = 100;
+y = 200;  // TypeError: Assignment to constant variable
+
+console.log(a);  // undefined，变量声明被提升，但赋值没有
+var a = 10;
+
+// let 和 const 不会提升
+console.log(b);  // ReferenceError: Cannot access 'b' before initialization
+let b = 20;
+```
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- `var` `let` `const`
+- Hoisting
+- Scope
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+最新的 ECMAScript 标准定义了 8 种数据类型：7中基本类型与对象
+
+每个从 Symbol() 返回的 symbol 值都是唯一的
+
+Symbol() 函数会返回 symbol 类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的 symbol 注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法："new Symbol()"。
+
+解决属性名冲突，创建私有方法和属性
+
+-->
 
 ---
 
