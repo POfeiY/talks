@@ -920,16 +920,16 @@ CSS Grid 使得在网页上创建复杂的布局变得简单，并且比传统�
 <div v-click="1" transition duration-800 :class="$clicks < 3 ? 'translate-y--120px': ''">
 
 ```css
-/* 大屏设备（桌面端） */
+/* PC client */
 @media (min-width: 1200px) { ... }
 
-/* 平板设备（横屏） */
+/* Pad(Horizontal) */
 @media (max-width: 1024px) { ... }
 
-/* 移动端设备（竖屏） */
+/* mobile(Vertical) */
 @media (max-width: 768px) { ... }
 
-/* 小屏设备（手机竖屏） */
+/* mobile sm(Vertical) */
 @media (max-width: 480px) { ... }
 ```
 
@@ -963,13 +963,13 @@ CSS Grid 使得在网页上创建复杂的布局变得简单，并且比传统�
 
 @media (max-width: 768px) {
   .item {
-    width: 50%; /* When the screen width is less than 768px */
+    width: 50%; /* less than 768px */
   }
 }
 
 @media (max-width: 480px) {
   .item {
-    width: 100%; /* When the screen width is less than 480px */
+    width: 100%; /* less than 480px */
   }
 }
 ```
@@ -1158,7 +1158,7 @@ glow: left
 
 <div mt-4 />
 
-<CssModule name="Data Type" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-carbon-data-vis-1 text-lg /></span>
+<CssModule name="JavaScript/Data Type" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-carbon-data-vis-1 text-lg /></span>
 
 </div>
 
@@ -1168,7 +1168,7 @@ glow: left
 >
 <div scale-70 origin-left-top w-160 mb--100 mr--40>
 
-# JavaScript/Data Type
+# Data Type
 
 <div mb-10>
 
@@ -1236,7 +1236,7 @@ glow: left
 
 <div mt-4 />
 
-<CssModule name="Variable" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-mdi-variable text-lg /></span>
+<CssModule name="JavaScript/Variable" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-mdi-variable text-lg /></span>
 
 </div>
 
@@ -1246,7 +1246,7 @@ glow: left
 >
 <div scale-70 origin-left-top w-160 mb--100 mr--40>
 
-# JavaScript/Variable
+# Variable
 
 <div mb-10>
 
