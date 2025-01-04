@@ -1258,14 +1258,14 @@ glow: left
 
 <div mt-2 />
 
-```js {1-3|2-3|4|5|6|7|8-12|*}{at:2}
+```js {1-3|5-22|*}{at:2}
 var a1 = 'a1';
 let a2 = 'a2';
 const a3 = 'a13';
 
 {
   let a = 10;
-  console.log(a);  // 输出 10
+  console.log(a);  // output 10
 }
 console.log(a);  // ReferenceError: a is not defined
 
@@ -1300,14 +1300,334 @@ let b = 20;
 </div>
 
 <!--
-最新的 ECMAScript 标准定义了 8 种数据类型：7中基本类型与对象
+[click]声明 var\let\const,var这个语法可以用来声明局部变量和全局变量，具体取决于执行上下文,创建的变量不是块级作用域的，而只是块所在的*函数（或全局作用域）*的,let/const 块级作用域：用一对花括号创建的作用域
 
-每个从 Symbol() 返回的 symbol 值都是唯一的
+[click]变量提升,用 var 声明的变量会被提升，意味着你可以在该变量所在的作用域的任意地方引用该变量，即使还没有到达变量声明的地方。由于存在变量提升，一个函数中所有的 var 语句应尽可能地放在接近函数顶部的地方。这个最佳实践会提升代码的清晰度。
 
-Symbol() 函数会返回 symbol 类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的 symbol 注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法："new Symbol()"。
+[click]作用域： 全局作用域：在脚本模式中运行的所有代码的默认作用域。
+模块作用域：在模块模式中运行的代码的作用域。
+函数作用域：由函数创建的作用域。
+-->
 
-解决属性名冲突，创建私有方法和属性
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
 
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="JavaScript/Function" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-f7-function text-lg /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Function
+
+<div mb-10>
+
+<div text-sm op60>First-class citizens</div>
+
+</div>
+
+## Code
+
+<div mt-2 />
+
+<div h-70 overflow-y-auto>
+```js {1-3|5-7|9-11|13-15|17-19|21|23-25|*}{at:2}
+function functionName(parameters) {
+  return value
+};
+
+const functionName = function(parameters) {
+  return value
+};
+
+const functionName = (parameters) => {
+  return value
+};
+
+setTimeout(function() {
+  console.log("This is a callback");
+}, 1000);
+
+(function() {
+  console.log("IIFE executed!");
+})();
+
+const fn = new Function('p1', 'p2', 'return p1 + p2;');
+
+function* generatorFunction() {
+  yield value;
+}
+
+```
+</div>
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- Function Declaration
+- Function Expression
+- Arrow Function
+- Anonymous Function
+- IIFE
+- Function Constructor
+- Generator
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+[click]函数声明,通过function 关键字声明的函数。这种函数有一个名称，且会在作用域内被提升（Hoisting）。函数可以在声明之前调用，因为它会被提升到作用域顶部。适用于需要全局或局部定义的命名函数。
+
+[click]函数表达式 通过变量定义函数，将函数赋值给变量。这种函数不会被提升。函数表达式不会提升，必须在定义后调用。可以是匿名函数或具名函数。
+
+[click]箭头函数,ES6 引入的简洁语法，适合定义简短函数。箭头函数中的 this 由定义时的上下文决定，而不是调用时。没有自己的 this、arguments。
+更适合回调函数或需要保持上下文的场景。
+不能用作构造函数。
+
+[click]匿名函数,没有名称的函数，常用于立即执行函数或回调。通常用作参数传递或立即执行函数.
+
+[click]立即执行函数表达式,函数定义后立即执行,常用于创建独立作用域，避免变量污染全局环境
+
+[click]构造函数,使用 Function 构造函数动态创建函数。不常用，性能较差且调试困难
+
+[click]Generator 函数,S6 引入的特殊函数，用于生成迭代器对象。可以通过 yield 暂停和恢复执行。用于异步操作和控制流管理
+
+对象方法, 数作为对象的属性，称为方法。
+-->
+
+---
+class: "grid grid-cols-[1fr_1fr] p0 h-full"
+glow: left
+---
+
+<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
+
+<div mt-4 />
+
+<CssModule name="JavaScript/Asynchronous" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-carbon-async text-lg /></span>
+
+</div>
+
+<div
+  bg-hex-5552 p8 border="l main" transition duration-500
+  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
+>
+<div scale-70 origin-left-top w-160 mb--100 mr--40>
+
+# Asynchronous
+
+<div mb-10>
+
+<div text-sm op60>Asynchronous programming with Event Loop</div>
+
+</div>
+
+## Code
+
+<div mt-2 />
+
+<div h-85 overflow-y-auto>
+```js {1-2|4-8|9-31|31-|*}{at:2}
+console.log("Start");
+console.log("End");
+
+console.log("Start");
+setTimeout(() => {
+  console.log("Async Task");
+}, 1000);
+console.log("End");
+
+function fetchData(callback) {
+  setTimeout(() => {
+    callback("Data loaded");
+  }, 1000);
+}
+
+fetchData((data) => {
+  console.log(data); // 输出: Data loaded
+});
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Promise resolved!");
+  }, 1000);
+});
+
+async function fetchData() {
+  const result = await new Promise((resolve) =>
+    setTimeout(() => resolve("Data loaded"), 1000)
+  );
+  console.log(result); // 输出: Data loaded
+}
+
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Macro Task");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("Micro Task");
+});
+
+console.log("End");
+// output: Start -> End -> Micro Task -> Macro Task
+
+```
+</div>
+
+<div mt-6 />
+
+## Features
+
+<div mt-2 />
+
+<v-clicks>
+
+- Synchronous
+- Asynchronous
+- Async Methods
+- Event Loop
+
+</v-clicks>
+
+</div>
+</div>
+
+<!--
+
+JavaScript 是单线程的，事件循环（Event Loop）使得其可以非阻塞地处理异步任务，从而高效运行。异步编程是 JavaScript 中处理 I/O 操作、网络请求、计时器、文件操作等耗时任务的核心机制。
+
+[click]同步 (Synchronous)， 任务按顺序执行，一个任务完成后才会开始下一个任务。长时间任务会阻塞后续操作。
+
+[click]异步 (Asynchronous)，任务不会阻塞代码执行，耗时任务会通过回调机制完成。使用事件循环管理异步任务。
+
+[click]异步编程的主要方法:1、回调函数 (Callback)，通过将函数作为参数传递的方式，异步任务完成后调用回调函数，回调地狱问题。
+2、Promise ES6 引入的机制，用于处理异步操作的链式调用，避免了回调地狱。
+3、ES8 引入的语法糖，基于 Promise 的异步处理方式，使代码看起来像同步代码。
+
+[click]4. 事件驱动 (Event Loop),JavaScript 异步的底层机制依赖事件循环（Event Loop）。任务分为：
+
+同步任务：立即执行，进入主线程。
+异步任务：放入任务队列，等待主线程空闲后执行。
+-->
+
+---
+layout: fact
+---
+
+# Libraries{.important-text-3em}
+Front-end Frameworks
+
+<!--
+And now, 我们来聊下工具库中的前端开发框架
+-->
+
+---
+glow: left
+---
+
+<div w="40%">
+
+## FED Frameworks <sup text-purple bg-purple:15 px1.5 rounded text-sm>Official</sup>
+
+<div mt-2 />
+
+<v-clicks>
+
+- React
+- Vue.js
+- Angular
+
+</v-clicks>
+<div mt-4 />
+<v-click>
+<<< ./react.demo.jsx {monaco-write}{height:'100px'}
+</v-click>
+<v-click>
+<<< ./vue.demo.js {monaco-write}{height:'100px'}
+</v-click>
+<v-click>
+<<< ./angular.demo.ts {monaco-write}{height:'100px'}
+</v-click>
+</div>
+
+<FrameWorksIframe />
+
+<div v-show="false">
+<!-- This block is for type discovery -->
+
+```ts {monaco}
+import antfu from '@antfu/eslint-config'
+```
+
+</div>
+
+<!--
+stateofjs 数据图表展示
+
+[click] React
+- 组件
+- 虚拟dom
+- JSX
+- 状态管理
+- 生命周期
+- 路由
+- 数据请求
+- 样式
+
+[click] Vue
+
+- 声明式渲染
+- 组件化开发
+- 响应式数据绑定 vue2 defineProperty vue3 Proxy
+- 指令系统
+- 路由与状态管理
+
+vue2对比vue3,性能提升、composition API 优与Options API 复用独立逻辑组件、响应式系统优化、组件与模版灵活性、生命周期钩子函数、生态系统
+生态周边介绍
+
+[click] Angular
+相信有外企工作经历的同学一定有上手过angular这个开发框架
+
+由 Google 维护的一个开源前端框架，用于构建现代的、动态的、单页应用（SPA）。Angular 的目标是提供一个全面的解决方案，集成路由、状态管理、表单处理、 HTTP 请求、依赖注入等功能，使得开发者能够快速构建复杂的 Web 应用。
+
+Angular 是基于 TypeScript 开发的，采用了许多现代的前端开发概念，如模块化、组件化、声明式模板等。
+
+- 单页应用
+- 基于组件的架构
+- 模版与数据绑定
+- 类型安全与TS支持
+- 依赖注入系统
+- 路由
+- 表单处理
+- HTTP客户端，简化请求发送与响应处理，拦截器等处理
+- 单元测试工具
+
+对比React 是一个 UI 库，专注于构建用户界面，提供了灵活的组件和状态管理，但需要开发者自行选择其他库（如 React Router、Redux、Axios）来完成路由、状态管理和 HTTP 请求等功能
+
+React 是一个 UI 库，专注于构建用户界面，提供了灵活的组件和状态管理，但需要开发者自行选择其他库（如 React Router、Redux、Axios）来完成路由、状态管理和 HTTP 请求等功能
+
+对比Vue 是一个渐进式框架，核心轻量，功能可逐步扩展，适合从小到大的项目，Angular 是一个完整的框架，适合大型应用开发，并且提供了更强大的 TypeScript 支持和企业级功能。
+
+无论个人所在的项目以及中心是否要求系收敛web开发框架，但就技术发展来讲，百花齐放是常态，我们应该对主流的框架都有基础的了解，再熟练深入的掌握1-2种，甚至更多，这样在技术选型时有足够多的储备
 -->
 
 ---
