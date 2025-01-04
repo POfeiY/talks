@@ -1571,35 +1571,34 @@ glow: left
 
 <FrameWorksIframe />
 
-<div v-show="false">
-<!-- This block is for type discovery -->
-
-```ts {monaco}
-import antfu from '@antfu/eslint-config'
-```
-
-</div>
-
 <!--
 stateofjs 数据图表展示
+2024年不出意外的使用top1还是react,但其中大事件是 Vue 在受访者中的原始使用率超过了 Angular。尽管 Angular 在今年取得了进步，但 Vue 还是保住了第二的位置，而且在留存率方面也获得了三位之多！ 与此同时，Svelte 的使用率也在稳步上升，在总体正面评价方面继续名列前茅。
 
-[click] React
-- 组件
-- 虚拟dom
-- JSX
-- 状态管理
-- 生命周期
-- 路由
-- 数据请求
-- 样式
+[click] React React 是一个由 Meta（前 Facebook） 开发并维护的开源 JavaScript 库，主要用于构建用户界面（UI）。它通过高效的虚拟 DOM（Virtual DOM）和组件化设计，使得开发复杂的、动态的 Web 应用变得更加高效和模块化。
 
-[click] Vue
+- 组件 React 应用是由一个个可复用的组件组成，每个组件描述了用户界面的某一部分。组件可以嵌套和组合
+- 虚拟dom，当状态更新时，React 会计算出新旧 DOM 的差异（Diffing Algorithm），然后最小化实际 DOM 操作。
+- JSX， JSX 是一种 JavaScript 的语法扩展，用于描述 UI 的结构。允许你在 JavaScript 中嵌入 HTML，最终会被编译为 React.createElement() 调用
+- 状态管理， 自带的状态管理工具Context API，用于组件树中跨层级传递数据。或第三方库Redux、Mobx、Zustand
+- 生命周期,简要分为分为三个阶段，1、组件挂载；2、组件状态更新；3、组件卸载
+- 路由， React Router 是 React 的标准路由库，用于在单页面应用（SPA）中管理页面导航。
+- Hook React Hooks 是 React 16.8 中引入的新功能，使函数组件可以使用状态和生命周期功能。如useState\useEffect\useLayoutEffect\useTransition 等常用于封装公共的功能逻辑。
 
-- 声明式渲染
-- 组件化开发
+[click] Vue 是一个用于构建用户界面的 渐进式 JavaScript 框架。它的设计理念是尽量简单、灵活和高效，使开发者能够快速上手并进行复杂的应用开发。以下是 Vue.js 的主要特点及框架说明：
+
+- 渐进式框架 渐进式 意味着 Vue 可以根据需求逐步引入功能，从一个简单的库扩展成完整的框架。可以单独使用 Vue 来构建小型应用，也可以结合其生态系统构建复杂的大型应用。
+- 声明式渲染, Vue 使用模板语法（基于 HTML）来声明式地描述 UI。使用 双花括号插值语法 {{ }} 绑定数据到 DOM。
+- 组件化开发, 应用由一个个小型、独立且可复用的组件组成。每个组件包含自己的模板、逻辑和样式，便于模块化开发。
 - 响应式数据绑定 vue2 defineProperty vue3 Proxy
-- 指令系统
-- 路由与状态管理
+- 指令系统,  提供一组内置指令，用于操作 DOM：
+v-bind：绑定属性或样式
+v-model：双向数据绑定
+v-if/v-else/v-show：条件渲染
+v-for：列表渲染
+v-on：事件绑定
+- 路由与状态管理,Vue Router：用于构建单页应用的路由管理。
+Vuex：集中式状态管理库，适合大型应用。
 
 vue2对比vue3,性能提升、composition API 优与Options API 复用独立逻辑组件、响应式系统优化、组件与模版灵活性、生命周期钩子函数、生态系统
 生态周边介绍
@@ -1610,14 +1609,22 @@ vue2对比vue3,性能提升、composition API 优与Options API 复用独立逻�
 由 Google 维护的一个开源前端框架，用于构建现代的、动态的、单页应用（SPA）。Angular 的目标是提供一个全面的解决方案，集成路由、状态管理、表单处理、 HTTP 请求、依赖注入等功能，使得开发者能够快速构建复杂的 Web 应用。
 
 Angular 是基于 TypeScript 开发的，采用了许多现代的前端开发概念，如模块化、组件化、声明式模板等。
+Angular 是由 Google 维护的一个开源前端框架，用于构建现代的、动态的、单页应用（SPA）。Angular 的目标是提供一个全面的解决方案，集成路由、状态管理、表单处理、 HTTP 请求、依赖注入等功能，使得开发者能够快速构建复杂的 Web 应用。
 
-- 单页应用
-- 基于组件的架构
-- 模版与数据绑定
-- 类型安全与TS支持
-- 依赖注入系统
-- 路由
-- 表单处理
+- 单页应用,Angular 专为构建单页应用（SPA）设计，能够在用户与应用交互时，动态地更新页面而无需重新加载整个页面。
+它通过路由管理不同的视图和 URL，使得用户体验更加流畅。
+- 基于组件的架构,Angular 强调组件化开发。应用由多个组件组成，每个组件都有自己的模板（HTML）、样式（CSS）和逻辑（TypeScript）。
+组件是构建 UI 的基本单元。
+- 模版与数据绑定,Angular 使用 声明式模板 来描述视图，利用 数据绑定 来连接数据与视图。
+支持 双向数据绑定、属性绑定、事件绑定 等。
+- 类型安全与TS支持,Angular 是用 TypeScript 编写的，TypeScript 是 JavaScript 的超集，添加了静态类型检查、类、接口等特性，使得代码更易于维护、调试和重构。
+- 依赖注入系统,Angular 提供了 依赖注入（DI） 容器，使得服务和组件之间的依赖关系更加解耦，增强了应用的可维护性。
+DI 使得在组件和服务之间传递数据变得更加简单和灵活。
+- 路由,Angular 内建强大的 路由模块，支持基于 URL 的导航、懒加载、路由守卫、嵌套路由等功能。
+路由管理允许你在不同的组件间导航，并控制不同的视图和状态。
+- 表单处理,提供了两种表单处理方式：模板驱动表单和响应式表单。
+模板驱动表单：更简洁，适合简单的表单。
+响应式表单：基于代码控制，适合复杂的表单，支持验证、动态表单等功能。
 - HTTP客户端，简化请求发送与响应处理，拦截器等处理
 - 单元测试工具
 
@@ -1632,138 +1639,72 @@ React 是一个 UI 库，专注于构建用户界面，提供了灵活的组件�
 
 ---
 
-## Flat Config
+# <span op50>Frame comparison...</span> <b v-click font-800>For reference only</b>
 
-<Timeline mt2 />
-
+<div scale-75 origin-left-top mb--14 mt--3 class="[&_td]:py1 [&_table]:w-130%" v-click="2">
 <v-clicks>
 
-- RFC was created at January 2019
-- Experimental in `v8.21.0`
-- Stable in `v8.45.0`
-- Default in `v9.0.0`
-- JavaScript config with full control
-- Simplified inheritance and overriding
-- Flexible, Dynamic, Customizable
+| Frameworks | <span i-logos-react inline-block align-middle /> | <span i-logos-vue inline-block align-middle /> | <span i-logos-angular inline-block align-middle /> |
+| --- | --- | --- | --- |
+| <span i-game-icons-boss-key inline-block align-middle /> Creator | {@facebook} | {@yyx990803} | {@angular} |
+| <span i-fluent-code-js-16-regular inline-block align-middle /> Language | <span i-skill-icons-javascript inline-block align-middle />  <span i-skill-icons-typescript inline-block align-middle /> | <span i-skill-icons-javascript inline-block align-middle />  <span i-skill-icons-typescript inline-block align-middle /> | <span i-skill-icons-typescript inline-block align-middle /> |
+| <span i-fad-hardclipcurve inline-block align-middle /> difficulty | <span i-fluent-color-star-16 inline-block align-middle /><span i-fluent-color-star-16 inline-block align-middle /><span i-fluent-color-star-16 inline-block align-middle /> | <span i-fluent-color-star-16 inline-block align-middle /><span i-fluent-color-star-16 inline-block align-middle /> | <span i-fluent-color-star-16 inline-block align-middle /><span i-fluent-color-star-16 inline-block align-middle /><span i-fluent-color-star-16 inline-block align-middle /><span i-fluent-color-star-16 inline-block align-middle /> |
+| <span i-mingcute-performance-fill inline-block align-middle /> Performance | Efficient | Efficient | Medium |
+| <span i-cib-event-store inline-block align-middle /> Store | Redux & Zustand | Vuex & Pinia | RxJs |
+| <span i-logos-npm-icon inline-block align-middle /> Community | Huge | Sound | Integrated |
+| <span i-lucide-files inline-block align-middle /> Files | ~42KB | ~20KB | ~500KB |
 
 </v-clicks>
-
-<!--
-[click] For a little bit more context, Here is a graph I drew to demonstrate the timeline. While the flat config might sound new to some of you, it has actually been planned for 5 years already. [click] The RFC was created in January 2019, [click] first implementation available in v8.21.0 as experimental, which was two years ago.  [click] It became stable in v8.45.0, [click] and then became the default recently in v9.0.0. In between, the ESLint team has published multiple blog posts to explain the reasons why they want to introduce the new format, and shared the roadmap of rolling out. That's a lot of effort spent across this 5 years plan - huge respect to the ESLint team.
-
-So, as we mentioned in the previous slide, [click] the biggest benefit of flat config, is that now it's in JS where you have full control. [click] It uses native import to resolve the plugins and configs, making the inheritance and overriding a lot simplified. [click] Because it's fully in JavaScript, shared configs can be factory functions that take users' options; and users can have a lot more capability to do the customizations towards their specific needs.
--->
-
----
-
-# Migration [`@eslint/migrate-config`](https://www.npmjs.com/package/@eslint/migrate-config)
-
-CLI tool to convert legacy config to flat config
-
-```bash
-npx @eslint/migrate-config .eslintrc.json
-```
-
-<div grid="~ cols-[1fr_max-content_1fr] gap-4" mt-4 v-click>
-
-```json
-// .eslintrc.json
-{
-  "env": {
-    "node": true,
-    "es6": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:ava/recommended",
-    "prettier"
-  ],
-  "plugins": ["prettier", "import"],
-  "rules": {
-    "prettier/prettier": 2,
-    "ava/no-ignored-test-files": 0,
-    "ava/no-import-test-files": 0,
-    "import/no-unresolved": [
-      2,
-      {
-        "ignore": ["ava", "got"]
-      }
-    ],
-    "import/no-unused-modules": 2,
-    "import/order": [
-      2,
-      {
-        "newlines-between": "never"
-      }
-    ]
-  }
-}
-```
-
-<span i-carbon:arrow-right mt-40 />
-
-```js
-import { FlatCompat } from '@eslint/eslintrc'
-import _import from 'eslint-plugin-import'
-// eslint.config.mjs
-import prettier from 'eslint-plugin-prettier'
-
-const compat = new FlatCompat()
-export default [
-  ...compat.extends(
-    'eslint:recommended',
-    'plugin:ava/recommended',
-    'prettier'
-  ),
-  {
-    plugins: {
-      prettier,
-      import: _import,
-    },
-    languageOptions: {
-      ecmaVersion: 2020,
-      sourceType: 'module',
-    },
-    rules: {
-      'prettier/prettier': 2,
-      'ava/no-ignored-test-files': 0,
-      'ava/no-import-test-files': 0,
-
-      'import/no-unresolved': [2, {
-        ignore: ['ava', 'got'],
-      }],
-      'import/no-unused-modules': 2,
-      'import/order': [2, {
-        'newlines-between': 'never',
-      }],
-    },
-  },
-]
-```
-
 </div>
+<v-click>
+
+[Choose The Framework That Best Suits Your Team](https://github.com)
+
+</v-click>
 
 <!--
-Before we talk about the new exciting stuff, let me first quickly go through the tools for migrating your legacy config to the new flat config, in case you might need them.
+And finally, I'd like to mention that ESLint can also [click] lint for many other languages other than JavaScript.
 
-We have a CLI `@eslint/migrate-config` that automatically convert your legacy config file to flat config. [click] Some runtime utilities for compatibility will be introduced automatically along the way as well.
+[click] 简介
 
-I would recommend you check the ESLint docs and migration guide for more detailed instructions.
+[click] 开发语言
+
+[click] 性能对比
+
+虚拟
+DOM	React-高效：通过 Diff 算法更新 DOM
+Vue-高效：更轻量化的虚拟 DOM
+Angular-不使用虚拟 DOM，但有优化策略
+
+初始加载时间
+react-较快：库较轻
+vue-快：框架轻量化
+angular慢：框架较大，初次加载文件体积大
+
+动态更新
+react-高效
+vue-高效
+angular-较慢：双向绑定增加性能开销
+
+[click] 状态管理
+
+[click] 社区生态
+
+适用场景
+react-成熟且灵活
+vue-快速构建
+angular-内置功能强大，适合复杂业务
 -->
 
 ---
 layout: fact
 ---
 
-# Toolings{.important-text-3em}
-New tools and possibilities with Flat Config
+# Libraries{.important-text-3em}
+Build Tools
 
 <!--
-And now, let's talk about the interesting new tools and possibilities that are enabled by this new format.
+And now, 我们来聊下工具库中的构建工具
 -->
 
 ---
@@ -1772,515 +1713,145 @@ glow: left
 
 <div w="40%">
 
-## Config Inspector <sup text-purple bg-purple:15 px1.5 rounded text-sm>Official</sup>
+## FED Frameworks <sup text-purple bg-purple:15 px1.5 rounded text-sm>Official</sup>
 
-<div mt-4 />
-<v-click>
-
-```bash
-eslint --inspect-config
-```
-
-</v-click>
-<div mt-4 />
+<div mt-2 />
 
 <v-clicks>
 
-- Visualize your config
-- Understand the composition
-- In-place documentations
-- File path tester
+- Webpack
+- Vite
 
 </v-clicks>
 <div mt-4 />
 <v-click>
-
-<<< ./eslint.demo.config.ts {monaco-write}{height:'220px'}
-
+<<< ./webpack.demo.js {monaco-write}{height:'140px'}
+</v-click>
+<v-click>
+<<< ./vite.demo.ts {monaco-write}{height:'200px'}
 </v-click>
 </div>
 
-<InspectorIframe />
-
-<div v-show="false">
-<!-- This block is for type discovery -->
-
-```ts {monaco}
-import antfu from '@antfu/eslint-config'
-```
-
-</div>
+<BuildingToolsIframe />
 
 <!--
-The first one is the ESLint Config Inspector - a visualized DevTools, that allows you to inspect and play with your final resolved configs.
+[click] webpack一个现代的、强大的 JavaScript 模块打包工具，用于将开发人员的代码和依赖项（如 JavaScript、CSS、图片等）打包成可在浏览器中运行的静态资源。Webpack 提供了模块化开发和优化打包的能力，帮助开发者将多个文件和代码模块进行整合，减少浏览器加载时间，提高应用的性能
 
-[click] You can try it by running `eslint --inspect-config` in your CLI under the project root where you have the flat config file, and it will open a browser page with UI, like the one you see on the right.
+核心功能：
+- 模块化加载
+- 打包，代码分割、按需加载
+- 预处理器支持，如babel、Sass、Less
+- 资源加载
+- 模块优化和代码分割
+- 构建优化，Tree-shaking，代码压缩、缓存优化
 
-[click] So, the first thing it does is to render each config item you have. You can see all configs listed here, because it's flat. Here I have a rather complex config setup with many config items. But with the name provided by each config, you can easily see and understand the purpose for each of them.
+工作流程：
+- 1、入口文件
+- 2、解析模块
+- 3、打包输出
+- 4、插件扩展，CSS提取、图片优化、环境变量配置等
 
-[click] You can also expand each item to see how it contributes to the final config, like how many rules enabled, or what's their target file types, etc.
+优点：
+- 模块化开发：支持多种模块格式（ES6、CommonJS 等），代码组织更清晰。
+- 优化和性能：自动进行 tree-shaking、代码分割、缓存优化，提升应用性能。
+- 支持多种格式：支持 JavaScript、CSS、图片、字体等文件类型。
+- 插件和扩展：提供丰富的插件支持，扩展功能灵活。
 
-[click] In each rule, you can also see their options, a short description, and also, a link to their documentation page.
+[click] 一个新兴的前端工具，用于开发和构建现代 JavaScript 应用。Vite 的目标是提供高性能和即时热更新的开发体验，同时优化开发和构建速度，使项目更高效。与 Webpack 相比，Vite 采用了不同的架构设计，重点于提升构建速度和更现代化的开发方式
 
-[click] Since in ESLint, you can have different rule sets that apply to different file types or are more granular to their exact file path. In the config inspector, you can also enter the file path to test how rules are enabled for that file.
+核心特点
+- 高速构建与开发体验 HMR
+- 极简配置
+- 性能优化 tree-shaking、代码分割
+- 继承现代框架和工具 支持ESM与TS
+- 增强型插件系统
 
-In another tab, you can also browse each rule that is available, given the plugins you have installed. You can filter them and see which rules you are using, which rules you don't, which are recommended ones, and which are deprecated.
-
-[click] Here, I have my config preset as an example. The code frame here reflects my eslint config file on the disk. The config is a factory function that takes some rather high-level options. With the config inspector, we could see how it was resolved based on the options we provided. We could also try to change the options and see how it affects the result. For example, I could also provide it the path of my tsconfig, which will enable the type-aware rules for me automatically.
--->
-
----
-
-## Flat Config Utils <sup text-teal bg-teal:15 px1.5 rounded text-sm>Community</sup>
-
-<Repo name="antfu/eslint-flat-config-utils" op50 />
-
-<div grid="~ cols-[1fr_max-content_1fr] gap-4" mt2>
-<div v-click>
-
-```ts {*|*|7-9|10-17}{at:3}
-import eslint from '@eslint/js'
-import unocss from '@unocss/eslint-plugin'
-import vue from 'eslint-plugin-vue'
-import typescript from 'typescript-eslint'
-
-export default [
-  eslint.configs.recommended,
-  ...typescript.configs.recommand,
-  ...await unocss(),
-  {
-    files: ['*.vue'],
-    ...vue.configs['vue3-recommand'],
-    rules: {
-      ...vue.configs['vue3-recommand'].rules,
-      'vue/html-indent': ['error', 2]
-    }
-  }
-]
-
-// (pesudo code for demo)
-```
-
-</div>
-<span i-carbon:arrow-right ma v-click />
-<div v-after>
-
-```ts {*|1,7|8-10|11-21}{at:3}
-import eslint from '@eslint/js'
-import unocss from '@unocss/eslint-plugin'
-import { compose } from 'eslint-flat-config-utils'
-import vue from 'eslint-plugin-vue'
-import typescript from 'typescript-eslint'
-
-export default compose(
-  eslint.configs.recommended,
-  typescript.configs.recommand, // auto spread
-  unocss() // auto await in parallel
-)
-  .append( // chainable extensions
-    vue.configs['vue3-recommand']
-  )
-  // override any configs with their name or index
-  .override('vue', {
-    files: ['*.vue'],
-    rules: {
-      'vue/html-indent': ['error', 2]
-    }
-  })
-```
-
-</div>
-</div>
-
-<!--
-To make config customization easier, I also made a small library called `eslint-flat-config-utils`.
-
-[click] For example, here is a flat config we might have. Depending on how each shared config is constructed, some might be a plain config object, some might be an array, and some might be a constructor that returns an object, an array or even a Promise. When you use them together, it's usually your responsibility to join them together as a single array.
-
-[click] With the config utils, [click] I made a utility function called `compose`, [click] which will automatically resolve the different types of configs, resolve the promise and merge them together.
-
-[click] It also provides some chainable actions where you could insert extra configs anywhere you want, or override some config without the need to handle the merge manually.
--->
-
----
-
-## ESLint Typegen <sup text-teal bg-teal:15 px1.5 rounded text-sm>Community</sup>
-
-<Repo name="antfu/eslint-typegen" op50 />
-
-<v-clicks>
-
-![](/eslint-typegen.png){.w-200.rounded-lg.shadow.border.border-main}
-
-</v-clicks>
-
-<!--
-And then, thanks to the flexibility and also the full context available in the flat config, it also make the type generation possible. [click]
-
-Simply wrap the entire config array you exported with the typegen function, it will generate a local .d.ts file based on all the plugins you have installed. This provides you with autocomplete and typechecks for all the rules are you using.
 -->
 
 ---
 layout: fact
 ---
 
-# One for All{.important-text-3em}
-One config for all projects
+# Web Developer{.important-text-3em}
+
+<h3 relative v-click><span op50>Become a real </span><span text-lime font-hand text-4xl v-mark.underline.lime.delay400="1">developer</span></h3>
 
 <!--
-So here, I'd like to bring back the title - One for All.
+如何成为一个web开发者？（开放式话题）
 
-With the maximized flexibility and customizability - it's now possible to have a single shared config that covers all different types of projects.
+除了掌握上述的基本知识点以外，还需要
+
+- 开发环境搭建（云内），IDE及配套离线插件、制品npm库
+- 项目工程初始化，存量脚手架、自定义模版
+- 功能开发，理解一个正常需求
+- 测试环境接口调试（系统服务、eaip服务），多数系统的难点（做好异常处理、版本降级管理）
+- 功能测试（移动端应用的同学应该进场掉头发，机型问题兼容）
+- 构建打包（确认分支，屏蔽测试数据、审核环境变量标识、关闭调试工具）
+- 生产环境部署 (激动的心，颤抖的手)
+
+现阶段行里的前端基础建设还处于起步阶段，研发阶段的多个环节缺失标准规范指引，同一个团队里仅eslint的配置可以多达3-4套，多数A类研发同学身兼数职，无暇顾及厂商人员的编码实现细节。
+
+就以我们项目组的建设来看，推荐储备自有研发资源，逐步清理厂商资源，如人力紧张的情况下，建议通用型组件、工具库、核心逻辑由A类人员完成编码实现，保证对代码掌控度，配套的纯页面逻辑交由厂商完成。
+
+逐步建立前端工程化体系，如
+- 工程化技术组（专精构建工具研发与适配）
+- 通用工具库技术组（web\mobile\pad等多端UI组件库、微前端建设、指标监控埋点工具等）
+- 可视化技术组（图表、报表、驾驶舱）
+- 性能技术组（专精应用上线后的性能检测、优化）
 -->
 
 ---
-
-<div grid="~ cols-2 gap-8">
-
-<div flex="~ col gap-2">
-
-### Legacy Config
-
-```json {*|3-7|*|10-14|*}{at:1}
-{
-  "extends": [
-    "@antfu/eslint-config",
-    "@antfu/eslint-config-ts",
-    "@antfu/eslint-config-vue",
-    "@antfu/eslint-config-vue-ts"
-    // ...provide every combination?
-  ],
-  "rules": {
-    // ...a lot overrides
-    "indent": ["error", 4],
-    "@typescript-eslint/indent": ["error", 4],
-    "jsx-indent": ["error", 4],
-    "vue/indent": ["error", 4]
-  }
-}
-```
-
-</div>
-<div flex="~ col gap-2">
-
-### Flat Config
-
-```ts {*|4-5|*|6-8|*}{at:1}
-import antfu from '@antfu/eslint-config'
-
-export default antfu({
-  vue: true,
-  typescript: true,
-  stylistic: {
-    indent: 4
-  }
-  // ...
-})
-```
-
-<div flex="~ col gap-2" mt-3>
-
-<div v-click class="slidev-vclick-target" :class="$clicks === 1 ? 'text-green' : ''">
-  <div i-ph-check-circle-duotone text-green inline-block translate-y-2px />
-Shared configs can take user options.
-</div>
-
-<div v-click class="slidev-vclick-target" :class="$clicks === 2 ? 'text-green' : ''">
-  <div i-ph-check-circle-duotone text-green inline-block translate-y-2px />
-One single config, adapts to all projects.
-</div>
-
-<div v-click class="slidev-vclick-target" :class="$clicks === 3 ? 'text-green' : ''" >
-  <div i-ph-check-circle-duotone text-green inline-block translate-y-2px />
-  <span v-mark.green.delay400="5">
-    Minimal configures as Prettier.
-  </span>
-</div>
-
-<div v-click class="slidev-vclick-target">
-  <div i-ph-check-circle-duotone text-green inline-block translate-y-2px />
-  <span v-mark.green.delay400="5">
-    Powerful and customizable as ESLint.
-  </span>
-</div>
-
-</div>
-</div>
-
-</div>
-
-<!--
-Here we can do a quick comparison to show what I mean.
-
-[click] In the new flat config, a shared config can be a factory function that takes user options, which we couldn't do in the legacy config. Imagine if I want my config to work in both TypeScript and non-TypeScript projects, Vue and non-Vue projects, I will need to do a monorepo to publish configs for different combinations. As you can see, it doesn't scale well, we are doubling the amount of combinations for each option.
-
-[click] The flat config allows you to provide semantic options to toggle each feature dynamically. Making one single config able to adapt to different projects.
-
-[click] Because of that, we could also have high-level abstraction to absorb the underlying complexity, and provide a minimal configuration interface like Prettier, where end users don't even need to worry about the underlying details, [click] but still have all the control to do so when they really want to.
--->
-
+glow: bottom
 ---
 
-# Project-aware Configs
+# Coding in Cib
 
-<div text-gray flex="~ items-center gap-1" v-click>
-Example: <div i-logos-nuxt-icon inline-block /> Nuxt ESLint
-</div>
-
-<div grid="~ cols-2 gap-4" h="80%">
-<div
-  v-click="1"
-  flex="~ col gap-2 items-center justify-center"
-  transition duration-500
-  :class="$clicks < 2 ? 'scale-130 translate-x-55' : ''"
->
-  <img src="/nuxt-eslint.png" w-90 rounded-lg shadow border="~ main" />
-  <a href="https://eslint.nuxt.com" text-sm>eslint.nuxt.com</a>
-</div>
-
-<div flex="~ col items-center justify-center" forward:delay-500 pb-10 v-click>
-
-```ts
-// Generated by Nuxt based on your project
-import withNuxt from './.nuxt/eslint.config.mjs'
-
-export default withNuxt(
-  // your custom config goes here
-)
-```
-
-</div>
-</div>
-
-<!--
-Flat config also makes it possible for meta-frameworks to provide project-aware configs.
-
-[click] For example, in Nuxt, we have file-based routing, auto-imported components, server API directories, etc. Files under different folders or different names might have different purposes and different constraints.
-
-So in Nuxt we had the Nuxt ESLint module [click] that generates a sub ESLint config file based on the user's project setup. Where users can extend from and keep adding their custom rules.
-
-This is just one direction of the possibilities with flat config we are currently exploring, but we believe there would be many more interesting approaches coming from the community.
--->
-
----
-layout: fact
----
-
-# ESLint is More than a Linter{.important-text-3em}
-Mature and powerful AST Toolkit
-
-<!--
-Another topic I'd like to bring up today, is the fact that ESLint is much more than a Linter.
-
-To me, I see ESLint as a mature and powerful AST Toolkit that has a large ecosystem on its back.
--->
-
----
-
-# <span op50>ESLint can be a...</span> <b v-click font-800>Formatter</b>
-
-<div grid="~ cols-2 gap-4" h="80%">
-<div flex="~ col items-center justify-center">
-  <img src="/eslint-stylistic.png" w-80 v-click />
-
-  <div op75 text-lg v-click>
-    Collection of stylistic ESLint rules.<br>Formatting and linting in one go.
+<div grid="~ cols-3 gap-2" py4>
+  <div v-click flex="~ col gap-1" p4 rounded bg-violet:15 text-violet1>
+    <div text-2xl i-ph-gift-duotone text-violet mb2 />
+    <div>Environment</div>
+    <div text-xs op50>Environmental preparation</div>
   </div>
 
-  <a href="https://eslint.style" text-sm v-click>eslint.style</a>
+  <div v-click flex="~ col gap-1" p4 rounded bg-orange:15 text-orange1>
+    <div text-2xl i-ph-target-duotone text-orange mb2 />
+    <div>initial</div>
+    <div text-xs op50>Project initialization</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-rose:15 text-rose1>
+    <div text-2xl i-ph-hand-heart-duotone text-rose mb2 />
+    <div>Requirements</div>
+    <div text-xs op50>Deep understanding</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-green:15 text-green1>
+    <div text-2xl i-ph-hand-waving-duotone text-green mb2 />
+    <div>Third Party</div>
+    <div text-xs op50>Related systems</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-blue:15 text-blue1>
+    <div text-2xl i-ph-users-three-duotone text-blue mb2 />
+    <div>Building</div>
+    <div text-xs op50>The Core of Open Source is Community</div>
+  </div>
 </div>
 
-<div flex="~ col items-center justify-center" v-click>
+<div absolute bottom-10 v-click>
+<div op75 mb1>Recommendations </div>
 
-<div flex="~ gap-2 items-center">
-  Configs in <div i-logos-visual-studio-code inline-block /> VS Code
-</div>
-
-```json
-{
-  // Auto fix on save
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-
-  // Silent the stylistic rules in you IDE,
-  // but still auto fix them
-  "eslint.rules.customizations": [
-    { "rule": "@stylistic/*", "severity": "off" }
-  ]
-}
-```
-
-</div>
-</div>
-
-<!--
-I want to say that ESLint can also be a [click] Formatter.
-
-This is certainly not new, as many projects have been using ESLint that way since the very beginning.
-
-While this topic is actually a bit controversial, which you might hear people saying you should use a dedicated formatter like Prettier or dprint. To me, I see this all down to that those stylistic rules for ESLint take a lot of maintenance effort. Last year, ESLint and the TypeScript ESLint teams decided to deprecate those stylistic rules from the core. [click] And then, I initiated the ESLint Stylistic project, [click] gathering all those stylistic rules for JS, TS, and JSX into [click] this organization and making a community keep maintaining them. I keep using ESLint as formatter as I see it much more flexible and customizable than Prettier due to ESLint's nature.
-
-[click] If you are using VS Code, you can see `editor.codeActionOnSave` to auto-fix eslint errors on save. And use `eslint.rules.customizations` to silent stylistic rules in your IDE so they work more like a formatter. For other code editors, I believe there are similar configs for doing the same.
--->
-
----
-
-# <span op50>ESLint can be a...</span> <b v-click font-800>Codemod</b>
-
-<div v-click>
-
-<repo name="antfu/eslint-plugin-command" />
-
-<video src="/eslint-plugin-command-half.mov" mt-4 w-130 saturate-110 rounded shadow border="~ main" controls />
+- [The open source ](https://github.com/)<span op50 text-sm> - Github</span>
+- [MDN](https://developer.mozilla.org/en-US/)<span op50 text-sm> - Mozilla</span>
 
 </div>
 
 <!--
-One ESLint rule is essential a function that takes the code and AST, reporting errors with optional fix information.
+我想，大家都有各自参与开源的动机与目标。也许是为了提升自己的能力，也许更实际一点，是为了更好的工作机会，也可能单纯只是想要让这个世界变得更好，等等。开源是一个多元的社区，这些都是很正常的动机。但不同的动机也许会导致对开源有不同的期待。这里我想要讲的是，调整好对于开源的期待，可以让我们更好的融入这个社区，也让我们更好的享受开源的乐趣。
 
-This means that ESLint can also be a nice tool for [click] codemod.
+[click] 我会把开源项目想成是一种礼物。当我们在使用他人的开源项目的时候，就像是你收到了一顿来自陌生人的免费午餐。而当我们在贡献开源的时候，就像是你在送出一份礼物，一份你的心意。[click] 当你送出礼物的时候，很多时候你也许会收到回礼，但是互惠并不应该是你最初送出礼物的目的。[click] 对我而言，开源的过程本身就是我的目的，我享受分享和一起与他人解决问题的过程。当你不再关注在回报上时，你会更加享受这个过程，而长期来看，也许你会得到更多，就像是今天我能够有幸站在这里和大家分享的想法也都是感谢开源提供给我的机会。[click] 开源不只是关于代码，它是一个社区，是一种文化，是一种精神。[click] 当你融入这个社区，你会认识一群慷慨的、互相帮助的人。大家会感谢你做出的贡献，同时你也会收到很多人的感谢与帮助。我认为这种互助的是开源的核心所在。
 
-For example, [click] I made `eslint-plugin-command` to do on-demand micro-codemod.
-
-As you can see in the video, we could put a magic comment saying `to-function` right above an arrow function. Upon saving, the arrow function will be automatically converted into the function declaration, without you to manually move things around.
-
-Similarly, we can also sort an object or array with `keep-sorted`, make sure an array is unique with `keep-unique`... etc.
-
-If you learn a little bit about AST, it shouldn't be hard to write your one-off codemod rules to migrate your codebase as well.
--->
-
----
-
-# <span op50>ESLint can be a...</span> <b v-click font-800>Linter for other Languages</b>
-
-<div scale-75 origin-left-top mb--28 mt--3 class="[&_td]:py1 [&_table]:w-130%" v-click="2">
-<v-clicks>
-
-| Language | Plugin | Maintainers |
-| --- | --- | --- |
-| <span i-logos-typescript-icon inline-block align-middle /> TypeScript | [`@typescript-eslint`](https://typescript-eslint.io) | {@typescript-eslint} {@bradzacher} {@JoshuaKGoldberg} |
-| <span i-logos-vue inline-block align-middle /> Vue | [`eslint-plugin-vue`](https://github.com/vuejs/eslint-plugin-vue) | {@ota-meshi} {@vuejs} |
-| <span i-logos-svelte-icon inline-block align-middle /> Svelte | [`eslint-plugin-svelte`](https://github.com/sveltejs/eslint-plugin-svelte) | {@ota-meshi} {@sveltejs} |
-| <span i-logos-astro-icon invert hue-rotate-180 inline-block align-middle /> Astro | [`eslint-plugin-astro`](https://github.com/ota-meshi/eslint-plugin-astro) | {@ota-meshi} |
-| <span i-logos-json invert inline-block align-middle /> JSON | [`eslint-plugin-jsonc`](https://github.com/ota-meshi/eslint-plugin-jsonc) | {@ota-meshi} |
-| <span i-vscode-icons-file-type-light-yaml inline-block align-middle /> YAML | [`eslint-plugin-yml`](https://github.com/ota-meshi/eslint-plugin-yaml) | {@ota-meshi} |
-| <span i-logos-toml invert hue-rotate-180 inline-block align-middle /> TOML | [`eslint-plugin-toml`](https://github.com/ota-meshi/eslint-plugin-toml) | {@ota-meshi} |
-| <span i-logos-graphql inline-block align-middle /> GraphQL | [`graphql-eslint`](https://github.com/dimaMachina/graphql-eslint) | {@dimaMachina} |
-| <span i-vscode-icons-file-type-html inline-block align-middle /> HTML | [`html-eslint`](https://github.com/yeonjuan/html-eslint) | {@yeonjuan} |
-| <span i-vscode-icons-file-type-mdx inline-block align-middle /> MDX | [`eslint-mdx`](https://github.com/mdx-js/eslint-mdx) | {@JounQin} |
-| <span i-logos-prettier inline-block align-middle /> Other formats* | [`eslint-plugin-format`](https://github.com/antfu/eslint-plugin-format) | {@antfu} |
-
-</v-clicks>
-</div>
-<v-click>
-
-[ESLint RFC #99 - ESLint Language Plugins](https://github.com/eslint/rfcs/blob/main/designs/2022-languages/README.md)
-
-</v-click>
-
-<!--
-And finally, I'd like to mention that ESLint can also [click] lint for many other languages other than JavaScript.
-
-[click] For example, we know we have `@typescript-eslint` to make ESLint understand TypeScript.
-
-[click] We have `eslint-plugin-vue` for Vue Single file component, [click] `eslint-plugin-svelte` for Svelte component [click] and `eslint-plugin-astro` for Astro.
-
-[click] We could also have `eslint-plugin-jsonc` to lint JSON files. Which could be very handle to be used to sort certain field in certain JSON files. For example, I use it to keep my dependencies list in my `package.json` always sorted.
-
-[click] Similarly, we have the support for YAML and [click] TOML files. As you can see, many of those plugins are maintained by Ota Meshi - he is truly amazing!
-
-[click] Then we have `graphql-eslint` for GraphQL by Dima, [click] `html-eslint` for HTML by Yeon Juan [click], and `eslint-mdx` by Joun Qin.
-
-[click] I also made a `eslint-plugin-format` to use Prettier or dprint to format files like CSS that are not yet have an ESLint integration.
-
-That's only a few I could list here. [click] You can also check the ESLint's RFC #99, where they are trying to make ESLint more language agnostic to support the linting for more languages easier.
--->
-
----
-disabled: true
----
-
-# <span op50>ESLint can be a...</span> <b v-click font-800>AST Toolkit</b>
-
----
-layout: fact
----
-
-# One for All{.important-text-3em}
-
-One config for all projects<br>
-One tool for _everything*_
-
-<!--
-To summarize today's topic, I'd like to say that ESLint makes it possible to be One for All in two aspects. That you can have one config for all projects, and then one tool for everything related to code checking and modifications.
--->
-
----
-class: "grid grid-cols-[1fr_1fr] p0 h-full"
-clicks: 1
-glow: left
----
-
-<div p4 flex="~ col gap-1 items-center justify-center" transition duration-500 :class="$clicks >= 1 ? '' : 'translate-x-65'">
-
-<div mt-4 />
-
-<Repo name="antfu/eslint-config" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-carbon-star-filled text="[0.8em]" /> 4.1k</span>
-
-</div>
-
-<div
-  bg-hex-5552 p8 border="l main" transition duration-500
-  :class="$clicks >= 1 ? '' : 'translate-x-100%'"
->
-<div scale-70 origin-left-top w-160 mb--100 mr--40>
-
-# @antfu/eslint-config
-
-<div mb-10>
-
-[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
-
-</div>
-
-## Quick Start
-
-<div mt-2 />
-
-```bash
-npx @antfu/eslint-config@latest
-```
-
-<div mt-6 />
-
-## Features
-
-<div mt-2 />
-
-- Auto fix for formatting <sup>aimed to be used standalone **without** Prettier</sup>
-- Reasonable defaults, best practices, only one line of config
-- Work with TypeScript, JSX, Vue, JSON, YAML, Toml, Markdown, Out-of-box.
-- Opinionated, but very customizable
-- ESLint Flat config, compose easily!
-- Optional React, Svelte, UnoCSS, Astro, Solid support
-- Optional formatters support for formatting CSS, HTML, XML, etc.
-- **Style principle**: Minimal for reading, stable for diff, consistent
-  - Sorted imports, dangling commas
-  - Single quotes, no semi
-  - Using ESLint Stylistic
-- Respects `.gitignore` by default
-- Supports ESLint v9.0+ or v8.50.0+
-
-</div>
-</div>
-
-<!--
-If you want to learn more, you can check my personal ESLint config, where I used all the tricks I mentioned today.
-
-I am honestly a bit flattered to see that even tho I didn't intend to have this config used by the others, it ends up being quite popular to have 3 thousand stars and over 30 thousand projects using it on GitHub.
-
-[click] I wasn't trying to make you use my config, but hopefully, it can be a good reference for you to build your own shared config that is both powerful and flexible.
+[click] 如果对于这个话题有更深入的兴趣，我推荐你阅读这几篇文章。幻灯片的 PDF 可以在我的网站上找到。
 -->
 
 ---
@@ -2292,8 +1863,8 @@ glowY: 120
 
 # Thank you!
 
-Slides on [antfu.me](https://antfu.me)
+Presentation Slides by [Slidev](https://sli.dev)
 
 <!--
-That's all for my talk today. You can find the slides on my website antfu.me. Thank you so much!
+感谢各位同学参加今天的前端基础技术课程，可以到成都会展场地技术服务中心找到我。再次感谢！
 -->
