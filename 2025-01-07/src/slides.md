@@ -429,6 +429,7 @@ glow: left
   font-size: 14px;
   color: green;
 }
+
 ```
 
 <div mt-6 />
@@ -510,6 +511,7 @@ h1 {
 div {
   color: red !important;
 }
+
 ```
 
 <div mt-6 />
@@ -976,6 +978,7 @@ CSS Grid 使得在网页上创建复杂的布局变得简单，并且比传统�
     width: 100%; /* less than 480px */
   }
 }
+
 ```
 
 </div>
@@ -1848,7 +1851,7 @@ glow: bottom
   <div v-click flex="~ col gap-1" p4 rounded bg-blue:15 text-blue1>
     <div text-2xl i-ph-users-three-duotone text-blue mb2 />
     <div>Building</div>
-    <div text-xs op50>The Core of Open Source is Community</div>
+    <div text-xs op50>Package and build applications</div>
   </div>
 </div>
 
