@@ -163,8 +163,8 @@ glow: bottom
 
 - `HTML2` released as IETF RFC 1866
 - `HTML3` fully developed and standardized by W3C
-- `HTML4` is released
-- `HTML5` is released
+- `HTML4` published as a W3C Recommendation
+- `HTML5` published as a W3C Recommendation
 
 </v-clicks>
 
