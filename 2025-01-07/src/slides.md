@@ -159,10 +159,10 @@ glow: bottom
 
 <v-clicks>
 
-- HTML `2.0` released as IETF RFC 1866
-- HTML `3.0` fully developed and standardized by W3C
-- HTML `4.0` is released
-- HTML `5.0` is released
+- `HTML2` released as IETF RFC 1866
+- `HTML3` fully developed and standardized by W3C
+- `HTML4` is released
+- `HTML5` is released
 
 </v-clicks>
 
@@ -429,7 +429,6 @@ glow: left
   font-size: 14px;
   color: green;
 }
-
 ```
 
 <div mt-6 />
@@ -511,7 +510,6 @@ h1 {
 div {
   color: red !important;
 }
-
 ```
 
 <div mt-6 />
@@ -978,7 +976,6 @@ CSS Grid 使得在网页上创建复杂的布局变得简单，并且比传统�
     width: 100%; /* less than 480px */
   }
 }
-
 ```
 
 </div>
