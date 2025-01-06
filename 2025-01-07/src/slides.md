@@ -1924,7 +1924,7 @@ glowY: 120
 
 # Thank you!
 
-Presentation Slides by [Slidev](https://sli.dev)
+Presentation Slides by @891034
 
 <!--
 本次课程的内容到这里就全部完成了，感谢各位同学参加今天的前端基础技术课程，我是技术服务中心的余自立，期待与各位同学成都再见。再次感谢！
