@@ -1768,7 +1768,7 @@ glow: left
 
 <div w="40%">
 
-## Building Tools <sup text-purple bg-purple:15 px1.5 rounded text-sm>Official</sup>
+## Build Tools <sup text-purple bg-purple:15 px1.5 rounded text-sm>Official</sup>
 
 <div mt-2 />
 
