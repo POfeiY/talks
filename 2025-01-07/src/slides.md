@@ -433,7 +433,7 @@ glow: left
 
 <div mt-2 />
 
-```css {2|1-3|*}{at:2}
+```css {2|1-4|*}{at:2}
 .selector {
   position: relative;
   color: red;
@@ -507,7 +507,7 @@ glow: left
 
 <div mt-2 />
 
-```css {2|1-3|*}{at:2}
+```css {2|1-4|*}{at:2}
 p,
 h1 {
   color: green;
@@ -712,6 +712,8 @@ glow: left
 [click]内边距区域（padding area）由内边距边界限制，扩展自内容区域，负责延伸内容区域的背景，填充元素中内容与边框的间距。它的尺寸是 padding-box 宽度 和 padding-box 高度。
 
 [click]边框区域（border area）由边框边界限制，扩展自内边距区域，是容纳边框的区域。其尺寸为 border-box 宽度和 border-box 高度。
+
+[click]外边距区域（margin area）由边框开始向外延伸的间隙
 -->
 
 ---
@@ -1265,7 +1267,7 @@ const person = {
 [click] 整型 整数或浮点数
 [click] 布尔
 [click] undefined 未定义值
-[click] null 表示控值的关键字
+[click] null 表示空值的关键字
 [click] Symbol 唯一且不可变的数据类型
 [click] BigInt 任意精度的整数
 [click] Object
@@ -1766,7 +1768,7 @@ glow: left
 
 <div w="40%">
 
-## FED Frameworks <sup text-purple bg-purple:15 px1.5 rounded text-sm>Official</sup>
+## Building Tools <sup text-purple bg-purple:15 px1.5 rounded text-sm>Official</sup>
 
 <div mt-2 />
 
