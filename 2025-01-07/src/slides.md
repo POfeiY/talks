@@ -386,7 +386,7 @@ CSS（层叠样式表）用于设置网页的样式及布局——比如，可�
 
 [click]CSS3的核心基础有：
 
-[click] 1、语言语法，结构形式，其基本目标是让浏览器以指定的特性去绘制页面元素，比如颜色、定位、装饰。CSS 的语法反映了这个目标，由下面两个部分构建：属性（一个可读名称的标识符） & 值（描述浏览器渲染引擎如何处理改特性）
+[click] 1、语言语法，结构形式，其基本目标是让浏览器以指定的特性去绘制页面元素，比如颜色、定位、装饰。CSS 的语法反映了这个目标，由下面两个部分构建：属性（一个可读名称的标识符） & 值（描述浏览器渲染引擎如何处理该特性）
 
 [click] 2、继承特性、层叠特性
 [click] 3、选择器
@@ -464,7 +464,7 @@ glow: left
 </div>
 
 <!--
-层叠样式表（Cascading Stylesheet，简称 CSS），其基本目标是让浏览器以指定的特性去绘制页面元素，比如颜色、定位、装饰。CSS 的语法反映了这个目标，由下面两个部分构建：属性与值
+层叠样式表其基本目标是让浏览器以指定的特性去绘制页面元素，比如颜色、定位、装饰。CSS 的语法反映了这个目标，由下面两个部分构建：属性与值
 
 [click] 样式声明：CSS 的核心功能是将 CSS 属性设定为特定的值。一个属性与值的键值对被称为“声明”（declaration） 。浏览器的渲染引擎会计算页面上每个元素都有哪些声明，并且会根据结果绘制元素，排布样式。在 CSS 中，无论是属性名还是属性值都是对大小写不敏感的。属性与值之间以英文冒号隔开。属性与值前面、后面与两者之间的空白不是必需的，会被自动忽略。
 
@@ -623,9 +623,9 @@ div:first-child
 - className selector
 - id selector
 - attr selector
-- Grouping selector
+- grouping selector
 - combinator selector
-- Pseudo selector
+- pseudo selector
 
 </v-clicks>
 
@@ -769,7 +769,7 @@ glow: left
 
 <div mt-4 />
 
-<CssModule name="CSS3/Flexible box" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-material-symbols-align-justify-flex-start text="[0.8em]" /></span>
+<CssModule name="CSS3/Flexible Box" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-material-symbols-align-justify-flex-start text="[0.8em]" /></span>
 
 </div>
 
@@ -880,7 +880,7 @@ glow: left
 
 <div mt-4 />
 
-<CssModule name="CSS3/Responsive design" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-mdi-responsive text="[0.8em]" /></span>
+<CssModule name="CSS3/Responsive Design" /> <span flex="~ inline gap-0.5 items-center" text-amber bg-amber:15 px1 rounded text-xs><div i-mdi-responsive text="[0.8em]" /></span>
 
 </div>
 
@@ -1041,7 +1041,6 @@ The approach to CSS architecture
 - unocss  具有高性能且极具灵活性的即时原子化 CSS 引擎
 跳过解析，不使用AST
 从内部实现上看，Tailwind 依赖于 PostCSS 的 AST 进行修改，而 Windi 则是编写了一个自定义解析器和 AST。考虑到在开发过程中，这些工具 CSS 的并不经常变化，UnoCSS 通过非常高效的字符串拼接来直接生成对应的 CSS 而非引入整个编译过程。同时，UnoCSS 对类名和生成的 CSS 字符串进行了缓存，当再次遇到相同的实用工具类时，它可以绕过整个匹配和生成的过程。
-
 
 这里我们简单讲解下tailwindcss和unocss
 -->
