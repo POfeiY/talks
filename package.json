@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "update": "esno scripts/redirects.ts"
   },
+  "dependencies": {
+    "@vueuse/core": "^12.2.0"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
     "@eslint/config-inspector": "catalog:",
@@ -46,8 +49,5 @@
     "vis-network": "catalog:",
     "vue-router": "catalog:",
     "vue-tsc": "catalog:"
-  },
-  "dependencies": {
-    "@vueuse/core": "^12.2.0"
   }
 }
