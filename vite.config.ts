@@ -45,6 +45,7 @@ export default defineConfig({
             'Vercel': { link: 'https://vercel.com', imageUrl: 'https://github.com/vercel.png' },
             'CloudAlbum': 'https://github.com/unplugin',
             'FormCreater': 'https://github.com/unplugin',
+            'Backlogs': 'https://github.com/unplugin',
             'Schedule': 'https://github.com/unplugin',
             'xzh-jssdk': 'https://github.com/unplugin',
             'invoker': 'https://github.com/unplugin',
