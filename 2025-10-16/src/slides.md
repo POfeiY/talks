@@ -64,21 +64,139 @@ class: text-center
   </div>
 </div>
 
+<!--
+#### 未来 - MCP：AI世界的“普通话”**
+
+**(讲者台词)**
+
+“现在每个模型、每个框架，它们定义和调用工具的方式都不一样，就像是各种‘方言’。我为GPT写的工具，给Claude用可能就得改。这极大地阻碍了工具的复用和生态的发展。”
+
+“为了解决这个问题，**Model Context Protocol (MCP)** 应运而生。它的目标，就是成为AI工具领域的‘**普通话**’，或者说是‘**USB-C接口**’。”
+
+在进入正题前，我们先来回顾或者了解下有关大模型的一些基础知识
+-->
+
+---
+layout: center
+---
+
+<h1 important-text-5xl font-serif>AI & Developer</h1>
+
+<!--
+#### **幻灯片 2: 开场 - AI浪潮下的开发者新机遇**
+
+*   **内容**: 一张左边是`console.log("Hello, World!");`代码，右边是AI对话截图的对比图。
+
+-->
+
 ---
 layout: center
 glowOpacity: 0
 ---
 
-<img src="/vite-plus.png" w-280 mix-blend-lighten>
+<img src="/chatbot.jpg" w-280 mix-blend-lighten>
 
 <!--
-You might have already heard about the Vite Plus plan, which aims to provide a unified toolchain for the JavaScript ecosystem.
+**(讲者台词)**
 
-Starting from Vite, we're building Rolldown and the underlying Oxc, which will provide fast and more consistent linting, formatting, bundling, and minification.
+“我们先来看一张图。`Hello, World!`，可以说是我们每个程序员梦开始的地方。它代表了过去几十年里，我们与机器沟通的方式：精确、具体、一行一行地告诉它做什么。”
 
-On top of Vite, we'll also integrate Vitest as part of the Vite Plus ecosystem for testing on both Node.js and browser environments.
+“而我们现在越来越熟悉的AI对话。我们用自然语言，模糊地、甚至带点感情地跟它交流，它就能理解我们的意图。这不仅仅是交互方式的改变，它预示着一个全新的软件开发范式正在到来。”
 
-With such an ambitious roadmap, we also want to provide UI devtools for better visualization and analysis experiences. This is where Vite DevTools comes into play.
+#### **幻灯片 3: 为什么是现在？**
+
+*   **内容**: 三个图标，分别代表“模型能力增强”、“社区活跃”、“工具链成熟”。
+
+**(讲者台词)**
+
+“可能有人会问，AI喊了这么多年，为什么现在是开发者入局的最佳时机？”
+
+“首先，**模型能力**出现了质的飞跃。像GPT-4、Claude 3这些模型，它们的理解和推理能力已经强大到可以作为我们日常开发的得力助手。”
+
+“其次，**社区空前活跃**。无论你遇到什么问题，几乎都能在开源社区找到答案、工具或者灵感。”
+
+“最后，也是最重要的，**工具链越来越成熟**。我们不再需要从零开始研究算法，而是可以像搭乐高一样，利用现成的工具快速构建出强大的AI应用。”
+
+“所以，今天分享的目标很简单：带大家了解当前最主流的几种AI应用开发模式，让你能亲手把一个‘聪明的聊天机器人’，升级成一个能解决实际问题的‘智能助手’。我们不谈复杂的数学，只谈实践。”
+
+**(切换PPT)**
+-->
+
+---
+layout: center
+---
+
+<h1 important-text-5xl font-serif>LLM</h1>
+
+<!--
+#### **幻灯片 4: 核心引擎 - 重新认识我们的大语言模型 (LLM)**
+
+*   **内容**: 一个大脑的图标，周围环绕着“文本生成”、“知识问答”、“内容总结”、“语言翻译”等关键词。
+
+**(讲者台词)**
+
+“好，让我们从核心开始——大语言模型，也就是LLM。大家可以把它想象成一个**超级‘文本续写’引擎**。”
+
+“你给它任何一段文字，它都能根据自己从海量数据中学到的‘知识’，预测出最可能接在后面的内容。我们平时用到的文本生成、问答、总结、翻译，本质上都是这个核心能力的延伸。”
+
+“为了让大家有个更直观的感受，我们来看一下市面上几个主流模型的对比。”
+
+**(切换PPT)**
+-->
+
+---
+layout: center
+glowOpacity: 0
+---
+
+<img src="/llm-benchmark.png" w-280 mix-blend-lighten>
+
+<!--
+“这张表对比了三个目前最顶尖的模型：OpenAI的GPT-4o，Anthropic的Claude 3 Opus，以及Meta的开源模型Llama 3。”
+
+| 特性 | GPT-4o (OpenAI) | Claude 3 Opus (Anthropic) | Llama 3 70B (Meta) |
+| :--- | :--- | :--- | :--- |
+| **上下文窗口** | 128K tokens | **200K tokens** | 8K tokens |
+| **核心优势** | 综合能力强，多模态 | **长文本处理**，逻辑推理 | 开源，可本地部署 |
+| **函数调用** | **原生支持，功能强大** | 原生支持，持续优化中 | 社区方案，需额外实现 |
+| **响应速度** | **非常快** | 较快 | 快（取决于硬件） |
+| **成本** | 中等（$） | 较高（$$） | 硬件成本（$$$） |
+
+“大家注意几个关键点：”
+“**上下文窗口**：这决定了我们一次能给模型‘喂’多少信息。Claude 3 Opus在这方面是王者，200K的窗口意味着它可以一次性读完一本中篇小说，这对RAG应用尤其重要。”
+“**函数调用**：GPT系列在这方面起步最早，支持最完善，是我们今天讲的Function Calling模式的首选。其他模型也都在快速跟上。”
+“**成本与开源**：Llama 3是开源的，意味着你可以在自己的服务器上部署，保证数据私密性，但需要承担硬件和维护成本。而GPT和Claude则提供了按量付费的API，开箱即用。”
+
+“总的来说，没有‘最好’的模型，只有‘最合适’的模型。技术选型时，我们需要根据应用场景、预算和对数据隐私的要求来综合判断。”
+-->
+
+---
+class: important-p0
+---
+
+<div flex="~ gap-2 items-center" h-full>
+<img src="/vd/folders.png" w-180 />
+<div flex="~ col gap-2 justify-center">
+
+# RAG
+
+Retrieval-Augmented Generation
+
+</div>
+</div>
+
+<!--
+#### **幻灯片 7: 模式一 - RAG：给模型一本“开卷考试”的书**
+
+*   **内容**: 一个流程图：用户问题 -> [**检索器** 在知识库里查找] -> [**生成器** 参考资料回答] -> 最终答案。
+
+**(讲者台词)**
+
+“我们先解决‘事实局限’，如何让模型基于我们公司的内部知识来回答问题？”
+
+“答案就是**RAG**，让模型‘**开卷考试**’。我们不要求模型‘背’下所有内部文档，而是当用户提问时，先去我们的‘资料库’里查找相关原文，然后把问题和资料一起交给模型，让它参考作答。”
+
+“这样，模型回答的内容就会严格基于我们提供的资料，大大减少了‘幻觉’。”
 -->
 
 ---
@@ -86,12 +204,10 @@ zoom: 1.6
 ---
 
 <div flex="~ col gap-2">
-<pre class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">vite</span> <span op75>dev</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
-<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">vite</span> <span op75>build</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
-<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">vite</span> <span op75>test</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
-<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">vite</span> <span op75>lint</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
-<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">vite</span> <span op75>format</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
-<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">vite</span> <span op75>lib</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
+<pre class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">RAG</span> <span op75>dev</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
+<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">Function Calling</span> <span op75>build</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
+<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">Agent</span> <span op75>test</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
+
 </div>
 
 <!--
@@ -105,9 +221,6 @@ We know that we have the CLI `vite dev` for the dev server and `vite build` for 
 
 [click] And then we might have `vite lib` for building libraries, built on top of `tsdown` and Rolldown.
 
-[click] And so on. As we mentioned, the goal is to provide a single unified toolchain with incredible performance for the JavaScript ecosystem.
-
-[click] Regarding Vite DevTools, it will be presented as a CLI flag `--ui` for all subcommands, showing the UI interface for each operation and helping you understand the internals better.
 -->
 
 ---
