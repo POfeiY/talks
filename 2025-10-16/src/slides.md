@@ -77,97 +77,87 @@ class: text-center
 -->
 
 ---
-layout: center
+class: p0
+glow: bottom
 ---
 
-<h1 important-text-5xl font-serif>AI & Developer</h1>
+<div class="grid grid-cols-[3fr_4fr] gap-4 h-full">
+
+  <div ma flex="~ col gap-2 items-center">
+    <img src="/dark.svg" w-80 />
+    <div text-orange text-sm bg-orange:10 px2 rounded>Progress</div>
+  </div>
+
+  <div border="l main" h-full py10 flex="~ col gap-6 justify-center">
+    <div flex="~ gap-2" relative v-click>
+      <div i-material-symbols:check-circle text-green text-3xl ml--4.5 flex-none />
+      <div flex="~ col gap-1">
+        <div text-xl>What is MCP</div>
+        <div op65 text-sm>
+          USB-C ports for AI applications
+        </div>
+      </div>
+    </div>
+    <div flex="~ gap-2" relative v-click>
+      <div i-material-symbols:check-circle text-green text-3xl ml--4.5 flex-none />
+      <div flex="~ col gap-1">
+        <div text-xl>Why we need</div>
+        <div op65 text-sm>
+          Evolution from "toy" to "tool"
+        </div>
+      </div>
+    </div>
+    <div flex="~ gap-2" relative v-click>
+      <div i-material-symbols:build-circle text-orange text-3xl ml--4.5 flex-none />
+      <div flex="~ col gap-1">
+        <div text-xl>MCP Core</div>
+        <div op65 text-sm>
+          Host, Client & Server, etc.
+        </div>
+      </div>
+    </div>
+    <div flex="~ gap-2" relative v-click>
+      <div i-material-symbols:build-circle text-orange text-3xl ml--4.5 flex-none />
+      <div flex="~ col gap-1">
+        <div text-xl>Advanced code examples</div>
+        <div op65 text-sm>
+          How to create a MCP Server
+        </div>
+      </div>
+    </div>
+    <div flex="~ gap-2" relative v-click>
+      <div i-material-symbols:lightbulb-circle text-gray text-3xl ml--4.5 flex-none />
+      <div flex="~ col gap-1">
+        <div text-xl>The Future</div>
+        <div op65 text-sm>
+          Building the next-generation AI ecosystem together
+        </div>
+      </div>
+    </div>
+    <div flex="~ gap-2" relative v-click>
+      <div i-material-symbols:lightbulb-circle text-gray text-3xl ml--4.5 flex-none />
+      <div flex="~ col gap-1">
+        <div text-xl>Integrations</div>
+        <div op65 text-sm>
+          Collaborate with frameworks to unified the DevTools experience
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--
-#### **幻灯片 2: 开场 - AI浪潮下的开发者新机遇**
+The scope of Vite DevTools has become pretty big, and it's taking a bit longer than we expected.
 
-*   **内容**: 一张左边是`console.log("Hello, World!");`代码，右边是AI对话截图的对比图。
+So currently we have [click] implemented quite a few [click] visualizations, as we talked about before.
 
--->
+And then [click] we're continuing to work on having more insights for bundle analysis, which we're working closely with the Rolldown team on. [click] We have the DevTools Kit baseline working and already have some prototype of porting Nuxt DevTools to Vite DevTools working, but there's a lot of polishing that needs to be done and documentation to be written.
 
----
-layout: center
-glowOpacity: 0
----
+[click] Currently, the core UI of Vite DevTools is focusing on build mode only, and we're waiting for the Vite full bundle mode to roll out to support development mode.
 
-<img src="/chatbot.jpg" w-280 mix-blend-lighten>
+[click] And finally, in the long term, we want to work and collaborate with the ecosystem to bring the effort together and have everybody benefit from this system.
 
-<!--
-**(讲者台词)**
-
-“我们先来看一张图。`Hello, World!`，可以说是我们每个程序员梦开始的地方。它代表了过去几十年里，我们与机器沟通的方式：精确、具体、一行一行地告诉它做什么。”
-
-“而我们现在越来越熟悉的AI对话。我们用自然语言，模糊地、甚至带点感情地跟它交流，它就能理解我们的意图。这不仅仅是交互方式的改变，它预示着一个全新的软件开发范式正在到来。”
-
-#### **幻灯片 3: 为什么是现在？**
-
-*   **内容**: 三个图标，分别代表“模型能力增强”、“社区活跃”、“工具链成熟”。
-
-**(讲者台词)**
-
-“可能有人会问，AI喊了这么多年，为什么现在是开发者入局的最佳时机？”
-
-“首先，**模型能力**出现了质的飞跃。像GPT-4、Claude 3这些模型，它们的理解和推理能力已经强大到可以作为我们日常开发的得力助手。”
-
-“其次，**社区空前活跃**。无论你遇到什么问题，几乎都能在开源社区找到答案、工具或者灵感。”
-
-“最后，也是最重要的，**工具链越来越成熟**。我们不再需要从零开始研究算法，而是可以像搭乐高一样，利用现成的工具快速构建出强大的AI应用。”
-
-“所以，今天分享的目标很简单：带大家了解当前最主流的几种AI应用开发模式，让你能亲手把一个‘聪明的聊天机器人’，升级成一个能解决实际问题的‘智能助手’。我们不谈复杂的数学，只谈实践。”
-
-**(切换PPT)**
--->
-
----
-layout: center
----
-
-<h1 important-text-5xl font-serif>LLM</h1>
-
-<!--
-#### **幻灯片 4: 核心引擎 - 重新认识我们的大语言模型 (LLM)**
-
-*   **内容**: 一个大脑的图标，周围环绕着“文本生成”、“知识问答”、“内容总结”、“语言翻译”等关键词。
-
-**(讲者台词)**
-
-“好，让我们从核心开始——大语言模型，也就是LLM。大家可以把它想象成一个**超级‘文本续写’引擎**。”
-
-“你给它任何一段文字，它都能根据自己从海量数据中学到的‘知识’，预测出最可能接在后面的内容。我们平时用到的文本生成、问答、总结、翻译，本质上都是这个核心能力的延伸。”
-
-“为了让大家有个更直观的感受，我们来看一下市面上几个主流模型的对比。”
-
-**(切换PPT)**
--->
-
----
-layout: center
-glowOpacity: 0
----
-
-<img src="/llm-benchmark.png" w-280 mix-blend-lighten>
-
-<!--
-“这张表对比了三个目前最顶尖的模型：OpenAI的GPT-4o，Anthropic的Claude 3 Opus，以及Meta的开源模型Llama 3。”
-
-| 特性 | GPT-4o (OpenAI) | Claude 3 Opus (Anthropic) | Llama 3 70B (Meta) |
-| :--- | :--- | :--- | :--- |
-| **上下文窗口** | 128K tokens | **200K tokens** | 8K tokens |
-| **核心优势** | 综合能力强，多模态 | **长文本处理**，逻辑推理 | 开源，可本地部署 |
-| **函数调用** | **原生支持，功能强大** | 原生支持，持续优化中 | 社区方案，需额外实现 |
-| **响应速度** | **非常快** | 较快 | 快（取决于硬件） |
-| **成本** | 中等（$） | 较高（$$） | 硬件成本（$$$） |
-
-“大家注意几个关键点：”
-“**上下文窗口**：这决定了我们一次能给模型‘喂’多少信息。Claude 3 Opus在这方面是王者，200K的窗口意味着它可以一次性读完一本中篇小说，这对RAG应用尤其重要。”
-“**函数调用**：GPT系列在这方面起步最早，支持最完善，是我们今天讲的Function Calling模式的首选。其他模型也都在快速跟上。”
-“**成本与开源**：Llama 3是开源的，意味着你可以在自己的服务器上部署，保证数据私密性，但需要承担硬件和维护成本。而GPT和Claude则提供了按量付费的API，开箱即用。”
-
-“总的来说，没有‘最好’的模型，只有‘最合适’的模型。技术选型时，我们需要根据应用场景、预算和对数据隐私的要求来综合判断。”
+In short, unfortunately, Vite DevTools is not yet usable at this moment, and we're actively working on it. Please be patient and stay tuned - we'll let you know when it's ready to try!
 -->
 
 ---
@@ -175,51 +165,103 @@ class: important-p0
 ---
 
 <div flex="~ gap-2 items-center" h-full>
-<img src="/vd/folders.png" w-180 />
+<div flex="~ items-center" w-140 p-8><img src="/mcp-simple-diagram.avif" w-120 /></div>
 <div flex="~ col gap-2 justify-center">
 
-# RAG
+# What is MCP
 
-Retrieval-Augmented Generation
+Model Context Protocol
 
 </div>
 </div>
 
 <!--
-#### **幻灯片 7: 模式一 - RAG：给模型一本“开卷考试”的书**
+我们先从一个简单的类比开始。大家想想 USB-C 接口，它用一个标准统一了充电、数据传输、视频输出等各种功能，极大地简化了我们的数字生活。
 
-*   **内容**: 一个流程图：用户问题 -> [**检索器** 在知识库里查找] -> [**生成器** 参考资料回答] -> 最终答案。
+**MCP (Model Context Protocol)** 正是致力于成为 **AI 应用的“USB-C”**。
 
-**(讲者台词)**
+1.  **核心定义**：MCP 是一个**开放的、标准化的协议**，旨在连接 AI 应用与各类外部系统。这些外部系统可以是**数据源**（如本地文件、数据库）、**工具**（如搜索引擎、计算器），甚至是**工作流**（如调用 Figma API、执行一段脚本）。
 
-“我们先解决‘事实局限’，如何让模型基于我们公司的内部知识来回答问题？”
+2.  **核心类比**：
+    *   **USB-C (通用连接)**：MCP 提供了一个标准接口，让任何 AI 模型或 Agent 都能轻松地“接入”任何支持 MCP 的应用或系统，并与之交换信息、执行任务。
+    *   **LSP (专业深化)**：对于开发者而言，也可以将它理解为 **AI 时代的“语言服务器协议”**。LSP 解耦了语言能力和编辑器，而 MCP 则解耦了**上下文理解、工具使用能力**和 AI 模型本身。
 
-“答案就是**RAG**，让模型‘**开卷考试**’。我们不要求模型‘背’下所有内部文档，而是当用户提问时，先去我们的‘资料库’里查找相关原文，然后把问题和资料一起交给模型，让它参考作答。”
-
-“这样，模型回答的内容就会严格基于我们提供的资料，大大减少了‘幻觉’。”
+3.  **目标**：打破 AI 应用与外部世界之间的壁垒，让 AI 不再是一个封闭的“大脑”，而是能够感知环境、使用工具、并与我们日常的应用无缝协作的智能伙伴。
 -->
 
 ---
-zoom: 1.6
+class: important-p0
 ---
 
-<div flex="~ col gap-2">
-<pre class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">RAG</span> <span op75>dev</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
-<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">Function Calling</span> <span op75>build</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
-<pre v-click class="shiki shiki-themes vitesse-dark vitesse-light slidev-code"><code><span op50>$ </span><span class="text-purple3!">Agent</span> <span op75>test</span></code> <span v-click="6" class="text-yellow!">--ui</span></pre>
+<div flex="~ gap-2 items-center" h-full>
+<div flex="~ items-center" w-140 p-8><img src="/why-mcp.png" w-120 /></div>
+<div flex="~ col gap-2 justify-center">
 
+# Why we need MCP?
+
+Evolution from "toy" to "tool"
+
+</div>
 </div>
 
 <!--
-For a more concrete example,
+当前的 AI 应用虽然强大，但大多运行在“沙箱”中，缺乏与真实世界数据的联动。MCP 的出现，正是为了解决这一核心痛ટ：
 
-We know that we have the CLI `vite dev` for the dev server and `vite build` for building the production bundle.
+*   **痛点一：重复造轮子，集成成本高昂**
+    *   每个想要集成 AI 的应用，都必须自行设计一套与模型交互、提供上下文的方案。这导致了巨大的开发浪费和高度的实现复杂性。
 
-[click] We're going to have `vite test`, which will be powered by Vitest to run your test suites.
+*   **痛点二：上下文质量决定 AI 能力上限**
+    *   AI 的表现力高度依赖于上下文的质量。如何安全、高效地将动态、复杂的上下文（如整个代码库、Notion 数据库、实时终端输出）提供给模型，是一个巨大的挑战。
 
-[click] Then we'll have `vite lint` and `vite format` powered by Oxc, which will use the same parser as Vite and Rolldown.
+*   **痛点三：生态割裂，无法形成合力**
+    *   应用、工具和 AI 模型之间形成了“生态孤岛”，用户的 Notion 无法与他的开发工具对话，AI 助手也无法操作他在 Figma 上的设计。
 
-[click] And then we might have `vite lib` for building libraries, built on top of `tsdown` and Rolldown.
+**MCP 通过为生态系统中的不同角色创造价值，来解决这些问题：**
+
+*   **对于开发者**：极大降低了构建和集成 AI 应用的复杂性，可以专注于核心业务逻辑。
+*   **对于 AI 应用/Agent**：可以接入一个庞大的、不断增长的工具和数据生态，从而获得更强大的能力。
+*   **对于最终用户**：将获得更智能、更个性化的 AI 体验。想象一下：
+    *   你的 AI 助手能直接读取你的**Google 日历**为你安排会议。
+    *   AI 可以根据你在 **Figma** 中的设计稿，自动生成完整的前端应用。
+    *   企业级 Chatbot 能连接内网的多个数据库，让你用自然语言进行复杂的数据分析。
+
+-->
+
+---
+class: important-p0
+---
+
+<div flex="~ gap-2 items-center" h-full>
+<div flex="~ items-center" w-140 p-8><img src="/mcp-core.png" w-120 /></div>
+<div flex="~ col gap-2 justify-center">
+
+# MCP Core
+
+Host / Client / Server
+
+</div>
+</div>
+
+<!--
+当前的 AI 应用虽然强大，但大多运行在“沙箱”中，缺乏与真实世界数据的联动。MCP 的出现，正是为了解决这一核心痛ટ：
+
+*   **痛点一：重复造轮子，集成成本高昂**
+    *   每个想要集成 AI 的应用，都必须自行设计一套与模型交互、提供上下文的方案。这导致了巨大的开发浪费和高度的实现复杂性。
+
+*   **痛点二：上下文质量决定 AI 能力上限**
+    *   AI 的表现力高度依赖于上下文的质量。如何安全、高效地将动态、复杂的上下文（如整个代码库、Notion 数据库、实时终端输出）提供给模型，是一个巨大的挑战。
+
+*   **痛点三：生态割裂，无法形成合力**
+    *   应用、工具和 AI 模型之间形成了“生态孤岛”，用户的 Notion 无法与他的开发工具对话，AI 助手也无法操作他在 Figma 上的设计。
+
+**MCP 通过为生态系统中的不同角色创造价值，来解决这些问题：**
+
+*   **对于开发者**：极大降低了构建和集成 AI 应用的复杂性，可以专注于核心业务逻辑。
+*   **对于 AI 应用/Agent**：可以接入一个庞大的、不断增长的工具和数据生态，从而获得更强大的能力。
+*   **对于最终用户**：将获得更智能、更个性化的 AI 体验。想象一下：
+    *   你的 AI 助手能直接读取你的**Google 日历**为你安排会议。
+    *   AI 可以根据你在 **Figma** 中的设计稿，自动生成完整的前端应用。
+    *   企业级 Chatbot 能连接内网的多个数据库，让你用自然语言进行复杂的数据分析。
 
 -->
 
@@ -227,9 +269,37 @@ We know that we have the CLI `vite dev` for the dev server and `vite build` for 
 layout: center
 ---
 
-<h1 important-text-5xl font-serif>Why DevTools?</h1>
+<h1 important-text-5xl font-serif>Why We Need MCP?</h1>
 
 <!-- So, first things first, why do we need DevTools? -->
+
+---
+
+<h3 flex="~ gap-2 items-center" text-2xl>
+  <div i-logos-ai />
+  Why we need MCP?
+</h3>
+
+<div w-200 p-8>
+<img src="/why-mcp.png" w-200 />
+</div>
+
+<!--
+#### **幻灯片 13: 未来 - MCP：AI世界的“普通话”**
+
+*   **内容**: 左边是各种不同形状的插头（代表私有工具协议），右边是一个统一的USB-C接口（代表MCP）。
+
+**(讲者台词)**
+
+“问题就是，现在每个模型、每个框架，它们定义和调用工具的方式都不一样，就像是各种‘方言’。我为GPT写的工具，给Claude用可能就得改。这极大地阻碍了工具的复用和生态的发展。”
+
+“为了解决这个问题，**Model Context Protocol (MCP)** 应运而生。它的目标，就是成为AI工具领域的‘**普通话**’，或者说是‘**USB-C接口**’。”
+
+“MCP是一个**标准化的开源协议**。它定义了一套统一的规范，让任何模型，都能方便地发现、理解和调用任何遵循这套规范的工具。”
+
+“它的好处是显而易见的：**标准化、可复用、可组合**。开发者只需要写一次工具，就能接入到所有支持MCP的模型和应用中，极大地提升了开发效率。”
+
+-->
 
 ---
 layout: none
@@ -927,90 +997,6 @@ On a broader view, the goal and vision of Vite DevTools is that we will provide 
 [click] Built-in, we will provide visualizations of the Vite internals, [click] Analysis and actionable suggestions for your build and plugin pipeline, [click] Build comparison across multiple commits to see how your app changes over time, [click] Build snapshots via deployable SPA for you to even share your build metadata as reproduction, and so on.
 
 [click] Then we're going to have first-party Vite Plus integrations like Vitest UI and Oxlint, [click] and finally the DevTools Kit for plugin authors to build on top of this infrastructure and create even more interesting use cases.
--->
-
----
-class: p0
-glow: bottom
----
-
-<div class="grid grid-cols-[3fr_4fr] gap-4 h-full">
-
-  <div ma flex="~ col gap-2 items-center">
-    <img src="/vite-devtools.png" w-80 />
-    <div text-orange text-sm bg-orange:10 px2 rounded>Progress</div>
-  </div>
-
-  <div border="l main" h-full py10 flex="~ col gap-6 justify-center">
-    <div flex="~ gap-2" relative v-click>
-      <div i-material-symbols:check-circle text-green text-3xl ml--4.5 flex-none />
-      <div flex="~ col gap-1">
-        <div text-xl>Module Analysis</div>
-        <div op65 text-sm>
-          Display each plugin's load and transform results for each file
-        </div>
-      </div>
-    </div>
-    <div flex="~ gap-2" relative v-click>
-      <div i-material-symbols:check-circle text-green text-3xl ml--4.5 flex-none />
-      <div flex="~ col gap-1">
-        <div text-xl>Bundle Visualization</div>
-        <div op65 text-sm>
-          Display dependency relationships of each file and bundle composition
-        </div>
-      </div>
-    </div>
-    <div flex="~ gap-2" relative v-click>
-      <div i-material-symbols:build-circle text-orange text-3xl ml--4.5 flex-none />
-      <div flex="~ col gap-1">
-        <div text-xl>Bundle Analysis</div>
-        <div op65 text-sm>
-          Display build size, optimization suggestions, etc.
-        </div>
-      </div>
-    </div>
-    <div flex="~ gap-2" relative v-click>
-      <div i-material-symbols:build-circle text-orange text-3xl ml--4.5 flex-none />
-      <div flex="~ col gap-1">
-        <div text-xl>DevTools Kit</div>
-        <div op65 text-sm>
-          Extensible DevTools architecture
-        </div>
-      </div>
-    </div>
-    <div flex="~ gap-2" relative v-click>
-      <div i-material-symbols:lightbulb-circle text-gray text-3xl ml--4.5 flex-none />
-      <div flex="~ col gap-1">
-        <div text-xl>Development Mode</div>
-        <div op65 text-sm>
-          Waiting for Full bundle mode
-        </div>
-      </div>
-    </div>
-    <div flex="~ gap-2" relative v-click>
-      <div i-material-symbols:lightbulb-circle text-gray text-3xl ml--4.5 flex-none />
-      <div flex="~ col gap-1">
-        <div text-xl>Integrations</div>
-        <div op65 text-sm>
-          Collaborate with frameworks to unified the DevTools experience
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--
-The scope of Vite DevTools has become pretty big, and it's taking a bit longer than we expected.
-
-So currently we have [click] implemented quite a few [click] visualizations, as we talked about before.
-
-And then [click] we're continuing to work on having more insights for bundle analysis, which we're working closely with the Rolldown team on. [click] We have the DevTools Kit baseline working and already have some prototype of porting Nuxt DevTools to Vite DevTools working, but there's a lot of polishing that needs to be done and documentation to be written.
-
-[click] Currently, the core UI of Vite DevTools is focusing on build mode only, and we're waiting for the Vite full bundle mode to roll out to support development mode.
-
-[click] And finally, in the long term, we want to work and collaborate with the ecosystem to bring the effort together and have everybody benefit from this system.
-
-In short, unfortunately, Vite DevTools is not yet usable at this moment, and we're actively working on it. Please be patient and stay tuned - we'll let you know when it's ready to try!
 -->
 
 ---
