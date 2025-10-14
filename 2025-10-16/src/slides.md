@@ -254,62 +254,233 @@ Host / Client / Server
 </div>
 
 <!--
-当前的 AI 应用虽然强大，但大多运行在“沙箱”中，缺乏与真实世界数据的联动。MCP 的出现，正是为了解决这一核心痛ટ：
+#### **1. Host (宿主环境 / 外部系统)**
 
-*   **痛点一：重复造轮子，集成成本高昂**
-    *   每个想要集成 AI 的应用，都必须自行设计一套与模型交互、提供上下文的方案。这导致了巨大的开发浪费和高度的实现复杂性。
+*   **角色**：任何能够提供数据、工具或能力的外部系统。
+*   **例子**：VS Code (提供代码和终端)、**Figma** (提供设计稿信息)、**Google Calendar** (提供日程数据)、本地文件系统。
+*   **职责**：通过实现一系列**上下文提供者 (Context Provider)**，将自身的特定能力“广播”出去，供 Client 查询和调用。
 
-*   **痛点二：上下文质量决定 AI 能力上限**
-    *   AI 的表现力高度依赖于上下文的质量。如何安全、高效地将动态、复杂的上下文（如整个代码库、Notion 数据库、实时终端输出）提供给模型，是一个巨大的挑战。
+#### **2. Client (客户端 / AI Agent)**
 
-*   **痛点三：生态割裂，无法形成合力**
-    *   应用、工具和 AI 模型之间形成了“生态孤岛”，用户的 Notion 无法与他的开发工具对话，AI 助手也无法操作他在 Figma 上的设计。
+*   **角色**：消费上下文并提供智能服务的 AI 模型或 Agent。
+*   **例子**：任何基于大语言模型（如 Gemini, Claude）构建的智能体。
+*   **职责**：向 Host 查询可用的上下文和工具，并根据任务需求，通过 Server 发起请求，获取信息或执行操作。
+*   **功能**：采样（Sampling），服务器发起的代理行为和递归 LLM 交互。
 
-**MCP 通过为生态系统中的不同角色创造价值，来解决这些问题：**
+#### **3. Server (协议服务器)**
 
-*   **对于开发者**：极大降低了构建和集成 AI 应用的复杂性，可以专注于核心业务逻辑。
-*   **对于 AI 应用/Agent**：可以接入一个庞大的、不断增长的工具和数据生态，从而获得更强大的能力。
-*   **对于最终用户**：将获得更智能、更个性化的 AI 体验。想象一下：
-    *   你的 AI 助手能直接读取你的**Google 日历**为你安排会议。
-    *   AI 可以根据你在 **Figma** 中的设计稿，自动生成完整的前端应用。
-    *   企业级 Chatbot 能连接内网的多个数据库，让你用自然语言进行复杂的数据分析。
+*   **角色**：Host 和 Client 之间的通信枢纽，通常以 JSON-RPC 的形式实现。
+*   **职责**：管理和路由双方的请求和响应，确保通信的标准化和可靠性。
+*   **功能**：
+  - 资源（Resources）: 供用户或 AI 模型使用的上下文和数据
+  - 提示（Prompts）: 供用户使用的模板化消息和工作流。
+  - 工具（Tools）: 供 AI 模型执行的函数
 
+-->
+
+---
+class: important-p0
+---
+
+<div flex="~ gap-2 items-center" h-full>
+<div flex="~ items-center" w-140 p-8><img src="/mcp-archi.png" w-120 /></div>
+<div flex="~ col gap-2 justify-center">
+
+# MCP Architecture
+
+an AI application like Visual Studio Code
+
+</div>
+</div>
+
+<!--
+Visual Studio Code 充当 MCP 主机。当 Visual Studio Code 建立与 MCP 服务器（例如 Sentry MCP 服务器）的连接时，Visual Studio Code 运行时会实例化一个 MCP 客户端对象，用于维护与 Sentry MCP 服务器的连接。当 Visual Studio Code 随后连接到另一个 MCP 服务器（例如本地文件系统服务器）时，Visual Studio Code 运行时会实例化另一个 MCP 客户端对象来维护此连接，从而保持 MCP 客户端与 MCP 服务器之间的一对一关系。
+
+请注意，MCP 服务器指的是提供上下文数据的程序，无论其运行在何处。MCP 服务器可以在本地或远程执行。例如，当 Claude Desktop 启动文件系统服务器时，由于使用 STDIO 传输，该服务器在同一台计算机上本地运行。这通常被称为“本地”MCP 服务器。官方 Sentry MCP 服务器运行在 Sentry 平台上，并使用 Streamable HTTP 传输。这通常被称为“远程”MCP 服务器。
+-->
+
+---
+class: important-p0
+---
+
+<div flex="~ gap-2 items-center" h-full>
+<div flex="~ items-center" w-140 p-8><img src="/mcp-capabilities.png" w-120 /></div>
+<div flex="~ col gap-2 justify-center">
+
+# Capability Negotiation
+
+a capability-based negotiation system
+
+</div>
+</div>
+
+<!--
+模型上下文协议 (MCP) 使用基于功能的协商系统，客户端和服务器在初始化期间明确声明其支持的功能。功能决定了会话期间可用的协议功能和原语。
+
+1、服务器声明资源订阅、工具支持和提示模板等功能
+2、客户声明诸如采样支持和通知处理等功能
+3、双方必须在整个会话期间尊重声明的能力
+4、可以通过协议扩展来协商附加功能
+
+*   **基础协议**：MCP的核心通信协议基于JSON-RPC 2.0消息格式。这是一种轻量级的远程过程调用协议，使用JSON作为数据格式。MCP连接是状态化的，允许在连接的生命周期内进行多次请求和响应。协议还支持 服务器和客户端的能力协商，使得双方在通信开始时可以确定彼此支持的功能。。
+*   **通信方式**：MCP使用JSON-RPC 2.0消息在主机（发起连接的大型语言模型应用）、客户端（主机应用内的连接器)和服务器（提供上下文和能力的外部服务）之间建立通信
 -->
 
 ---
 layout: center
 ---
 
-<h1 important-text-5xl font-serif>Why We Need MCP?</h1>
+<h1 important-text-5xl font-serif>Demos</h1>
 
 <!-- So, first things first, why do we need DevTools? -->
 
 ---
 
-<h3 flex="~ gap-2 items-center" text-2xl>
-  <div i-logos-ai />
-  Why we need MCP?
-</h3>
+<div grid="~ cols-[3fr_4fr] gap-4">
 
-<div w-200 p-8>
-<img src="/why-mcp.png" w-200 />
+<div>
+
+<div font-serif text-2em my6>MCP Server</div>
+
+<v-clicks>
+
+- Search Bilibili User Info With Claude
+
+- Create McpServer
+
+- Register Tools
+
+- Create Transport
+  - StduiServerTransport
+
+  - connect
+
+</v-clicks>
+
+</div>
+<div v-click="1">
+
+```ts {*|9-12|15-17|19-20|*}{at:2}
+#!/usr/bin/env node
+import process from 'node:process'
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
+import { registerSearchTools } from './tools/search'
+import { registerUserTools } from './tools/user'
+import { registerVideoTools } from './tools/video'
+
+const server = new McpServer({
+  name: 'bilibili-mcp-server',
+  version: '0.0.1',
+})
+
+async function main(): Promise<void> {
+  registerUserTools(server)
+  registerSearchTools(server)
+  registerVideoTools(server)
+
+  const transport = new StdioServerTransport()
+  await server.connect(transport)
+}
+
+main().catch((e) => {
+  console.error('error in main():', e)
+  // eslint-disable
+  process.exit(1)
+})
+```
+
+</div>
 </div>
 
 <!--
-#### **幻灯片 13: 未来 - MCP：AI世界的“普通话”**
+因时间原因这里就演示一个Mcp Server的案例，功能是开发一个Server集成到Claude查询一个B站的up信息.
 
-*   **内容**: 左边是各种不同形状的插头（代表私有工具协议），右边是一个统一的USB-C接口（代表MCP）。
+相信B站大家都很熟悉了，这里我们也是碰下运气，随机查询一个up [click] 邀请听众互动例举一个up名字 [click] 首先我们需要新建一个MCP服务
 
-**(讲者台词)**
+[click] 注册我们所需要用到的tools，这里可以看到我们有用户相关的tool、查询tool、视频tool等
 
-“问题就是，现在每个模型、每个框架，它们定义和调用工具的方式都不一样，就像是各种‘方言’。我为GPT写的工具，给Claude用可能就得改。这极大地阻碍了工具的复用和生态的发展。”
+[click] 新建一个标准通信通道，并完成服务链接动作.
 
-“为了解决这个问题，**Model Context Protocol (MCP)** 应运而生。它的目标，就是成为AI工具领域的‘**普通话**’，或者说是‘**USB-C接口**’。”
+这样我们就完成一个MCP Server的开发，然后我们打开Claude，注册我们刚新建的这个服务，查询查询功能，试试我们能否成功
+-->
 
-“MCP是一个**标准化的开源协议**。它定义了一套统一的规范，让任何模型，都能方便地发现、理解和调用任何遵循这套规范的工具。”
+---
+class: text-center
+transition: view-transition
+---
 
-“它的好处是显而易见的：**标准化、可复用、可组合**。开发者只需要写一次工具，就能接入到所有支持MCP的模型和应用中，极大地提升了开发效率。”
+<h1 font-serif text-4xl mt-20 important-mb-16>Welcome </h1>
 
+<div flex="~ gap-18 items-center justify-center" >
+  <div flex="~ col items-center" v-click>
+    <img src="/avatars/webfansplz.png" rounded-full w-30 mb4 view-transition-contributor-webfansplz duration-1000 />
+    <div>Zhang Ke</div>
+    <div font-mono text-sm op50>cibdev@891226</div>
+  </div>
+</div>
+
+<!--
+接下来请xzh团队的张可老师演示xzh基于MCP协议研发的AI助手以及核心功能的讲解，请张可老师投屏演示
+-->
+
+---
+
+<h1 font-serif text-4xl>Future & Vision</h1>
+
+<div grid="~ cols-3 gap-3" py4>
+  <div v-click flex="~ col gap-1" p4 rounded bg-teal:15 text-teal1>
+    <div text-3xl i-ph:chart-donut-duotone text-teal mb2 />
+    <div>Standardization</div>
+    <div text-xs op50>Display Vite/Rolldown internal state and process</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-orange:15 text-orange1>
+    <div text-3xl i-ph:package-duotone text-orange mb2 />
+    <div>Decoupling</div>
+    <div text-xs op50>Provide suggestions and optimization solutions for build and plugins</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-yellow:15 text-yellow1>
+    <div text-3xl i-ph-chart-line-up-duotone text-yellow mb2 />
+    <div>Composability</div>
+    <div text-xs op50>Compare and track build results across commits</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-red:15 text-red1>
+    <div text-3xl i-ph:bug-beetle-duotone text-red mb2 />
+    <div>Interoperability</div>
+    <div text-xs op50>Record build process, shareable and analyzable reproduction</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-purple:15 text-purple1>
+    <div text-3xl i-ph:stack-plus-duotone text-purple mb2 />
+    <div>Vite Plus</div>
+    <div text-xs op50>Integrate Vitest UI, Oxlint visualization, etc.</div>
+  </div>
+
+  <div v-click flex="~ col gap-1" p4 rounded bg-blue:15 text-blue1>
+    <div text-3xl i-ph:circles-three-plus-duotone text-blue mb2 />
+    <div>DevTools Kit</div>
+    <div text-xs op50>Unified DevTools architecture, allowing upper frameworks to provide extensions</div>
+  </div>
+</div>
+
+<!--
+**MCP 的核心价值：**
+
+*   **标准化 (Standardization)**：为 AI 与外部世界的交互提供了通用语言。
+*   **解耦 (Decoupling)**：让应用、工具和 AI 模型可以独立发展和创新。
+*   **可组合性 (Composability)**：允许将来自不同 Host 的能力组合起来，完成更复杂的任务。
+*   **互操作性 (Interoperability)**：让一个 AI Agent 有潜力在任何支持 MCP 的环境（IDE、浏览器、操作系统）中运行。
+
+**未来展望：**
+
+MCP 不仅仅是一个协议，它是一个创建**开放、协作、繁荣的 AI 工具生态**的蓝图。在这个生态中，开发者可以创造出各种各样的“上下文插件”，而用户则可以像逛应用商店一样，为自己的 AI 助手挑选和安装新的能力。这最终将推动 AI 从一个强大的信息处理器，进化为能够真正理解我们、并为我们执行任务的智能伙伴。
+
+[click] Built-in, we will provide visualizations of the Vite internals, [click] Analysis and actionable suggestions for your build and plugin pipeline, [click] Build comparison across multiple commits to see how your app changes over time, [click] Build snapshots via deployable SPA for you to even share your build metadata as reproduction, and so on.
+
+[click] Then we're going to have first-party Vite Plus integrations like Vitest UI and Oxlint, [click] and finally the DevTools Kit for plugin authors to build on top of this infrastructure and create even more interesting use cases.
 -->
 
 ---
