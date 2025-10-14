@@ -61,101 +61,43 @@ MCP 的架构设计优雅地将“上下文的提供方”与“消费方”解�
 *   **角色**：消费上下文并提供智能服务的 AI 模型或 Agent。
 *   **例子**：任何基于大语言模型（如 Gemini, Claude）构建的智能体。
 *   **职责**：向 Host 查询可用的上下文和工具，并根据任务需求，通过 Server 发起请求，获取信息或执行操作。
+*   **功能**：采样（Sampling），服务器发起的代理行为和递归 LLM 交互。
 
 #### **3. Server (协议服务器)**
 
 *   **角色**：Host 和 Client 之间的通信枢纽，通常以 JSON-RPC 的形式实现。
 *   **职责**：管理和路由双方的请求和响应，确保通信的标准化和可靠性。
+*   **功能**：
+  - 资源（Resources）: 供用户或 AI 模型使用的上下文和数据
+  - 提示（Prompts）: 供用户使用的模板化消息和工作流。
+  - 工具（Tools）: 供 AI 模型执行的函数
 
 **协作流程：**
 `Client (需要Git历史)` -> `Server (路由请求)` -> `Host (执行 git log)` -> `Server (返回结果)` -> `Client (收到Git历史)`
 
+#### **4. 技术细节**
+
+*   **基础协议**：MCP的核心通信协议基于JSON-RPC 2.0消息格式。这是一种轻量级的远程过程调用协议，使用JSON作为数据格式。MCP连接是状态化的，允许在连接的生命周期内进行多次请求和响应。协议还支持 服务器和客户端的能力协商，使得双方在通信开始时可以确定彼此支持的功能。。
+*   **通信方式**：MCP使用JSON-RPC 2.0消息在主机（发起连接的大型语言模型应用）、客户端（主机应用内的连接器)和服务器（提供上下文和能力的外部服务）之间建立通信
+
+#### **5. 附加功能**
+
+*   **配置**：。
+*   **进度跟踪**：。
+*   **取消**：。
+*   **错误报告**：。
+*   **日志记录**：。
+
 ---
 
-### **第四部分：高级代码案例 —— 构建一个带参数的 Git 上下文**
+### **第四部分：代码案例 **
 
-让我们来看一个更专业的例子：如何创建一个能接收参数的 `git:diff` 提供者，并让 Client 同时请求多个上下文。
+让我们来看一个开发例子：
 
-#### **1. Host 端：定义一个可配置的 `git:diff` Provider**
+#### **1. Bilibili网站UP主信息查询MCP server **
 
-```typescript
-import { defineContextProvider } from '@mcp/host';
-import { exec } from 'child_process'; // 假设在 Node.js 环境
+#### **2. xzh智能助手 **
 
-// 定义 Provider 可以接收的参数类型
-interface GitDiffOptions {
-  commit?: string; // 例如 'HEAD~1'
-  cached?: boolean;
-}
-
-const gitDiffProvider = defineContextProvider<GitDiffOptions>({
-  name: 'git:diff',
-
-  // getContext 现在接收一个 options 对象
-  getContext: async (options) => {
-    let command = 'git diff';
-    if (options?.cached) {
-      command += ' --cached';
-    }
-    if (options?.commit) {
-      command += ` ${options.commit}`;
-    }
-
-    // 执行命令并返回结果
-    const diffContent = await new Promise<string>((resolve) => {
-      exec(command, (err, stdout) => resolve(err ? `Error: ${err.message}` : stdout));
-    });
-
-    return [{ content: diffContent }];
-  },
-});
-
-// 在 Host 中注册
-registerProvider(gitDiffProvider);
-```
-
-#### **2. Client 端：组合并调用多个带参数的上下文**
-
-```typescript
-import { createClient, GetContextOptions } from '@mcp/client';
-
-const mcp = createClient();
-
-async function generateCommitMessage() {
-  console.log('Requesting staged git diff and current file content...');
-
-  // 定义要请求的多个上下文，并为 git:diff 提供参数
-  const requests: GetContextOptions[] = [
-    { id: 'git:diff', params: { cached: true } }, // 获取暂存区的 diff
-    { id: 'file:content' } // 同时获取当前文件内容
-  ];
-
-  // 一次性请求所有上下文
-  const contexts = await mcp.getContext(requests);
-
-  // contexts.results 是一个包含所有结果的数组
-  const gitDiff = contexts.results.find(c => c.id === 'git:diff')?.items[0]?.content;
-  const fileContent = contexts.results.find(c => c.id === 'file:content')?.items[0]?.content;
-
-  // 将丰富的上下文组合成一个高质量的 Prompt
-  const prompt = `
-    Based on the following staged changes (diff) and the content of the active file,
-    please generate a concise and descriptive commit message.
-
-    ## Git Diff:
-    ${gitDiff}
-
-    ## Active File Content:
-    ${fileContent}
-  `;
-
-  console.log('Generated Prompt for LLM:', prompt);
-  // const commitMessage = await llm.generate(prompt);
-  // ...
-}
-
-generateCommitMessage();
-```
 这个例子展示了 MCP 的强大之处：Client 可以像调用 API 一样，按需、带参地请求和组合来自 Host 的各种能力。
 
 ---
