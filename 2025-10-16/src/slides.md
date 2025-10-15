@@ -65,13 +65,25 @@ class: text-center
 </div>
 
 <!--
-#### 未来 - MCP：AI世界的“普通话”**
-
 **(讲者台词)**
+
+相信在座的同学都有思考，AI了这么多年，对于前端应用开发有没有合适的赛道？
+
+“首先，**模型能力**出现了质的飞跃。像GPT-4、Claude 3、Gemini等这些模型，它们的理解和推理能力已经强大到可以作为我们日常开发的得力助手。”
+
+“其次，**社区空前活跃**。无论你遇到什么问题，几乎都能在开源社区找到答案、工具或者灵感。”
+
+“最后，也是最重要的，**工具链越来越成熟**。我们不再需要从零开始研究算法，而是可以像搭乐高一样，利用现成的工具快速构建出强大的AI应用。”
+
+“所以，今天分享的目标很简单：和大家一起了解modelcontextprotocol协议，会后大家可以尝试把一个‘聪明的聊天机器人’，升级成一个能解决实际问题的‘智能助手’。
+
+本次分享不涉及复杂的数学和算法，只谈应用和实践。”
+
+模型上下文协议（MCP）是一个创新的开源协议，它重新定义了大语言模型（LLM）与外部世界的互动方式。MCP 提供了一种标准化方法，使任意大语言模型能够轻松连接各种数据源和工具，实现信息的无缝访问和处理。MCP 就像是 AI 应用程序的 USB-C 接口，为 AI 模型提供了一种标准化的方式来连接不同的数据源和工具。
 
 “现在每个模型、每个框架，它们定义和调用工具的方式都不一样，就像是各种‘方言’。我为GPT写的工具，给Claude用可能就得改。这极大地阻碍了工具的复用和生态的发展。”
 
-“为了解决这个问题，**Model Context Protocol (MCP)** 应运而生。它的目标，就是成为AI工具领域的‘**普通话**’，或者说是‘**USB-C接口**’。”
+未来，MCP作为AI世界的“普通话”
 
 -->
 
@@ -109,7 +121,7 @@ glow: bottom
     <div flex="~ gap-2" relative v-click>
       <div i-material-symbols:build-circle text-orange text-3xl ml--4.5 flex-none />
       <div flex="~ col gap-1">
-        <div text-xl>MCP Core</div>
+        <div text-xl>MCP Core Component</div>
         <div op65 text-sm>
           Host, Client & Server, etc.
         </div>
@@ -133,28 +145,23 @@ glow: bottom
         </div>
       </div>
     </div>
-    <div flex="~ gap-2" relative v-click>
-      <div i-material-symbols:lightbulb-circle text-gray text-3xl ml--4.5 flex-none />
-      <div flex="~ col gap-1">
-        <div text-xl>Integrations</div>
-        <div op65 text-sm>
-          Collaborate with frameworks to unified the DevTools experience
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
 <!--
-The scope of Vite DevTools has become pretty big, and it's taking a bit longer than we expected.
+关于模型上下文协议的内容，今天分享的内容如上：
 
-So currently we have [click] implemented quite a few [click] visualizations, as we talked about before.
+主要有以下几个内容 [click] implemented quite a few
 
-And then [click] we're continuing to work on having more insights for bundle analysis, which we're working closely with the Rolldown team on. [click] We have the DevTools Kit baseline working and already have some prototype of porting Nuxt DevTools to Vite DevTools working, but there's a lot of polishing that needs to be done and documentation to be written.
+[click] 关于对MCP概念的初识
 
-[click] Currently, the core UI of Vite DevTools is focusing on build mode only, and we're waiting for the Vite full bundle mode to roll out to support development mode.
+And then [click] 为什么会有MCP以及它能做什么.
 
-[click] And finally, in the long term, we want to work and collaborate with the ecosystem to bring the effort together and have everybody benefit from this system.
+[click] MCP的核心组件和架构.
+
+[click] 案例展示（MCP Server demo和AI助手）.
+
+[click] And finally, 思考总结和未来.
 
 In short, unfortunately, Vite DevTools is not yet usable at this moment, and we're actively working on it. Please be patient and stay tuned - we'll let you know when it's ready to try!
 -->
@@ -164,7 +171,7 @@ class: important-p0
 ---
 
 <div flex="~ gap-2 items-center" h-full>
-<div flex="~ items-center" w-140 p-8><img src="/mcp-simple-diagram.avif" w-120 /></div>
+<div flex="~ items-center" w-140 p-8><img src="/mcp-simple-diagram.png" w-120 /></div>
 <div flex="~ col gap-2 justify-center">
 
 # What is MCP
@@ -175,21 +182,6 @@ Model Context Protocol
 </div>
 
 <!--
-在本次主题开始之前
-
-“可能有人会问，AI发展了这么多年，现在是不是应用开发者入局的最佳时机？”
-
-“首先，**模型能力**出现了质的飞跃。像GPT-4、Claude 3这些模型，它们的理解和推理能力已经强大到可以作为我们日常开发的得力助手。”
-
-“其次，**社区空前活跃**。无论你遇到什么问题，几乎都能在开源社区找到答案、工具或者灵感。”
-
-“最后，也是最重要的，**工具链越来越成熟**。我们不再需要从零开始研究算法，而是可以像搭乐高一样，利用现成的工具快速构建出强大的AI应用。”
-
-“所以，今天分享的目标很简单：带大家了解什么是MCP，可以在听完分享后快速开发一个MCP server集成到如Claude或Gemini，快速搭建一个能解决实际问题的‘智能助手’。我们不谈复杂的数学，只谈实践。”
-
-我们先从一个简单的类比开始。大家想想 USB-C 接口，它用一个标准统一了充电、数据传输、视频输出等各种功能，极大地简化了我们的数字生活。
-
-**MCP (Model Context Protocol)** 正是致力于成为 **AI 应用的“USB-C”**。
 
 1.  **核心定义**：MCP 是一个**开放的、标准化的协议**，旨在连接 AI 应用与各类外部系统。这些外部系统可以是**数据源**（如本地文件、数据库）、**工具**（如搜索引擎、计算器），甚至是**工作流**（如调用 Figma API、执行一段脚本）。
 
@@ -198,6 +190,11 @@ Model Context Protocol
     *   **LSP (专业深化)**：对于开发者而言，也可以将它理解为 **AI 时代的“语言服务器协议”**。LSP 解耦了语言能力和编辑器，而 MCP 则解耦了**上下文理解、工具使用能力**和 AI 模型本身。
 
 3.  **目标**：打破 AI 应用与外部世界之间的壁垒，让 AI 不再是一个封闭的“大脑”，而是能够感知环境、使用工具、并与我们日常的应用无缝协作的智能伙伴。
+
+使用 MCP，Claude 或 ChatGPT 等 AI 应用程序可以连接到数据源（例如本地文件、数据库）、工具（例如搜索引擎、计算器）和工作流（例如专门的提示）——使它们能够访问关键信息并执行任务。
+可以将 MCP 想象成 AI 应用的 USB-C 端口。正如 USB-C 提供了一种连接电子设备的标准化方式，MCP 也提供了一种将 AI 应用连接到外部系统的标准化方式。
+
+相信有同学应该使用mcp-chrome-bridge的mcp server 可以在保持本地浏览器登录状态下打开浏览器进入指定网站，并提取和总结网站内容。
 -->
 
 ---
@@ -232,7 +229,7 @@ Evolution from "toy" to "tool"
 *   **对于开发者**：极大降低了构建和集成 AI 应用的复杂性，可以专注于核心业务逻辑。
 *   **对于 AI 应用/Agent**：可以接入一个庞大的、不断增长的工具和数据生态，从而获得更强大的能力。
 *   **对于最终用户**：将获得更智能、更个性化的 AI 体验。想象一下：
-    *   你的 AI 助手能直接读取你的**Google 日历**为你安排会议。
+    *   你的 AI 助手能直接读取你的**个人日历**为你安排会议。
     *   AI 可以根据你在 **Figma** 中的设计稿，自动生成完整的前端应用。
     *   企业级 Chatbot 能连接内网的多个数据库，让你用自然语言进行复杂的数据分析。
 
@@ -246,7 +243,7 @@ class: important-p0
 <div flex="~ items-center" w-140 p-8><img src="/mcp-core.png" w-120 /></div>
 <div flex="~ col gap-2 justify-center">
 
-# MCP Core
+# MCP Core Component
 
 Host / Client / Server
 
@@ -254,11 +251,16 @@ Host / Client / Server
 </div>
 
 <!--
+
+我们一起来了解下MCP中的核心部件：
+
 #### **1. Host (宿主环境 / 外部系统)**
 
 *   **角色**：任何能够提供数据、工具或能力的外部系统。
 *   **例子**：VS Code (提供代码和终端)、**Figma** (提供设计稿信息)、**Google Calendar** (提供日程数据)、本地文件系统。
 *   **职责**：通过实现一系列**上下文提供者 (Context Provider)**，将自身的特定能力“广播”出去，供 Client 查询和调用。
+
+这里以vscode studio为例，以它作为主机建立与MCP服务器连接，如Google Maps,它在运行时会实例化一个MCP客户端对象，用于维护与Google Maps MCP服务器的连接；且保持MCP客户端和MCP服务器之间1对1关系
 
 #### **2. Client (客户端 / AI Agent)**
 
@@ -267,14 +269,25 @@ Host / Client / Server
 *   **职责**：向 Host 查询可用的上下文和工具，并根据任务需求，通过 Server 发起请求，获取信息或执行操作。
 *   **功能**：采样（Sampling），服务器发起的代理行为和递归 LLM 交互。
 
+同时MCP 还定义了客户端可以公开的原语。这些原语允许 MCP 服务器开发者构建更丰富的交互。
+
+1、采样：允许服务器向客户端的 AI 应用程序请求语言模型补全。当服务器的作者想要访问语言模型，但又希望保持模型独立性，并且不在其 MCP 服务器中包含语言模型 SDK 时，此功能非常有用。他们可以使用此sampling/complete方法向客户端的 AI 应用程序请求语言模型补全。
+
+2、启发式：允许服务器向用户请求更多信息。当服务器开发者想要从用户那里获取更多信息，或者请求用户确认某个操作时，此功能非常有用。他们可以使用此elicitation/request方法向用户请求更多信息。
+
+3、日志记录：使服务器能够向客户端发送日志消息以进行调试和监控。
+
 #### **3. Server (协议服务器)**
 
 *   **角色**：Host 和 Client 之间的通信枢纽，通常以 JSON-RPC 的形式实现。
 *   **职责**：管理和路由双方的请求和响应，确保通信的标准化和可靠性。
 *   **功能**：
-  - 资源（Resources）: 供用户或 AI 模型使用的上下文和数据
-  - 提示（Prompts）: 供用户使用的模板化消息和工作流。
-  - 工具（Tools）: 供 AI 模型执行的函数
+  - 资源（Resources）: 供用户或 AI 模型使用的上下文和数据（如文件内容、数据库记录、API响应等）
+  - 提示（Prompts）: 供用户使用的模板化消息和工作流（如系统提示、示例等）
+  - 工具（Tools）: 供 AI 模型执行的函数（如有文件操作、API调用、数据库查询等）
+
+每种基元类型都有相关的方法，用于发现（*/list）、检索（*/get），以及在某些情况下执行（tools/call）。MCP 客户端将使用这些*/list方法来发现可用的基元。例如，客户端可以先列出所有可用的工具（tools/list），然后执行它们。这种设计允许列表动态化。
+举个具体的例子，假设有一个 MCP 服务器，它提供数据库的上下文信息。它可以提供查询数据库的工具、包含数据库模式的资源，以及包含与工具交互的少量示例的提示。
 
 -->
 
@@ -294,9 +307,18 @@ an AI application like Visual Studio Code
 </div>
 
 <!--
+
+MCP 采用客户端-服务器架构，其中 MCP 主机（例如Claude Code或Claude Desktop等 AI 应用程序）与一个或多个 MCP 服务器建立连接。MCP 主机通过为每个 MCP 服务器创建一个 MCP 客户端来实现这一点。每个 MCP 客户端与其对应的 MCP 服务器保持一对一的专用连接。
+
+MCP内部分为数据层和传输层：
+
+1、数据层：定义基于 JSON-RPC 的客户端-服务器通信协议，包括生命周期管理，以及核心原语，如工具、资源、提示和通知。
+
+2、传输层：定义实现客户端和服务器之间数据交换的通信机制和通道，包括特定于传输的连接建立、消息框架和授权。支持两种传输机制：Stdio标准传输和流式HTTP传输（用 HTTP POST 协议发送客户端到服务器的消息，并可选地使用服务器发送事件来实现流式传输功能。此传输协议支持远程服务器通信，并支持标准 HTTP 身份验证方法，包括持有者令牌、API 密钥和自定义标头）
+
 Visual Studio Code 充当 MCP 主机。当 Visual Studio Code 建立与 MCP 服务器（例如 Sentry MCP 服务器）的连接时，Visual Studio Code 运行时会实例化一个 MCP 客户端对象，用于维护与 Sentry MCP 服务器的连接。当 Visual Studio Code 随后连接到另一个 MCP 服务器（例如本地文件系统服务器）时，Visual Studio Code 运行时会实例化另一个 MCP 客户端对象来维护此连接，从而保持 MCP 客户端与 MCP 服务器之间的一对一关系。
 
-请注意，MCP 服务器指的是提供上下文数据的程序，无论其运行在何处。MCP 服务器可以在本地或远程执行。例如，当 Claude Desktop 启动文件系统服务器时，由于使用 STDIO 传输，该服务器在同一台计算机上本地运行。这通常被称为“本地”MCP 服务器。官方 Sentry MCP 服务器运行在 Sentry 平台上，并使用 Streamable HTTP 传输。这通常被称为“远程”MCP 服务器。
+这里MCP服务器指的是提供上下文数据的程序，无论其运行在何处。MCP 服务器可以在本地或远程执行。例如，当 Claude Desktop 启动文件系统服务器时，由于使用 STDIO 传输，该服务器在同一台计算机上本地运行。这通常被称为“本地”MCP 服务器。官方 Sentry MCP 服务器运行在 Sentry 平台上，并使用 Streamable HTTP 传输。这通常被称为“远程”MCP 服务器。
 -->
 
 ---
