@@ -34,8 +34,6 @@ Based in ChengDu
   <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY.me</a></div>
   <div i-ri-github-line op50 ma text-xl ml4/>
   <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY</a></div>
-  <div i-ri-mastodon-line op50 ma text-xl ml4 />
-  <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY@webtoo.ls</a></div>
   <div i-ri-twitter-x-line op50 ma text-xl ml4/>
   <div><a href="https://github.com/POfeiY" target="_blank" class="border-none! font-300">POfeiY</a></div>
 </div>
@@ -305,7 +303,7 @@ class: important-p0
 
 # MCP Architecture
 
-an AI application like Visual Studio Code
+Follows a client-host-server architecture
 
 </div>
 </div>
@@ -377,12 +375,12 @@ layout: center
 
 - Search Bilibili User Info With Claude
 
-- Create McpServer
+- Create MCP Server
 
 - Register Tools
 
 - Create Transport
-  - StduiServerTransport
+  - StdioServerTransport
 
   - connect
 
