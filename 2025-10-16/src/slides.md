@@ -422,7 +422,6 @@ async function main(): Promise<void> {
 
 main().catch((e) => {
   console.error('error in main():', e)
-  // eslint-disable
   process.exit(1)
 })
 ```
@@ -477,7 +476,7 @@ transition: view-transition
   <div v-click flex="~ col gap-1" p4 rounded bg-teal:15 text-teal1>
     <div text-3xl i-ph:chart-donut-duotone text-teal mb2 />
     <div>Standardization</div>
-    <div text-xs op50>Provides a common language for AI to interact</div>
+    <div text-xs op50>Provides a common language for AI</div>
   </div>
 
   <div v-click flex="~ col gap-1" p4 rounded bg-orange:15 text-orange1>
@@ -501,7 +500,7 @@ transition: view-transition
   <div v-click flex="~ col gap-1" p4 rounded bg-purple:15 text-purple1>
     <div text-3xl i-ph:stack-plus-duotone text-purple mb2 />
     <div>Potential</div>
-    <div text-xs op50>Integrate Vitest UI, Oxlint visualization, etc.</div>
+    <div text-xs op50>Realize personal potential</div>
   </div>
 </div>
 
@@ -514,7 +513,7 @@ MCP 不仅仅是一个协议，它是一个创建**开放、协作、繁荣的 A
 
 [click] 标准化， 为 AI 与外部世界的交互提供了通用语言 [click] 揭耦, 让应用、工具和 AI 模型可以独立发展和创新[click] 能力组合共创, 允许将来自不同 Host 的能力组合起来，完成更复杂的任务[click] 互操作性，让一个 AI Agent 有潜力在任何支持 MCP 的环境（IDE、浏览器、操作系统）中运行.
 
-[click] 潜力无上限，每一个开发者都是创造者，用你们的潜力构建自己的agent.
+[click] 潜力无上限，每一个开发者都是创造者，用研发能力构建自己的agent.
 
 当然伴随着技术迭代提升，需要我们去学习掌握的内容也会不断扩充，如prompt\system prompt\agent\function caling\mcp\agent2agent等，期待下次主题分享会再见，感谢大家。
 -->
